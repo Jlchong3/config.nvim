@@ -117,13 +117,11 @@ return {
 
         mason_lspconfig.setup_handlers {
             function(server_name)
-                if server_name ~= 'jdtls' then
-                    require('lspconfig')[server_name].setup {
-                        capabilities = capabilities,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                    }
-                end
+                require('lspconfig')[server_name].setup {
+                    capabilities = capabilities,
+                    settings = servers[server_name],
+                    filetypes = (servers[server_name] or {}).filetypes,
+                }
             end,
         }
 
