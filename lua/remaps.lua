@@ -1,6 +1,10 @@
 -- Inlay Hints toggle
 vim.keymap.set('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(_)) end , { desc = '[I]nlay [H]ints' })
 
+-- Start/Restart Lsp
+vim.keymap.set('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
+vim.keymap.set('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
+
 -- Easy Window manipulation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
