@@ -84,7 +84,7 @@ vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w><C-j>]])
 
--- jump in snippets
+-- Jump snippets
 vim.keymap.set({'i', 's'}, '<C-j>', function ()
     if require('luasnip').locally_jumpable(1) then
         require('luasnip').jump(1)

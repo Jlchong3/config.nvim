@@ -29,10 +29,10 @@ vim.api.nvim_set_hl(0, 'MiniStatuslineFileInfo', {bold=true})
 vim.api.nvim_set_hl(0, 'MiniStatuslineDevInfo', {bold=true})
 
 --Change color of MultiCursor
-vim.api.nvim_set_hl(0, 'VM_MONO', {link='Cursor'})
-vim.api.nvim_set_hl(0, 'VM_Extend', {link='Visual'})
-vim.api.nvim_set_hl(0, 'VM_Cursor', {link='Cursor'})
-vim.api.nvim_set_hl(0, 'VM_Insert', {link='Cursor'})
+-- vim.api.nvim_set_hl(0, 'VM_MONO', {link='Cursor'})
+-- vim.api.nvim_set_hl(0, 'VM_Extend', {link='Visual'})
+-- vim.api.nvim_set_hl(0, 'VM_Cursor', {link='Cursor'})
+-- vim.api.nvim_set_hl(0, 'VM_Insert', {link='Cursor'})
 
 --Create a hl for the indentation lines
 vim.api.nvim_set_hl(0, 'RainbowLightBlue', { fg='#254a6a'})
