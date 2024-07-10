@@ -71,5 +71,7 @@ return {
 
         vim.treesitter.language.register('sql', 'mysql')
         vim.treesitter.language.register('sql', 'plsql')
+
+        require('nvim-ts-autotag').setup()
     end, 0)
 }

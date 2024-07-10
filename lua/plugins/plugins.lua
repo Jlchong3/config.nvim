@@ -19,7 +19,7 @@ return {
     { 'RRethy/vim-illuminate', event = 'VeryLazy' },
 
     -- Automatically add closing tags for HTML and JSX
-    { 'windwp/nvim-ts-autotag', event = 'VeryLazy', opts = {} },
+    { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 
     -- Colorscheme
     { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
