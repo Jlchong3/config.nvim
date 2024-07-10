@@ -14,37 +14,35 @@ require('catppuccin').setup({
 --Set colorscheme
 vim.cmd.colorscheme 'catppuccin'
 
+local set_hl = function (name, val)
+    vim.api.nvim_set_hl(0, name, val)
+end
+
 --Change color in lineNumbers
-vim.api.nvim_set_hl(0, 'LineNr', { fg='#D0F6FF', bold=true })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#77D5EA', bold=true })
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#77D5EA', bold=true })
+set_hl('LineNr', { fg='#D0F6FF', bold=true })
+set_hl('LineNrBelow', { fg='#77D5EA', bold=true })
+set_hl('LineNrAbove', { fg='#77D5EA', bold=true })
 
 --Change color of Visual Highlight
-vim.api.nvim_set_hl(0, 'Visual', { bg='#1684AF', bold=true })
+set_hl('Visual', { bg='#1684AF', bold=true })
 
 --Change colors of statusline
-vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', {fg='#8facf1', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineInactive', {fg='#425c88', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineFileInfo', {bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineDevInfo', {bold=true})
-
---Change color of MultiCursor
--- vim.api.nvim_set_hl(0, 'VM_MONO', {link='Cursor'})
--- vim.api.nvim_set_hl(0, 'VM_Extend', {link='Visual'})
--- vim.api.nvim_set_hl(0, 'VM_Cursor', {link='Cursor'})
--- vim.api.nvim_set_hl(0, 'VM_Insert', {link='Cursor'})
+set_hl('MiniStatuslineFilename', {fg='#8facf1', bold=true})
+set_hl('MiniStatuslineInactive', {fg='#425c88', bold=true})
+set_hl('MiniStatuslineFileInfo', {bold=true})
+set_hl('MiniStatuslineDevInfo', {bold=true})
 
 --Create a hl for the indentation lines
-vim.api.nvim_set_hl(0, 'RainbowLightBlue', { fg='#254a6a'})
+set_hl('RainbowLightBlue', { fg='#254a6a'})
 
 --Highlight for whitespace
-vim.api.nvim_set_hl(0, 'Whitespace', {link='Comment'})
+set_hl('Whitespace', {link='Comment'})
 
 --Change vim-Illuminate Highlight
-vim.api.nvim_set_hl(0, 'IlluminatedWordText', {bg='#434763'})
-vim.api.nvim_set_hl(0, 'IlluminatedWordRead', {bg='#434763'})
-vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', {bg='#434763'})
+set_hl('IlluminatedWordText', {bg='#434763'})
+set_hl('IlluminatedWordRead', {bg='#434763'})
+set_hl('IlluminatedWordWrite', {bg='#434763'})
 
 --Highlight for InlayHints
-vim.api.nvim_set_hl(0, 'LspInlayHint', {fg='#638198'})
+set_hl('LspInlayHint', {fg='#638198'})
 

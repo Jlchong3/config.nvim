@@ -26,16 +26,17 @@ autocmd('LspAttach', {
         local nmap = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = e.buf, desc = desc })
         end
+        local builtin = require('telescope.builtin')
 
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-        nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        nmap('<leader>T', require('telescope.builtin').lsp_type_definitions, '[T]ype Definition')
-        nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
+        nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
+        nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
+        nmap('<leader>T', builtin.lsp_type_definitions, '[T]ype Definition')
+        nmap('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+        nmap('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         -- See `:help K` for why this keymap
         nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
