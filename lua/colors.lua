@@ -23,14 +23,10 @@ vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#77D5EA', bold=true })
 vim.api.nvim_set_hl(0, 'Visual', { bg='#1684AF', bold=true })
 
 --Change colors of statusline
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', {bg='#fab387', fg='#1e1e2e', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', {bg='#a6e3a1', fg='#1e1e2e', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', {bg='#89b4fa', fg='#181825', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeOther', {bg='#7efe8e', fg='#1e1e2e', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', {bg='#cba6f7', fg='#1e1e2e', bold=true})
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', {bg='#f38ba8', fg='#1e1e2e', bold=true})
 vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', {fg='#8facf1', bold=true})
 vim.api.nvim_set_hl(0, 'MiniStatuslineInactive', {fg='#425c88', bold=true})
+vim.api.nvim_set_hl(0, 'MiniStatuslineFileInfo', {bold=true})
+vim.api.nvim_set_hl(0, 'MiniStatuslineDevInfo', {bold=true})
 
 --Change color of MultiCursor
 vim.api.nvim_set_hl(0, 'VM_MONO', {link='Cursor'})
