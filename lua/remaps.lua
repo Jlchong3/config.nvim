@@ -71,13 +71,11 @@ end, { desc = '[F]ile [E]xplorer'})
 remap('n','<leader>H', function ()
     vim.cmd.split()
     vim.cmd.term()
-    vim.cmd('resize -4')
 end, {desc = '[H]orizontal Term'})
 
 remap('n','<leader>V', function ()
     vim.cmd.vsplit()
     vim.cmd.term()
-    vim.cmd('vertical resize -14')
 end, {desc = '[V]ertical Term'})
 
 remap('t', '<esc>', [[<C-\><C-n>]])
