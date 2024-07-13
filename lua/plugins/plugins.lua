@@ -39,6 +39,16 @@ return {
     -- Surrounding options for text('',"",(),{},[],<>,<p></p>)
     { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy', opts = {} },
 
+    -- To train myself to use better vim motions
+    {
+        'm4xshen/hardtime.nvim',
+        event = 'VeryLazy',
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {
+            disabled_filetypes = { 'qf', 'lazy', 'mason', 'minifiles', 'terminal', 'dbout'}
+        }
+    },
+
     -- Fuzzy finder for various things
     {
         'nvim-telescope/telescope.nvim',
