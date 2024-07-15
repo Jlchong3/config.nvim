@@ -1,6 +1,7 @@
 local actions = require 'telescope.actions'
 require('telescope').setup {
     defaults = {
+        path_display = { 'truncate' },
         mappings = {
             i = {
                 ['<C-u>'] = false,
@@ -50,6 +51,10 @@ vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]re
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+
+vim.keymap.set('n', '<leader>.', function()
+    builtin.find_files({ cwd = vim.fn.expand('%:p:h') })
+end, { desc = '[.] Directory Files'})
 
 vim.keymap.set('n', '<leader>s/', function()
     builtin.live_grep {
