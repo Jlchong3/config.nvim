@@ -87,14 +87,11 @@ vim.keymap.set('n', '<leader>sl', function ()
     local filtered_extensions = {}
     for _, file in ipairs(output) do
         local extension = file:match("%.([^.]+)$")
-        if extension then
-            extension = extension:gsub("[\r\n]+$", "")
-            if not unique_extensions[extension] then
-                unique_extensions[extension] = true
-                local filetype = vim.filetype.match({ filename = '*.' .. extension })
-                if filetype and filetypes[filetype] then
-                    table.insert(filtered_extensions, extension)
-                end
+        if extension and not unique_extensions[extension] then
+            unique_extensions[extension] = true
+            local filetype = vim.filetype.match({ filename = '*.' .. extension })
+            if filetype and filetypes[filetype] then
+                table.insert(filtered_extensions, extension)
             end
         end
     end
