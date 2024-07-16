@@ -53,7 +53,7 @@ vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' }
 vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
 
 vim.keymap.set('n', '<leader>.', function()
-    builtin.find_files({ cwd = vim.fn.expand('%:p:h') })
+    builtin.find_files({ cwd = require('telescope.utils').buffer_dir })
 end, { desc = '[.] Directory Files'})
 
 vim.keymap.set('n', '<leader>s/', function()
@@ -62,3 +62,50 @@ vim.keymap.set('n', '<leader>s/', function()
         prompt_title = 'live grep in open files',
     }
 end, { desc = '[S]earch [/] in open files' })
+
+vim.keymap.set('n', '<leader>sl', function ()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+        print(vim.inspect(client.config.filetypes))
+    end
+end, { desc = '[S]earch [L]SP Supported'})
+
+vim.keymap.set('n', '<leader>sl', function ()
+    local filetypes = {}
+    for _, client in ipairs(vim.lsp.get_clients()) do
+        if client.name == 'jdtls' then
+            filetypes['java'] = true
+        else
+            for _, ft in ipairs(client.config.filetypes or {}) do
+                filetypes[ft] = true
+            end
+        end
+    end
+
+    local output = vim.fn.systemlist('rg --files')
+
+    local unique_extensions = {}
+    local filtered_extensions = {}
+    for _, file in ipairs(output) do
+        local extension = file:match("%.([^.]+)$")
+        if extension then
+            extension = extension:gsub("[\r\n]+$", "")
+            if not unique_extensions[extension] then
+                unique_extensions[extension] = true
+                local filetype = vim.filetype.match({ filename = '*.' .. extension })
+                if filetype and filetypes[filetype] then
+                    table.insert(filtered_extensions, extension)
+                end
+            end
+        end
+    end
+
+    local glob_flags = {}
+    for _, ext in ipairs(filtered_extensions) do
+        table.insert(glob_flags, '--glob=*.' .. ext)
+    end
+
+    require('telescope.builtin').find_files{
+        prompt_title = 'LSP Supported Files',
+        find_command = vim.list_extend({'rg', '--files'}, glob_flags)}
+
+end, { desc = '[S]earch [L]SP Supported'})
