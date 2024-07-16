@@ -45,7 +45,8 @@ return {
         event = 'VeryLazy',
         dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
         opts = {
-            disabled_filetypes = { 'qf', 'lazy', 'mason', 'minifiles', 'terminal', 'dbout'}
+            disabled_filetypes = { 'qf', 'lazy', 'mason', 'minifiles', 'terminal', 'dbout'},
+            disabled_keys = { ["<Up>"] = {}, ["<Down>"] = {}, ["<Left>"] = {}, ["Right"] = {} }
         }
     },
 
