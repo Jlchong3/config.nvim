@@ -53,7 +53,7 @@ vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' }
 vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
 
 vim.keymap.set('n', '<leader>.', function()
-    builtin.find_files({ cwd = require('telescope.utils').buffer_dir })
+    builtin.find_files({ cwd = require('telescope.utils').buffer_dir() })
 end, { desc = '[.] Directory Files'})
 
 vim.keymap.set('n', '<leader>s/', function()
