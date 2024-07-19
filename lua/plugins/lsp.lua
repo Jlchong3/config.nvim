@@ -55,6 +55,7 @@ return {
             clangd = {},
             eslint = {},
             jdtls = { inlayHints = { parameterNames = { enabled = 'all' } } },
+            zls = {},
             basedpyright = {
                 basedpyright = {
                     analysis = {
