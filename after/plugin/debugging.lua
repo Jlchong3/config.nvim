@@ -22,10 +22,10 @@ vim.keymap.set('n', '<leader>do', function() dapui.open() end, {desc = 'Debug: O
 vim.keymap.set('n', '<leader>dc', function() dapui.close() end, {desc = 'Debug: Close'})
 vim.keymap.set('n', '<leader>dr', function() dap.repl.toggle() end, {desc = 'Debug: Repl Toggle'})
 vim.keymap.set('n', '<leader>bc', function()
-  dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+    dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
 end, { desc = 'Debug: Set Breakpoint' })
 vim.keymap.set('n', '<leader>lp', function()
-  dap.set_breakpoint(nil, nil, vim.fn.input('Log point message:'))
+    dap.set_breakpoint(nil, nil, vim.fn.input('Log point message:'))
 end, {desc = 'Debug: Log Point'})
 
 -- Make dapui open automatically
@@ -39,27 +39,37 @@ end
 -- Setups and custom configs
 require('dap-go').setup()
 
-dap.configurations.rust= {
-  {
-    name = 'Cargo Rust Debug',
-    type = 'cppdbg',
-    request = 'launch',
-    program = function()
----@diagnostic disable-next-line: redundant-parameter
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopAtEntry = false,
-  },
+local configurations_rust= {
+    {
+        name = 'Cargo Rust Debug',
         type = 'codelldb',
+        request = 'launch',
+        program = function()
+            return vim.fn.getcwd() .. '/zig-out/bin/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = false,
+    },
 }
 
-dap.configurations.c = {
+local configurations_zig= {
     {
-        name = "Launch with arguments",
-        type = "cppdbg",
-        request = "launch",
+        name = 'Zig Project Debug',
         type = 'codelldb',
+        request = 'launch',
+        program = function()
+            return vim.fn.getcwd() .. '/zig-out/bin/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = false,
+    },
+}
+
+local configurations_c = {
+    {
+        name = 'Launch with arguments',
+        type = 'codelldb',
+        request = 'launch',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
@@ -67,8 +77,11 @@ dap.configurations.c = {
         stopOnEntry = false,
         args = function()
             local input = vim.fn.input('Arguments: ')
-            return vim.split(input, " ")
+            return vim.split(input, ' ')
         end,
     },
 }
 
+vim.list_extend(dap.configurations.c, configurations_c)
+vim.list_extend(dap.configurations.zig, configurations_zig)
+vim.list_extend(dap.configurations.rust, configurations_rust)
