@@ -72,12 +72,8 @@ end, { desc = '[S]earch [L]SP Supported'})
 vim.keymap.set('n', '<leader>sl', function ()
     local filetypes = {}
     for _, client in ipairs(vim.lsp.get_clients()) do
-        if client.name == 'jdtls' then
-            filetypes['java'] = true
-        else
-            for _, ft in ipairs(client.config.filetypes or {}) do
-                filetypes[ft] = true
-            end
+        for _, ft in ipairs(client.config.filetypes or {}) do
+            filetypes[ft] = true
         end
     end
 

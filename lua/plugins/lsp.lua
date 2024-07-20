@@ -54,7 +54,7 @@ return {
         local servers = {
             clangd = {},
             eslint = {},
-            jdtls = { inlayHints = { parameterNames = { enabled = 'all' } } },
+            ols = {},
             zls = {},
             basedpyright = {
                 basedpyright = {
