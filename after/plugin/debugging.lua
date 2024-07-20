@@ -1,6 +1,6 @@
 require('mason-tool-installer').setup{
     ensure_installed = {
-        'cpptools',
+        'codelldb',
         'delve'
     }
 }
@@ -51,6 +51,7 @@ dap.configurations.rust= {
     cwd = '${workspaceFolder}',
     stopAtEntry = false,
   },
+        type = 'codelldb',
 }
 
 dap.configurations.c = {
@@ -58,6 +59,7 @@ dap.configurations.c = {
         name = "Launch with arguments",
         type = "cppdbg",
         request = "launch",
+        type = 'codelldb',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
