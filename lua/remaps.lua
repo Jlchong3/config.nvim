@@ -3,6 +3,9 @@ local remap = vim.keymap.set
 -- Inlay Hints toggle
 remap('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(_)) end , { desc = '[I]nlay [H]ints' })
 
+-- Remove Q command
+remap('n', 'Q', '<Nop>')
+
 -- Start/Restart Lsp
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
@@ -12,10 +15,10 @@ remap('n', '<C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
 remap('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
 remap('n', '<C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
 remap('n', '<C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
-remap('n', '<Right>', '<C-w><', { desc = 'Decrease Width'} )
-remap('n', '<Left>', '<C-w>>', { desc = 'Increase Width'} )
-remap('n', '<Up>', '<C-w>+', { desc = 'Increse Height'} )
-remap('n', '<Down>', '<C-w>-', { desc = 'Increase Height'} )
+remap('n', '<S-Right>', '<C-w><', { desc = 'Decrease Width'} )
+remap('n', '<S-Left>', '<C-w>>', { desc = 'Increase Width'} )
+remap('n', '<S-Up>', '<C-w>+', { desc = 'Increse Height'} )
+remap('n', '<S-Down>', '<C-w>-', { desc = 'Increase Height'} )
 
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
