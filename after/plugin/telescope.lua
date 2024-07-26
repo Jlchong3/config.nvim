@@ -1,13 +1,15 @@
 local actions = require 'telescope.actions'
 require('telescope').setup {
     defaults = {
-        path_display = { 'truncate' },
+        path_display = { truncate = 1 },
         mappings = {
             i = {
                 ['<C-u>'] = false,
                 ['<C-d>'] = false,
             },
         },
+        layout_config = { prompt_position = 'top' },
+        sorting_strategy = 'ascending'
     },
     pickers = {
         buffers = {
@@ -64,14 +66,9 @@ vim.keymap.set('n', '<leader>s/', function()
 end, { desc = '[S]earch [/] in open files' })
 
 vim.keymap.set('n', '<leader>sl', function ()
-    for _, client in ipairs(vim.lsp.get_clients()) do
-        print(vim.inspect(client.config.filetypes))
-    end
-end, { desc = '[S]earch [L]SP Supported'})
-
-vim.keymap.set('n', '<leader>sl', function ()
     local filetypes = {}
     for _, client in ipairs(vim.lsp.get_clients()) do
+---@diagnostic disable-next-line: undefined-field
         for _, ft in ipairs(client.config.filetypes or {}) do
             filetypes[ft] = true
         end
