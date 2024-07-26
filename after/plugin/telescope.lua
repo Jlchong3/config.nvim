@@ -18,7 +18,7 @@ require('telescope').setup {
                     ['<C-d>'] = actions.delete_buffer
                 },
                 n = {
-                    ['<leader>bd'] = actions.delete_buffer
+                    ['bd'] = actions.delete_buffer
                 }
             }
         }
@@ -68,7 +68,7 @@ end, { desc = '[S]earch [/] in open files' })
 vim.keymap.set('n', '<leader>sl', function ()
     local filetypes = {}
     for _, client in ipairs(vim.lsp.get_clients()) do
----@diagnostic disable-next-line: undefined-field
+        ---@diagnostic disable-next-line: undefined-field
         for _, ft in ipairs(client.config.filetypes or {}) do
             filetypes[ft] = true
         end

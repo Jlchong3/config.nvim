@@ -4,7 +4,7 @@ return {
     'tpope/vim-sleuth',
 
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim', event = 'VeryLazy', opts = {} },
+    { 'folke/which-key.nvim', event = 'VeryLazy' },
 
     -- Git related plugin
     { 'tpope/vim-fugitive', event = 'VeryLazy' },
@@ -34,10 +34,10 @@ return {
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
     -- Inline GitBlame
-    { 'f-person/git-blame.nvim', event = 'VeryLazy', opts = { enabled=false } },
+    { 'f-person/git-blame.nvim', lazy = true, cmd = { 'GitBlameEnable' } },
 
     -- Surrounding options for text('',"",(),{},[],<>,<p></p>)
-    { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy', opts = {} },
+    { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy' },
 
     -- To train myself to use better vim motions
     {
@@ -87,7 +87,7 @@ return {
             {
                 'rcarriga/nvim-dap-ui',
                 dependencies = {
-                    "nvim-neotest/nvim-nio",
+                    'nvim-neotest/nvim-nio',
                 }
             },
             -- If you want go debugger (need delve installed)
@@ -155,9 +155,9 @@ return {
     {
         'saecki/crates.nvim',
         tag = 'stable',
-        event = { "BufRead Cargo.toml" },
+        event = { 'BufRead Cargo.toml' },
         config = function()
-            require('crates').setup{ popup = { border = "single" } }
+            require('crates').setup{ popup = { border = 'single' } }
         end,
     },
 }
