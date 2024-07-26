@@ -79,16 +79,6 @@ return {
         }
     },
 
-    -- Add indentation guides even on blank lines
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        event = 'VeryLazy',
-        main = 'ibl',
-        opts = {
-            indent = { highlight = 'RainbowLightBlue', char = '▏' }
-        }
-    },
-
     -- Debuger adapters
     {
         'mfussenegger/nvim-dap',

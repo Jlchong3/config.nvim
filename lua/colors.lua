@@ -32,9 +32,6 @@ set_hl('MiniStatuslineInactive', {fg='#425c88', bold=true})
 set_hl('MiniStatuslineFileInfo', {bold=true})
 set_hl('MiniStatuslineDevInfo', {bold=true})
 
---Create a hl for the indentation lines
-set_hl('RainbowLightBlue', { fg='#254a6a'})
-
 --Highlight for whitespace
 set_hl('Whitespace', {link='Comment'})
 
