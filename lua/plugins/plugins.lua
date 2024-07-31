@@ -3,6 +3,9 @@ return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
+    -- Repl for different languages
+    'Vigemus/iron.nvim',
+
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim', event = 'VeryLazy' },
 
