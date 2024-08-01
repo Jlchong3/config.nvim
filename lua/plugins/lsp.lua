@@ -108,7 +108,16 @@ return {
             marksman = {},
             cssls = { filetypes = { 'css', 'scss' }},
             tailwindcss = {},
-            r_language_server = {},
+            r_language_server = {
+                r = {
+                    lsp = {
+                        diagnostics = {
+                            spacesAroundInfixOperators = false,
+                            lineWidth = nil,
+                        }
+                    }
+                }
+            },
             html = { filetypes = { 'html', 'twig', 'hbs' } },
             lua_ls = {
                 Lua = {
