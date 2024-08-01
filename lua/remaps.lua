@@ -100,6 +100,9 @@ remap({'i', 's'}, '<C-k>', function ()
     end
 end, {silent = true})
 
+-- Iron keymaps
+remap('n', '<leader>ir', [[:IronRepl<cr>]], {desc = 'Iron Repl'})
+
 -- Crates keymaps
 vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),

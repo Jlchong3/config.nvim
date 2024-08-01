@@ -108,6 +108,7 @@ return {
             marksman = {},
             cssls = { filetypes = { 'css', 'scss' }},
             tailwindcss = {},
+            r_language_server = {},
             html = { filetypes = { 'html', 'twig', 'hbs' } },
             lua_ls = {
                 Lua = {

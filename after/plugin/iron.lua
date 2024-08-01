@@ -10,30 +10,29 @@ iron.setup {
         command = {"zsh"}
       },
       python = {
-        command = { 'python3' },
-        format = require('iron.fts.common').bracketed_paste_python
+        command = { 'ipython' },
       },
       r = {
         command = { 'R' },
       }
     },
-    repl_open_cmd = require('iron.view').right('50%'),
+    repl_open_cmd = 'vertical botright 130vnew'
   },
 
   keymaps = {
-    send_motion = "<space>sm",
-    visual_send = "<space>sm",
-    send_file = "<space>sf",
-    send_line = "<space>sl",
-    send_paragraph = "<space>sp",
-    send_until_cursor = "<space>su",
+    send_motion = "<space>rm",
+    visual_send = "<space>rm",
+    send_file = "<space>rf",
+    send_line = "<space>rl",
+    send_paragraph = "<space>rap",
+    send_until_cursor = "<space>ru",
     send_mark = "<space>ms",
     mark_motion = "<space>mc",
     mark_visual = "<space>mc",
     remove_mark = "<space>md",
     cr = "<space>s<cr>",
     interrupt = "<space>s<space>",
-    exit = "<space>sq",
+    exit = "<space>rq",
     clear = "<space>cl",
   },
 
