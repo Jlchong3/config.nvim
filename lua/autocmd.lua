@@ -52,19 +52,20 @@ autocmd('LspAttach', {
 })
 
 -- Terminal buffer settings
+augroup('TerminalGroup', {})
 autocmd('TermOpen', {
-    group = JlchongGroup,
+    group = 'TerminalGroup',
     callback = function ()
         vim.opt_local.number = false
         vim.opt_local.relativenumber = false
         vim.opt_local.scrolloff = 0
 
-        vim.bo.filetype = "terminal"
+        vim.bo.filetype = 'terminal'
     end
 })
 
 autocmd('BufEnter', {
-    group = JlchongGroup,
+    group = 'TerminalGroup',
     pattern = "*",
     callback = function()
         vim.opt.formatoptions:remove("o")
