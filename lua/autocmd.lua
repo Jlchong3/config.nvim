@@ -19,6 +19,15 @@ autocmd('BufWritePre', {
     command = [[%s/\s\+$//e]]
 })
 
+
+autocmd('BufEnter', {
+    group = JlchongGroup,
+    pattern = "*",
+    callback = function()
+        vim.opt.formatoptions:remove("o")
+    end
+})
+
 -- Lsp keymaps on_attach
 autocmd('LspAttach', {
     group = JlchongGroup,
@@ -61,13 +70,5 @@ autocmd('TermOpen', {
         vim.opt_local.scrolloff = 0
 
         vim.bo.filetype = 'terminal'
-    end
-})
-
-autocmd('BufEnter', {
-    group = 'TerminalGroup',
-    pattern = "*",
-    callback = function()
-        vim.opt.formatoptions:remove("o")
     end
 })
