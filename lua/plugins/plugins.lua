@@ -6,6 +6,9 @@ return {
     -- Repl for different languages
     'Vigemus/iron.nvim',
 
+    -- Additional lua configuration, makes nvim stuff amazing!
+    { "folke/lazydev.nvim", ft = "lua", opts = { } },
+
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim', event = 'VeryLazy' },
 

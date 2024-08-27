@@ -10,9 +10,6 @@ return {
 
         -- Icons on cmp
         'onsails/lspkind-nvim',
-
-        -- Additional lua configuration, makes nvim stuff amazing!
-        'folke/neodev.nvim',
     },
 
     config = function ()
@@ -127,8 +124,6 @@ return {
                 },
             },
         }
-
-        require('neodev').setup()
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = vim.lsp.protocol.make_client_capabilities()
