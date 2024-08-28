@@ -31,7 +31,8 @@ return {
                 'bash',
                 'sql',
                 'markdown',
-                'markdown_inline'
+                'markdown_inline',
+                'yaml'
             },
 
             -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -62,7 +63,7 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ['<leader>n'] = '@parameter.inner',
+                        ['<leader>N'] = '@parameter.inner',
                     },
                     swap_previous = {
                         ['<leader>A'] = '@parameter.inner',

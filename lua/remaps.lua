@@ -100,6 +100,9 @@ remap({'i', 's'}, '<C-k>', function ()
     end
 end, {silent = true})
 
+-- Open AI chat
+remap('n', '<leader>ai', [[:CodeCompanionChat<cr>]], {desc = 'Open [AI] Chat'})
+
 -- Iron keymaps
 remap('n', '<leader>ir', [[:IronRepl<cr>]], {desc = 'Iron Repl'})
 

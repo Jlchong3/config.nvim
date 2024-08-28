@@ -155,4 +155,15 @@ return {
             require('crates').setup{ popup = { border = 'single' } }
         end,
     },
+
+    -- AI integrations
+    {
+        "olimorris/codecompanion.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-telescope/telescope.nvim",
+        },
+        event = 'VeryLazy',
+    }
 }

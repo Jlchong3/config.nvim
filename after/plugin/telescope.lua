@@ -74,24 +74,20 @@ vim.keymap.set('n', '<leader>sl', function ()
         end
     end
 
-    local output = vim.fn.systemlist('rg --files')
-
-    local unique_extensions = {}
-    local filtered_extensions = {}
-    for _, file in ipairs(output) do
+    local extensions = {}
+    for _, file in ipairs(vim.fn.systemlist('rg --files')) do
         local extension = file:match("%.([^.]+)$")
-        if extension and not unique_extensions[extension] then
-            unique_extensions[extension] = true
-            local filetype = vim.filetype.match({ filename = '*.' .. extension })
-            if filetype and filetypes[filetype] then
-                table.insert(filtered_extensions, extension)
-            end
+        if extension and not extensions[extension] then
+            extensions[extension] = true
         end
     end
 
     local glob_flags = {}
-    for _, ext in ipairs(filtered_extensions) do
-        table.insert(glob_flags, '--glob=*.' .. ext)
+    for extension, _ in pairs(extensions) do
+        local filetype = vim.filetype.match{ filename = '*.' .. extension}
+        if filetype and filetypes[filetype] then
+            table.insert(glob_flags, '--glob=*.' .. extension)
+        end
     end
 
     require('telescope.builtin').find_files{
