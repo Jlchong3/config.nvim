@@ -102,7 +102,7 @@ end, {silent = true})
 
 -- Open AI chat
 remap('n', '<leader>ai', [[:CodeCompanionToggle<cr>]], {desc = 'Open [AI] Chat'})
-remap('n', '<leader>aa', [[:CodeCompanionActions<cr>]], {desc = 'Open [A]I Actions'})
+remap({'v', 'n'}, '<leader>aa', [[:CodeCompanionActions<cr>]], {desc = 'Open [A]I Actions'})
 
 -- Iron keymaps
 remap('n', '<leader>ir', [[:IronRepl<cr>]], {desc = 'Iron Repl'})
