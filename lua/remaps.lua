@@ -100,13 +100,6 @@ remap({'i', 's'}, '<C-k>', function ()
     end
 end, {silent = true})
 
--- Open AI chat
-remap('n', '<leader>ai', [[:CodeCompanionToggle<cr>]], {desc = 'Open [AI] Chat'})
-remap({'v', 'n'}, '<leader>aa', [[:CodeCompanionActions<cr>]], {desc = 'Open [A]I Actions'})
-
--- Iron keymaps
-remap('n', '<leader>ir', [[:IronRepl<cr>]], {desc = 'Iron Repl'})
-
 -- Crates keymaps
 vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),

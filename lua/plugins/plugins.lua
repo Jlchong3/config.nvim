@@ -3,9 +3,6 @@ return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
-    -- Repl for different languages
-    'Vigemus/iron.nvim',
-
     -- Additional lua configuration, makes nvim stuff amazing!
     { "folke/lazydev.nvim", ft = "lua", opts = { } },
 
@@ -155,15 +152,4 @@ return {
             require('crates').setup{ popup = { border = 'single' } }
         end,
     },
-
-    -- AI integrations
-    {
-        "olimorris/codecompanion.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-telescope/telescope.nvim",
-        },
-        event = 'VeryLazy',
-    }
 }
