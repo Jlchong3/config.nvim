@@ -35,11 +35,6 @@ set_hl('MiniStatuslineDevInfo', {bold=true})
 --Highlight for whitespace
 set_hl('Whitespace', {link='Comment'})
 
---Change vim-Illuminate Highlight
-set_hl('IlluminatedWordText', {bg='#434763'})
-set_hl('IlluminatedWordRead', {bg='#434763'})
-set_hl('IlluminatedWordWrite', {bg='#434763'})
-
 --Highlight for InlayHints
 set_hl('LspInlayHint', {fg='#638198'})
 
