@@ -4,7 +4,7 @@ return {
     { 'tpope/vim-sleuth', event = 'VeryLazy'},
 
     -- Additional lua configuration, makes nvim stuff amazing!
-    { "folke/lazydev.nvim", ft = "lua", opts = { } },
+    { 'folke/lazydev.nvim', ft = 'lua', opts = { } },
 
     -- Git related plugin
     { 'tpope/vim-fugitive', event = 'VeryLazy' },
@@ -26,9 +26,6 @@ return {
 
     -- For diffviews
     { "sindrets/diffview.nvim", lazy = true, cmd = { 'DiffviewOpen ' } },
-
-    -- Surrounding options for text('',"",(),{},[],<>,<p></p>)
-    { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy' },
 
     -- Showing rgb/hex color ano color picker option
     {
@@ -53,14 +50,8 @@ return {
     },
 
     -- Collection of various small independent plugins/modules
-    {
-        'echasnovski/mini.nvim',
-        event = 'VeryLazy',
-        config = function() --Here are the mini plugins which do not require much customization
-            require('mini.statusline').setup()
-            require('mini.splitjoin').setup { mappings = { toggle = 'gl' } }
-        end,
-    },
+    { 'echasnovski/mini.statusline', config = function() require('mini.statusline').setup() end },
+    { 'echasnovski/mini.splitjoin', event = 'VeryLazy', config = function () require('mini.splitjoin').setup{ mappings = { toggle = 'gl' } } end },
 
     -- Markdown-preview
     {
@@ -82,6 +73,10 @@ return {
             { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
         },
         cmd = { 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer', },
+        config = function ()
+            vim.g.db_ui_save_location = '~/vimfiles/db_ui'
+            vim.g.db_ui_use_nerd_fonts = 1
+        end
     },
 
     -- Rust packages manager

@@ -18,7 +18,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 --this is the setup coming with kickstart
-require('lazy').setup({ import = 'plugins' }, { change_detection = { notify = false } })
+require('lazy').setup({ import = 'custom' }, {
+    change_detection = { notify = false },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                'gzip', 'tarPlugin', 'tutor', 'zipPlugin', 'tohtml',
+            }
+        }
+    }
+})
 
 require'remaps'
 require'colors'
