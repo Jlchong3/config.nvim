@@ -5,53 +5,53 @@ vim.g.maplocalleader = ' '
 vim.o.hlsearch = true
 
 -- Don't show mode since it is in statusline
-vim.opt.showmode = false
+vim.o.showmode = false
 
 -- Make line numbers default
 vim.wo.number = true
-vim.opt.rnu = true
+vim.o.rnu = true
 
 -- Enable mouse mode
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
 
 -- Lines from cursor to end of screen
-vim.opt.scrolloff = 8
+vim.o.scrolloff = 8
 
 -- Include in filename
 vim.opt.isfname:append('@-@')
 
 --How split works
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
-vim.opt.list = true
+vim.o.list = true
 vim.opt.listchars = { tab = '  ', trail = '·' }
 
 -- Enable break indent
 vim.o.breakindent = true
 
 -- Disable wrap
-vim.opt.wrap = false
+vim.o.wrap = false
 
 -- Fat Cursor
-vim.opt.guicursor = ''
+vim.o.guicursor = ''
 
 -- Save undo history
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.o.swapfile = false
+vim.o.backup = false
 vim.opt.undodir = os.getenv("HOME") .. '/.vimfiles/undodir'
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Shift and Tab config
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.conceallevel = 1
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.conceallevel = 1
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true

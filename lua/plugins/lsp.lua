@@ -81,7 +81,7 @@ return {
                     }
                 }
             },
-            tsserver = {
+            ts_ls = {
                 typescript = {
                     inlayHints = inlayHints
                 },
