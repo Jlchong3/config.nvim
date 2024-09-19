@@ -31,10 +31,6 @@ remap('n', '[q', '<cmd>cprev<CR>zz')
 remap('n', ']l', '<cmd>lnext<CR>zz')
 remap('n', '[l', '<cmd>lprev<CR>zz')
 
--- TODO comments
-remap('n', ']t', function() require('todo-comments').jump_next() end, { desc = 'Next todo comment' })
-remap('n', '[t', function() require('todo-comments').jump_prev() end, { desc = 'Previous todo comment' })
-
 -- Custom (theprimeagen)
 remap('v', 'J', [[:m '>+1<CR>gv=gv]])
 remap('v', 'K', [[:m '<-2<CR>gv=gv]])
