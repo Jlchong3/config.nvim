@@ -18,9 +18,6 @@ return {
     -- For undo navigation
     { 'mbbill/undotree', event = 'VeryLazy'} ,
 
-    -- Subraya el elemento bajo el cursor
-    { 'RRethy/vim-illuminate', event = 'VeryLazy' },
-
     -- Automatically add closing tags for HTML and JSX
     { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 
@@ -30,14 +27,14 @@ return {
     -- Fast buffer navigation
     { 'ThePrimeagen/harpoon', event = 'VeryLazy', branch = 'harpoon2', dependencies = { 'nvim-lua/plenary.nvim' } },
 
-    -- Comment highlight
-    { 'folke/todo-comments.nvim', event = 'VeryLazy', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
-
     -- Top dropbar with document symbols {requires nvim nightly (>= 0.10.0-dev)}
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
     -- Inline GitBlame
     { 'f-person/git-blame.nvim', lazy = true, cmd = { 'GitBlameEnable' } },
+
+    -- For diffviews
+    { "sindrets/diffview.nvim", lazy = true, cmd = { 'DiffviewOpen ' } },
 
     -- Surrounding options for text('',"",(),{},[],<>,<p></p>)
     { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy' },
@@ -61,7 +58,6 @@ return {
     -- Showing rgb/hex color ano color picker option
     {
         'uga-rosa/ccc.nvim',
-        version = '1.7.0',
         lazy = true,
         cmd = { 'CccPick', 'CccConvert' , 'CccHighlighterToggle', 'CccHighlighterDisable', 'CccHighlighterEnable'},
         opts = {
@@ -115,7 +111,7 @@ return {
         'echasnovski/mini.nvim',
         config = function() --Here are the mini plugins which do not require much customization
             require('mini.statusline').setup()
-            require('mini.splitjoin').setup{ mappings = { toggle = 'gl' } }
+            require('mini.splitjoin').setup { mappings = { toggle = 'gl' } }
         end,
     },
 
@@ -123,7 +119,7 @@ return {
     {
         'iamcco/markdown-preview.nvim',
         lazy = true,
-        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+        cmd = { 'MarkdownPreview' },
         build = 'cd app && npm install',
         init = function()
             vim.g.mkdp_filetypes = { 'markdown' }
