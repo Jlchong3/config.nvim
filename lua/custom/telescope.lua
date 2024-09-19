@@ -21,7 +21,12 @@ return {
                     i = {
                         ['<C-u>'] = false,
                         ['<C-d>'] = false,
+                        ['<C-s>'] = require('telescope.actions').select_horizontal,
+                        ['<C-x>'] = false
                     },
+                    n = {
+                        ['<C-s>'] = require('telescope.actions').select_horizontal,
+                    }
                 },
                 layout_config = { prompt_position = 'top' },
                 sorting_strategy = 'ascending'

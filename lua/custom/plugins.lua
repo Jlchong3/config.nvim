@@ -27,9 +27,6 @@ return {
     -- For diffviews
     { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen ' } },
 
-    -- File Explorer
-    { 'stevearc/oil.nvim', event = 'VeryLazy', config = function () require('oil').setup() end },
-
     -- Showing rgb/hex color ano color picker option
     {
         'uga-rosa/ccc.nvim',

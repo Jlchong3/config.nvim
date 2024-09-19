@@ -61,10 +61,8 @@ remap('n', '<leader>bd', [[:bd! <CR>]], {desc = '[B]uffer [D]elete'})
 -- UndoTree toggle
 remap('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = '[U]ndoTree'})
 
--- Mini file explorer
-remap('n', '<leader>fe', function ()
-    if not require('mini.files').close() then require('mini.files').open(vim.api.nvim_buf_get_name(0)) end
-end, { desc = '[F]ile [E]xplorer'})
+-- Oil explorer
+remap('n', '<leader>fe', [[:Oil <CR>]], { desc = '[F]ile [E]xplorer'})
 
 -- Terminal keymaps
 remap('n','<leader>H', function ()
