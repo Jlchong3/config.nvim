@@ -67,22 +67,16 @@ return {
 
             ---@diagnostic disable-next-line: missing-fields
             formatting = {
-                format = require('lspkind').cmp_format {
-                    mode = 'symbol_text',
-                    maxwidth = 50,
-                    ---@diagnostic disable-next-line: unused-local
-                    before = function(entry, vim_item)
-                        local m = vim_item.menu and vim_item.menu or ''
-                        if #m > 20 then
-                            vim_item.menu = string.sub(m, 1, 20) .. '...'
-                        end
-                        return vim_item
-                    end,
-                    -- can also be a function to dynamically calculate max width such as
-                    -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
-                    ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                    show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-                },
+                format = function(_, vim_item)
+                    local icon, hl = MiniIcons.get('lsp', vim_item.kind)
+                    local m = vim_item.menu and vim_item.menu or ''
+                    if #m > 20 then
+                        vim_item.menu = string.sub(m, 1, 20) .. '...'
+                    end
+                    vim_item.kind = icon .. " " .. vim_item.kind
+                    vim_item.kind_hl_group = hl
+                    return vim_item
+                end,
             },
         }
 

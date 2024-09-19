@@ -7,9 +7,6 @@ return {
         -- Automatically install LSPs to stdpath for neovim
         { 'williamboman/mason.nvim', config = true },
         'williamboman/mason-lspconfig.nvim',
-
-        -- Icons on cmp
-        'onsails/lspkind-nvim',
     },
 
     config = function ()
