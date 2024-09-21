@@ -15,9 +15,6 @@ return {
     -- Automatically add closing tags for HTML and JSX
     { 'windwp/nvim-ts-autotag', event = 'VeryLazy', config = function () require('nvim-ts-autotag').setup() end},
 
-    -- Colorscheme
-    { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-
     -- Top dropbar with document symbols {requires nvim nightly (>= 0.10.0-dev)}
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
