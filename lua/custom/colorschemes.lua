@@ -65,6 +65,7 @@ return {
                 TreesitterContextBottom =  { underline = true, sp = '#d2c3b4' },
                 MiniStatuslineFilename = { fg = '#bea784' },
                 MiniStatuslineInactive = { fg = '#96865d' },
+                LspInlayHint = { fg = '#ae915f' },
                 PmenuSel = { bg = '#3c3836', fg = '#faf4da'},
                 TabLineSel = { bg = 'none' },
                 TabLine = { bg = 'none' },
