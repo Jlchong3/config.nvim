@@ -32,6 +32,9 @@ return {
                     MiniStatuslineInactive = { fg = '#425c88', bg = 'none' },
                     PmenuSel = { bg = '#2a2b3c' },
                     Pmenu = { bg = '#353e5a'}
+                    TabLineSel = { bg = 'none', fg = '#89b4fa' },
+                    TabLine = { bg = 'none' },
+                    TabLineFill = { bg = 'none', fg = '#7f849c'}
                 }
             end
         }
@@ -62,6 +65,9 @@ return {
                 MiniStatuslineFilename = { fg = '#bea784' },
                 MiniStatuslineInactive = { fg = '#96865d' },
                 PmenuSel = { bg = '#464240', fg = '#96865d'}
+                TabLineSel = { bg = 'none' },
+                TabLine = { bg = 'none' },
+                TabLineFill = { bg = 'none', fg = '#fe8019'}
             }
         }
     },

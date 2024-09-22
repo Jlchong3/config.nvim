@@ -69,3 +69,25 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true
 
+function MyTabline()
+    local s = ''
+    local tab_count = vim.fn.tabpagenr('$')
+
+    for i = 1, tab_count do
+        if i == vim.fn.tabpagenr() then
+            s = s .. '%#TabLineSel#'
+        else
+            s = s .. '%#TabLine#'
+        end
+
+        s = s .. '%' .. i .. 'T' .. i .. '  ' .. vim.fn.fnamemodify(vim.fn.bufname(vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]), ':t')
+
+        if i ~= tab_count then
+            s = s .. '%#TabLineFill# | '
+        end
+    end
+
+    return s
+end
+
+vim.o.tabline = '%!v:lua.MyTabline()'
