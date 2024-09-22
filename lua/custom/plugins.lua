@@ -13,7 +13,7 @@ return {
     { 'mbbill/undotree', event = 'VeryLazy'} ,
 
     -- Automatically add closing tags for HTML and JSX
-    { 'windwp/nvim-ts-autotag', event = 'VeryLazy', config = function () require('nvim-ts-autotag').setup() end},
+    { 'windwp/nvim-ts-autotag', event = 'VeryLazy', opts = { } },
 
     -- Top dropbar with document symbols {requires nvim nightly (>= 0.10.0-dev)}
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
@@ -27,8 +27,7 @@ return {
     -- Showing rgb/hex color ano color picker option
     {
         'uga-rosa/ccc.nvim',
-        lazy = true,
-        cmd = { 'CccPick', 'CccConvert' , 'CccHighlighterToggle', 'CccHighlighterDisable', 'CccHighlighterEnable'},
+        event = 'VeryLazy',
         opts = {
             highlighter = { auto_enable = true, lsp = true },
         }
@@ -47,8 +46,8 @@ return {
     },
 
     -- Collection of various small independent plugins/modules
-    { 'echasnovski/mini.statusline', config = function() require('mini.statusline').setup() end },
-    { 'echasnovski/mini.splitjoin', event = 'VeryLazy', config = function () require('mini.splitjoin').setup{ mappings = { toggle = 'gl' } } end },
+    { 'echasnovski/mini.statusline', opts = { } },
+    { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
 
     -- Markdown-preview
     {
@@ -81,8 +80,6 @@ return {
         'saecki/crates.nvim',
         tag = 'stable',
         event = { 'BufRead Cargo.toml' },
-        config = function()
-            require('crates').setup{ popup = { border = 'single' } }
-        end,
+        opts =  { popup = { border = 'single' } }
     },
 }

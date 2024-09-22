@@ -2,8 +2,7 @@
 return {
     'stevearc/oil.nvim',
     event = 'VeryLazy',
-    config = function ()
-        require('oil').setup{
+    opts = {
             keymaps = {
                 ['<C-w>s'] = { 'actions.select', opts = { horizontal = true }, desc = 'Open the entry in a horizontal split' },
                 ['<C-w>v'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
@@ -12,6 +11,5 @@ return {
                 ['<C-s>'] = false,
                 ['<C-h>'] = false,
             }
-        }
-    end
+    }
 }

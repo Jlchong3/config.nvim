@@ -3,9 +3,8 @@ return {
     'kylechui/nvim-surround',
     version = '*',
     event = 'VeryLazy',
-    config = function()
-        require('nvim-surround').setup{
-            keymaps = {
+    opts = {
+        keymaps = {
                 normal = 'sa',
                 normal_cur = 'ss',
                 normal_line = 'S',
@@ -15,7 +14,6 @@ return {
                 delete = 'sd',
                 change = 'sc',
                 change_line = 'Sc',
-            }
         }
-    end
+    }
 }
