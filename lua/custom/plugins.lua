@@ -22,7 +22,7 @@ return {
     { 'f-person/git-blame.nvim', lazy = true, cmd = { 'GitBlameEnable' } },
 
     -- For diffviews
-    { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen ' } },
+    { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen' } },
 
     -- Showing rgb/hex color ano color picker option
     {
