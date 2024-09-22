@@ -61,7 +61,7 @@ return {
                 TreesitterContextBottom =  { underline = true, sp = '#d2c3b4' },
                 MiniStatuslineFilename = { fg = '#bea784' },
                 MiniStatuslineInactive = { fg = '#96865d' },
-                PmenuSel = { bg = '#464240'}
+                PmenuSel = { bg = '#464240', fg = '#96865d'}
             }
         }
     },
