@@ -28,10 +28,11 @@ return {
                     Whitespace = { link = 'Comment' },
 
                     LspInlayHint = { fg = '#638198' },
+                    TreesitterContextBottom =  { underline = true, sp = '#425c88' },
                     MiniStatuslineFilename = { fg = '#8facf1', bg = 'none' },
                     MiniStatuslineInactive = { fg = '#425c88', bg = 'none' },
                     PmenuSel = { bg = '#2a2b3c' },
-                    Pmenu = { bg = '#353e5a'}
+                    Pmenu = { bg = '#353e5a'},
                     TabLineSel = { bg = 'none', fg = '#89b4fa' },
                     TabLine = { bg = 'none' },
                     TabLineFill = { bg = 'none', fg = '#7f849c'}
@@ -64,7 +65,7 @@ return {
                 TreesitterContextBottom =  { underline = true, sp = '#d2c3b4' },
                 MiniStatuslineFilename = { fg = '#bea784' },
                 MiniStatuslineInactive = { fg = '#96865d' },
-                PmenuSel = { bg = '#464240', fg = '#96865d'}
+                PmenuSel = { bg = '#3c3836', fg = '#faf4da'},
                 TabLineSel = { bg = 'none' },
                 TabLine = { bg = 'none' },
                 TabLineFill = { bg = 'none', fg = '#fe8019'}
