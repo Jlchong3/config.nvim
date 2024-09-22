@@ -1,4 +1,3 @@
-
 return {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -41,7 +40,7 @@ return {
             window = {
                 documentation = cmp.config.window.bordered(),
                 completion = {
-                    winhighlight = 'Normal:NeogitHunkHeaderHighlight',
+                    winhighlight = 'Normal:Pmenu,Search:PmenuSel',
                     zindex = 10000
                 }
             },
