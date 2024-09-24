@@ -22,7 +22,7 @@ remap('n', '<C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 remap('n', '<S-Right>', '<C-w><', { desc = 'Decrease Width'} )
 remap('n', '<S-Left>', '<C-w>>', { desc = 'Increase Width'} )
 remap('n', '<S-Up>', '<C-w>+', { desc = 'Increse Height'} )
-remap('n', '<S-Down>', '<C-w>-', { desc = 'Increase Height'} )
+remap('n', '<S-Down>', '<C-w>-', { desc = 'Decrease Height'} )
 
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
