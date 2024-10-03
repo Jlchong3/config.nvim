@@ -69,7 +69,15 @@ return {
                 PmenuSel = { bg = '#3c3836', fg = '#faf4da'},
                 TabLineSel = { bg = 'none' },
                 TabLine = { bg = 'none' },
-                TabLineFill = { bg = 'none', fg = '#fe8019'}
+                TabLineFill = { bg = 'none', fg = '#fe8019'},
+                ['@markup.strong'] = { link = 'markdownBold' },
+                ['@markup.italic'] = { link = 'markdownItalic' },
+                ['@markup.heading.1'] = { link = 'markdownH1' },
+                ['@markup.heading.2'] = { link = 'markdownH2' },
+                ['@markup.heading.3'] = { link = 'markdownH3' },
+                ['@markup.heading.4'] = { link = 'markdownH4' },
+                ['@markup.heading.5'] = { link = 'markdownH5' },
+                ['@markup.heading.6'] = { link = 'markdownH6' },
             }
         }
     },
