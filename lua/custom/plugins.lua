@@ -24,6 +24,9 @@ return {
     -- For diffviews
     { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen' } },
 
+    -- Live-server
+    { 'brianhuster/live-preview.nvim', lazy = true, cmd = { 'LivePreview' }, opts = {} },
+
     -- Showing rgb/hex color ano color picker option
     {
         'uga-rosa/ccc.nvim',

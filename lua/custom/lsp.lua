@@ -4,7 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        { 'williamboman/mason.nvim', config = true },
+        { 'williamboman/mason.nvim', opts = { PATH = "append" } },
         'williamboman/mason-lspconfig.nvim',
     },
 
@@ -30,10 +30,6 @@ return {
         require('mason-lspconfig').setup()
 
         vim.diagnostic.config {
-            virtual_text = {
-                prefix = ''
-            },
-
             float = {
                 border = 'rounded'
             }
@@ -60,6 +56,15 @@ return {
             eslint = {},
             ols = {},
             zls = {},
+            rust_analyzer = {
+                rust_analyzer = {
+                    autoSearchPaths = true,
+                },
+                cargo = {
+                    buildScripts = { enable = true },
+                    allFeatures = true,
+                },
+            },
             gopls = {
                 gopls = {
                     hints = {
@@ -121,13 +126,6 @@ return {
                     filetypes = (servers[server_name] or {}).filetypes,
                 }
             end,
-        }
-
-        require('lspconfig').rust_analyzer.setup {
-            capabilities = capabilities,
-            cmd = {
-                'rustup', 'run', 'stable', 'rust-analyzer',
-            }
         }
 
         -- Lsp keymaps on_attach

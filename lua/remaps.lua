@@ -6,9 +6,9 @@ remap('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay
 -- Remove Q command
 remap('n', 'Q', '<Nop>')
 
--- Remove s command
-remap('n', 's', '<Nop>')
-remap('n', 'S', '<Nop>')
+-- Remove s command for surround
+remap({'n', 'v'}, 's', '<Nop>')
+remap({'n', 'v'}, 'S', '<Nop>')
 
 -- Start/Restart Lsp
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })

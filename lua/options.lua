@@ -37,7 +37,7 @@ vim.o.breakindent = true
 vim.o.wrap = false
 
 -- Fat Cursor
-vim.o.guicursor = ''
+vim.o.guicursor = 'i-c-ci-cr-r:blinkon1'
 
 -- Save undo history
 vim.o.swapfile = false
@@ -80,7 +80,7 @@ function MyTabline()
             s = s .. '%#TabLine#'
         end
 
-        s = s .. '%' .. i .. 'T' .. i .. '  ' .. vim.fn.fnamemodify(vim.fn.bufname(vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]), ':t')
+        s = s .. '%' .. i .. 'T' .. i .. ' ' .. vim.fn.fnamemodify(vim.fn.bufname(vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]), ':t')
 
         if i ~= tab_count then
             s = s .. '%#TabLineFill# | '
