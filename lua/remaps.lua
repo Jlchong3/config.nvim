@@ -6,9 +6,11 @@ remap('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay
 -- Remove Q command
 remap('n', 'Q', '<Nop>')
 
--- Remove s command for surround
-remap({'n', 'v'}, 's', '<Nop>')
-remap({'n', 'v'}, 'S', '<Nop>')
+-- surround remaps
+remap({'n', 'x'}, 's', '<Nop>')
+remap({'n', 'x'}, 'S', '<Nop>')
+remap('n', 'ss', '_sa$', { remap = true })
+remap('n', 'S', 'Vsa', { remap = true })
 
 -- Start/Restart Lsp
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
@@ -50,8 +52,8 @@ remap({'n','x'}, '<leader>P', [["0P]], {desc = '[P]aste last Yank Upper'})
 remap({'n','x'}, '<leader>sp', [["+p]], {desc = '[S]ystem [P]aste'})
 remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
-remap({ 'n', 'v' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
-remap({ 'n', 'v' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
+remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
+remap({ 'n', 'x' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
 
 -- Stop search highlight
 remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')
