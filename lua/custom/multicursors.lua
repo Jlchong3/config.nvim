@@ -9,6 +9,6 @@ return {
         -- Work around vim-visual mapping
         vim.keymap.set('n', '<S-Right>', '<C-w><', { desc = 'Decrease Width'} )
         vim.keymap.set('n', '<S-Left>', '<C-w>>', { desc = 'Increase Width'} )
-
+        vim.keymap.set('n', '<C-S-j>', '<C-Down>', { remap = true } )
     end
 }

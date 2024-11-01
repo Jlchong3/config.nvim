@@ -12,6 +12,9 @@ remap({'n', 'x'}, 'S', '<Nop>')
 remap('n', 'ss', '_sa$', { remap = true })
 remap('n', 'S', 'Vsa', { remap = true })
 
+-- '$' nuisance in visual mode
+remap('x', '$', '$h')
+
 -- Start/Restart Lsp
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
