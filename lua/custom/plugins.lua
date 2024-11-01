@@ -1,5 +1,8 @@
 return {
 
+    -- Java (Install jdtls,java-test and java-debug through mason)
+   { 'mfussenegger/nvim-jdtls', event = 'VeryLazy' },
+
     -- Detect tabstop and shiftwidth automatically
     { 'tpope/vim-sleuth', event = 'VeryLazy'},
 
