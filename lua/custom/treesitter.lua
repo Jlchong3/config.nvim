@@ -24,6 +24,7 @@ return {
                 'html',
                 'css',
                 'javascript',
+                'java',
                 'zig',
                 'typescript',
                 'vimdoc',
