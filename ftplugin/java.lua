@@ -1,7 +1,7 @@
 local jdtls = require('jdtls')
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local bundles = {
-    vim.fn.glob(os.getenv('HOME') .. '/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar', true),
+    vim.fn.glob(os.getenv('HOME') .. '/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin-*.jar', true),
 }
 
 vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv('HOME') .. '/.local/share/nvim/mason/share/java-test/*.jar', true), '\n'))
@@ -30,7 +30,7 @@ local config = {
         ),
 
         '-configuration',
-        vim.fn.expand(os.getenv('HOME') .. '/.local/share/nvim/mason/packages/jdtls/config'),
+        vim.fn.expand(os.getenv('HOME') .. '/.local/share/nvim/mason/packages/jdtls/config_linux'),
 
         '-data',
         vim.fn.expand('~/.cache/jdtls/workspace') .. project_name,
