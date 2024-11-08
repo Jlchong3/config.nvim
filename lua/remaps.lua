@@ -19,6 +19,17 @@ remap('x', '$', '$h')
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
+remap('n', 'p', function()
+  local yanked_content = vim.fn.getreg('"')
+  if yanked_content:sub(-1) == '\n' then
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.cmd('normal! p')
+    vim.api.nvim_win_set_cursor(0, {row + 1, col})
+  else
+    vim.cmd('normal! p')
+  end
+end)
+
 -- Easy Window manipulation
 remap('n', '<C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
 remap('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })

@@ -42,7 +42,6 @@ return {
     -- Collection of various small independent plugins/modules
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
-    { 'echasnovski/mini.pairs', event = 'VeryLazy', opts = {} },
 
     -- Markdown-preview
     {

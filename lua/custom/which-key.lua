@@ -3,6 +3,9 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     config = function ()
+        require('which-key').setup{
+            preset = "helix",
+        }
         require('which-key').add {
             { '<leader>c', group = '[C]ode' },
             { '<leader>d', group = '[D]ebug [D]ocument' },
