@@ -19,6 +19,7 @@ remap('x', '$', '$h')
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
+-- Better paste
 remap('n', 'p', function()
   local yanked_content = vim.fn.getreg('"')
   if yanked_content:sub(-1) == '\n' then
@@ -27,6 +28,17 @@ remap('n', 'p', function()
     vim.api.nvim_win_set_cursor(0, {row + 1, col})
   else
     vim.cmd('normal! p')
+  end
+end)
+
+remap('n', 'P', function()
+  local yanked_content = vim.fn.getreg('"')
+  if yanked_content:sub(-1) == '\n' then
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.cmd('normal! P')
+    vim.api.nvim_win_set_cursor(0, {row, col})
+  else
+    vim.cmd('normal! P')
   end
 end)
 

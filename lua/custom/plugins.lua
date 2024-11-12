@@ -39,6 +39,18 @@ return {
         }
     },
 
+    -- Autocompleting brackets or quotes
+    {
+        'windwp/nvim-autopairs',
+        event = 'VeryLazy',
+        config = function()
+            require('nvim-autopairs').setup()
+            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+            local cmp = require('cmp')
+            cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+        end,
+    },
+
     -- Collection of various small independent plugins/modules
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },

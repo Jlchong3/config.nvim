@@ -24,6 +24,11 @@ vim.opt.isfname:append('@-@')
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+--[[
+asdfa
+asdf
+]]
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
