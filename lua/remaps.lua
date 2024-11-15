@@ -19,29 +19,6 @@ remap('x', '$', '$h')
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
--- Better paste
-remap('n', 'p', function()
-  local yanked_content = vim.fn.getreg('"')
-  if yanked_content:sub(-1) == '\n' then
-    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-    vim.cmd('normal! p')
-    vim.api.nvim_win_set_cursor(0, {row + 1, col})
-  else
-    vim.cmd('normal! p')
-  end
-end)
-
-remap('n', 'P', function()
-  local yanked_content = vim.fn.getreg('"')
-  if yanked_content:sub(-1) == '\n' then
-    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-    vim.cmd('normal! P')
-    vim.api.nvim_win_set_cursor(0, {row, col})
-  else
-    vim.cmd('normal! P')
-  end
-end)
-
 -- Easy Window manipulation
 remap('n', '<C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
 remap('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
@@ -72,14 +49,33 @@ remap('n', '<C-u>', '<C-u>zz')
 remap('n', 'n', 'nzzzv')
 remap('n', 'N', 'Nzzzv')
 
+-- Better paste
+local function custom_paste(is_upper, reg)
+    local expr = 'normal! ' .. (vim.v.count == 0 and 1 or vim.v.count) .. (is_upper and 'P' or 'p')
+    print(expr)
+    if vim.fn.getreg(reg):sub(-1) == '\n' then
+        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+        vim.cmd(expr)
+        vim.api.nvim_win_set_cursor(0, {row + (is_upper and 0 or 1), col})
+    else
+        vim.cmd(expr)
+    end
+end
+
 -- Copy and paste
-remap({'n','x'}, '<leader>p', [["0p]], {desc = '[P]aste last Yank'})
-remap({'n','x'}, '<leader>P', [["0P]], {desc = '[P]aste last Yank Upper'})
-remap({'n','x'}, '<leader>sp', [["+p]], {desc = '[S]ystem [P]aste'})
+remap('n', 'p', function() custom_paste(false, '"') end)
+
+remap('n', 'P', function() custom_paste(true, '"') end)
+
+remap({'n','x'}, '<leader>p', function() custom_paste(false, '0') end, {desc = '[P]aste last Yank'})
+remap({'n','x'}, '<leader>P', function() custom_paste(true, '0') end, {desc = '[P]aste last Yank'})
+remap({'n','x'}, '<leader>sp', function() custom_paste(false, '+') end, {desc = '[S]ystem [P]aste'})
+remap({'n','x'}, '<leader>sP', function() custom_paste(true, '+') end, {desc = '[S]ystem [P]aste'})
 remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
 remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
 remap({ 'n', 'x' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
+remap('n', 'ys', function () vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
 
 -- Stop search highlight
 remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')
