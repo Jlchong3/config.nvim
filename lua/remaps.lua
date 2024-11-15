@@ -51,8 +51,7 @@ remap('n', 'N', 'Nzzzv')
 
 -- Better paste
 local function custom_paste(is_upper, reg)
-    local expr = 'normal! ' .. (vim.v.count == 0 and 1 or vim.v.count) .. (is_upper and 'P' or 'p')
-    print(expr)
+    local expr = 'normal! ' .. (vim.v.count == 0 and '' or vim.v.count) .. (is_upper and 'P' or 'p')
     if vim.fn.getreg(reg):sub(-1) == '\n' then
         local row, col = unpack(vim.api.nvim_win_get_cursor(0))
         vim.cmd(expr)
