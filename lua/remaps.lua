@@ -50,9 +50,12 @@ remap('n', 'n', 'nzzzv')
 remap('n', 'N', 'Nzzzv')
 
 -- Better paste
-local function custom_paste(is_upper, reg)
-    local expr = 'normal! ' .. (vim.v.count == 0 and '' or vim.v.count) .. (is_upper and 'P' or 'p')
-    if vim.fn.getreg(reg):sub(-1) == '\n' then
+local function custom_paste(is_upper)
+    local register = vim.v.register
+    local count = vim.v.count == 0 and '' or vim.v.count
+    local expr = 'normal! "' .. register .. count .. (is_upper and 'P' or 'p')
+
+    if vim.fn.getreg(register):sub(-1) == '\n' then
         local row, col = unpack(vim.api.nvim_win_get_cursor(0))
         vim.cmd(expr)
         vim.api.nvim_win_set_cursor(0, {row + (is_upper and 0 or 1), col})
@@ -62,14 +65,13 @@ local function custom_paste(is_upper, reg)
 end
 
 -- Copy and paste
-remap('n', 'p', function() custom_paste(false, '"') end)
+remap('n', 'p', function() custom_paste(false) end)
+remap('n', 'P', function() custom_paste(true) end)
 
-remap('n', 'P', function() custom_paste(true, '"') end)
-
-remap({'n','x'}, '<leader>p', function() custom_paste(false, '0') end, {desc = '[P]aste last Yank'})
-remap({'n','x'}, '<leader>P', function() custom_paste(true, '0') end, {desc = '[P]aste last Yank'})
-remap({'n','x'}, '<leader>sp', function() custom_paste(false, '+') end, {desc = '[S]ystem [P]aste'})
-remap({'n','x'}, '<leader>sP', function() custom_paste(true, '+') end, {desc = '[S]ystem [P]aste'})
+remap({'n','x'}, '<leader>p', [["0p]], {desc = '[P]aste last Yank', remap = true})
+remap({'n','x'}, '<leader>P', [["0P]], {desc = '[P]aste last Yank', remap = true})
+remap({'n','x'}, '<leader>sp', [["+p]], {desc = '[S]ystem [P]aste', remap = true})
+remap({'n','x'}, '<leader>sP', [["+P]], {desc = '[S]ystem [P]aste', remap = true})
 remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
 remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
