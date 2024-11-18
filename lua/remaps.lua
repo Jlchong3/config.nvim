@@ -110,19 +110,6 @@ remap('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 remap('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
 remap('t', '<C-j>', [[<C-\><C-n><C-w><C-j>]])
 
--- Jump snippets
-remap({'i', 's'}, '<C-j>', function ()
-    if require('luasnip').locally_jumpable(1) then
-        require('luasnip').jump(1)
-    end
-end, {silent = true})
-
-remap({'i', 's'}, '<C-k>', function ()
-    if require('luasnip').locally_jumpable(-1) then
-        require('luasnip').jump(-1)
-    end
-end, {silent = true})
-
 -- Crates keymaps
 vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
