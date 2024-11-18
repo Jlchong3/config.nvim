@@ -24,16 +24,15 @@ vim.opt.isfname:append('@-@')
 vim.o.splitright = true
 vim.o.splitbelow = true
 
---[[
-asdfa
-asdf
-]]
-
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
 vim.o.list = true
-vim.opt.listchars = { tab = '  ', trail = '·' }
+vim.opt.listchars = {
+    -- eol = "↴",
+    -- tab = "» ",
+    trail = '·'
+}
 
 -- Enable break indent
 vim.o.breakindent = true
