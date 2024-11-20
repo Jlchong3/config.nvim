@@ -12,10 +12,10 @@ vim.wo.number = true
 vim.o.rnu = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = ''
 
 -- Lines from cursor to end of screen
-vim.o.scrolloff = 8
+vim.o.scrolloff = 6
 
 -- Include in filename
 vim.opt.isfname:append('@-@')
