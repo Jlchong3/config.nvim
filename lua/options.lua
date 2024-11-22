@@ -31,7 +31,7 @@ vim.o.inccommand = 'split'
 vim.o.list = true
 vim.opt.listchars = {
     -- eol = "↴",
-    -- tab = "» ",
+    tab = "» ",
     trail = '·'
 }
 
