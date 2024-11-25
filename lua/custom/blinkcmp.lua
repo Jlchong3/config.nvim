@@ -18,9 +18,6 @@ return {
         },
 
         nerd_font_variant = 'mono',
-        accept = {
-            auto_brackets = { enabled = true },
-        },
 
         windows = {
             autocomplete = {
