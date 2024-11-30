@@ -6,16 +6,22 @@ remap('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay
 -- Remove Q command
 remap('n', 'Q', '<Nop>')
 
--- surround remaps
 remap({'n', 'x'}, 's', '<Nop>')
 remap({'n', 'x'}, 'S', '<Nop>')
-remap('n', 'ss', '_sa$', { remap = true })
-remap('n', 'S', 'Vsa', { remap = true })
+
+-- surround remaps
+remap('n', 'yss', '_ys$', { remap = true })
+
+-- Replace
+remap('n', 's', require('substitute').operator, { noremap = true })
+remap('n', 'ss', require('substitute').line, { noremap = true })
+remap('n', 'S', require('substitute').eol, { noremap = true })
+remap('x', 's', require('substitute').visual, { noremap = true })
 
 -- '$' nuisance in visual mode
 remap('x', '$', '$h')
 
--- Start/Restart Lsp
+-- Start/Restart Ls
 remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 

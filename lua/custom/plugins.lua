@@ -1,7 +1,7 @@
 return {
 
     -- Java (Install jdtls,java-test and java-debug lsp through mason)
-   { 'mfussenegger/nvim-jdtls', event = 'VeryLazy' },
+    { 'mfussenegger/nvim-jdtls', event = 'VeryLazy' },
 
     -- Detect tabstop and shiftwidth automatically
     { 'tpope/vim-sleuth', event = 'VeryLazy'},
@@ -29,6 +29,9 @@ return {
 
     -- Live-server
     { 'brianhuster/live-preview.nvim', lazy = true, cmd = { 'LivePreview' }, opts = {} },
+
+    -- Substitute
+    { "gbprod/substitute.nvim", opts = { } },
 
     -- Showing rgb/hex color ano color picker option
     {
