@@ -115,7 +115,7 @@ return {
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
 
-        mason_lspconfig.setup {
+        mason_lspconfig.setup = {
             ensure_installed = vim.tbl_keys(servers),
         }
 
@@ -137,6 +137,7 @@ return {
             group = 'LSPGroup',
             callback = function(e)
                 local nmap = function(keys, func, desc)
+                    ---@diagnostic disable-next-line: missing-fields
                     vim.keymap.set('n', keys, func, { buffer = e.buf, desc = desc })
                 end
                 local builtin = require('telescope.builtin')
@@ -163,5 +164,22 @@ return {
                 end, { desc = 'Format current buffer with LSP' })
             end
         })
-    end
+
+        vim.api.nvim_create_autocmd("LspProgress", {
+            group = 'LSPGroup',
+            callback = function(ev)
+                local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+                ---@diagnostic disable-next-line: param-type-mismatch
+                vim.notify(vim.lsp.status(), "info", {
+                    id = "lsp_progress",
+                    title = "LSP Progress",
+                    opts = function(notif)
+                        notif.icon = ev.data.params.value.kind == "end" and " "
+                        ---@diagnostic disable-next-line: undefined-field
+                        or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                    end,
+                })
+            end,
+        })
+    end,
 }

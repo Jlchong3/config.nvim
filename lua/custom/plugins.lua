@@ -21,9 +21,6 @@ return {
     -- Top dropbar with document symbols {requires nvim nightly (>= 0.10.0-dev)}
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
-    -- Inline GitBlame
-    { 'f-person/git-blame.nvim', lazy = true, cmd = { 'GitBlameEnable' } },
-
     -- For diffviews
     { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen' } },
 
