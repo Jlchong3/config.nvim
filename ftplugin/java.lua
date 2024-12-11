@@ -107,8 +107,8 @@ config['on_attach'] = function(_, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
-    nmap('<leader>tc', function () require('jdtls').test_class() require('dapui').open() end, '[T]est [C]lass')
-    nmap('<leader>tm', function () require('jdtls').test_nearest_method() require('dapui').open() end, '[T]est [M]ethod')
+    nmap('<leader>tjc', function () require('jdtls').test_class() require('dapui').open() end, '[T]est [J]ava [C]lass')
+    nmap('<leader>tjm', function () require('jdtls').test_nearest_method() require('dapui').open() end, '[T]est [J]ava [M]ethod')
 
 ---@diagnostic disable-next-line: missing-fields
     jdtls.setup_dap({ hotcodereplace = 'auto' })

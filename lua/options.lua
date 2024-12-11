@@ -9,7 +9,7 @@ vim.o.hlsearch = true
 vim.o.showmode = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
 vim.o.rnu = true
 
 -- Enable mouse mode
