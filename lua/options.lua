@@ -28,9 +28,9 @@ vim.o.splitbelow = true
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
-vim.o.list = true
+vim.o.list = false
 vim.opt.listchars = {
-    -- eol = "↴",
+    eol = "↴",
     tab = "» ",
     trail = '·'
 }

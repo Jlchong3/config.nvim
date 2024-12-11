@@ -1,8 +1,5 @@
 local remap = vim.keymap.set
 
--- Inlay Hints toggle
-remap('n', '<leader>in', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(_)) end , { desc = '[I]nlay [H]ints' })
-
 -- Remove Q command
 remap('n', 'Q', '<Nop>')
 
@@ -11,6 +8,7 @@ remap({'n', 'x'}, 'S', '<Nop>')
 
 -- surround remaps
 remap('n', 'yss', '_ys$', { remap = true })
+remap('n', 'yS', 'Vys', { remap = true })
 
 -- Replace
 remap('n', 's', require('substitute').operator, { noremap = true })
@@ -82,7 +80,7 @@ remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
 remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
 remap({ 'n', 'x' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
-remap('n', 'ys', function () vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
+remap('n', 'yc', function () vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
 
 -- Stop search highlight
 remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')

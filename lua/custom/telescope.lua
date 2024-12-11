@@ -47,6 +47,7 @@ return {
                 ['ui-select'] = {
                     require('telescope.themes').get_cursor{},
                 },
+                fzf = {}
             }
         }
 
