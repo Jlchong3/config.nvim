@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local remap = vim.keymap.set
 
 -- Remove Q command

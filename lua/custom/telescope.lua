@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- Fuzzy finder for various things
 return {
     'nvim-telescope/telescope.nvim',
