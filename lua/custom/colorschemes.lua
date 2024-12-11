@@ -62,7 +62,7 @@ return {
                 GruvboxPurpleUnderline = { underline = true },
                 GruvboxAquaUnderline = { underline = true },
                 GruvboxOrangeUnderline = { underline = true },
-                TreesitterContextBottom =  { underline = true, sp = '#d2c3b4' },
+                TreesitterContextLineNumber = { fg = '#fe8019' },
                 MiniStatuslineFilename = { fg = '#bea784' },
                 MiniStatuslineInactive = { fg = '#96865d' },
                 LspInlayHint = { fg = '#ae915f' },
