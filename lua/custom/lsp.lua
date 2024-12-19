@@ -109,8 +109,7 @@ return {
         }
 
         -- blink-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'

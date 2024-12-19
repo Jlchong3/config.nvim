@@ -13,21 +13,31 @@ return {
             ['<C-d>'] = { 'scroll_documentation_up', 'fallback' },
         },
 
-        highlight = {
+        appearance = {
             use_nvim_cmp_as_default = true,
+            nerd_font_variant = 'mono'
         },
 
-        nerd_font_variant = 'mono',
-
-        windows = {
-            autocomplete = {
+        completion = {
+            menu = {
                 draw = {
                     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } },
                 },
             },
+
+            accept = { auto_brackets = { enabled = true }},
             documentation = {
-                border = 'rounded',
                 auto_show = true,
+                window = {
+                    border = 'rounded',
+                }
+            }
+        },
+
+        signature = {
+            enabled = true,
+            window = {
+                border = 'rounded',
             }
         },
 
