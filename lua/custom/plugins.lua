@@ -46,6 +46,13 @@ return {
         opts = {}
     },
 
+    {
+        "pmizio/typescript-tools.nvim",
+        event = 'VeryLazy',
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        opts = {},
+    },
+
     -- Collection of various small independent plugins/modules
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },

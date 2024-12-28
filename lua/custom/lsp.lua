@@ -86,15 +86,6 @@ return {
                     }
                 }
             },
-            ts_ls = {
-                typescript = {
-                    inlayHints = inlayHints
-                },
-
-                javascript = {
-                    inlayHints = inlayHints
-                }
-            },
             marksman = {},
             cssls = { filetypes = { 'css', 'scss' } },
             tailwindcss = {},

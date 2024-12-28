@@ -3,14 +3,12 @@ return {
     {
         'catppuccin/nvim',
         name = 'catppuccin',
-        event = 'VeryLazy',
         opts = {
             flavour = 'mocha',
             transparent_background = true,
             integrations = {
                 telescope = {
                     enabled = true,
-                    style = 'nvchad'
                 },
             },
             styles = {
@@ -19,18 +17,16 @@ return {
             },
             custom_highlights = function (_)
                 return {
-                    LineNrAbove = { fg = '#77D5EA' },
-                    LineNr = { fg = '#D0F6FF' },
-                    LineNrBelow = { fg = '#77D5EA' },
-
-                    Visual = { bg = '#1684AF' },
-
+                    LineNrAbove = { fg = '#b978b7' },
+                    LineNr = { fg = '#f8abf3' },
+                    LineNrBelow = { fg = '#b978b7' },
                     Whitespace = { link = 'Comment' },
-
-                    LspInlayHint = { fg = '#638198' },
-                    TreesitterContextBottom =  { underline = true, sp = '#425c88' },
-                    MiniStatuslineFilename = { fg = '#8facf1', bg = 'none' },
-                    MiniStatuslineInactive = { fg = '#425c88', bg = 'none' },
+                    FloatBorder = { fg = '#EFAAEB' },
+                    Visual = { bg = '#8f6892' },
+                    LspInlayHint = { fg = '#ae915f' },
+                    MiniStatuslineModeNormal = { fg = '#000000', bg = '#EBBCBA' },
+                    MiniStatuslineFilename = {  fg = '#EBBCBA', bg = 'none' },
+                    MiniStatuslineInactive = { fg = '#b67e7e', bg = 'none' },
                     PmenuSel = { bg = '#2a2b3c' },
                     Pmenu = { bg = '#353e5a'},
                     TabLineSel = { bg = 'none', fg = '#89b4fa' },
@@ -42,7 +38,6 @@ return {
     },
     {
         'ellisonleao/gruvbox.nvim',
-        priority = 1000,
         opts = {
             underline = true,
             undercurl = false,
@@ -81,3 +76,4 @@ return {
         }
     },
 }
+

@@ -109,7 +109,7 @@ remap('n','<leader>V', function ()
     vim.cmd.term()
 end, {desc = '[V]ertical Term'})
 
-remap('t', '<esc><esc>', [[<C-\><C-n>]])
+remap('t', '<esc>', [[<C-\><C-n>]])
 remap('t', '<C-h>', [[<C-\><C-n><C-w><C-h>]])
 remap('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 remap('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
