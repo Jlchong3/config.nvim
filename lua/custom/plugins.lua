@@ -9,9 +9,6 @@ return {
     -- Additional lua configuration, makes nvim stuff amazing!
     { 'folke/lazydev.nvim', ft = 'lua', opts = { } },
 
-    -- Git related plugin
-    { 'tpope/vim-fugitive', event = 'VeryLazy' },
-
     -- For undo navigation
     { 'mbbill/undotree', event = 'VeryLazy'} ,
 
