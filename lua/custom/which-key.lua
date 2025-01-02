@@ -20,7 +20,6 @@ return {
             { '<leader>l', group = '[L]sp' },
             { '<leader>i', group = '[I]nlay' },
             { '<leader>v', group = '[V]ariable' },
-            { 's', group = '[S]urround'},
         }
     end
 }

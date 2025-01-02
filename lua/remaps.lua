@@ -8,8 +8,7 @@ remap({'n', 'x'}, 's', '<Nop>')
 remap({'n', 'x'}, 'S', '<Nop>')
 
 -- surround remaps
-remap('n', 'yss', '_ys$', { remap = true })
-remap('n', 'yS', 'Vys', { remap = true })
+remap('n', 'sus', '_su$', { remap = true })
 
 -- Replace
 remap('n', 's', require('substitute').operator, { noremap = true })

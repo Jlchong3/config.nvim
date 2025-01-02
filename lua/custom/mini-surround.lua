@@ -3,7 +3,7 @@ return {
     event = 'VeryLazy',
     opts = {
         mappings = {
-            add = 'ys',
+            add = 'su',
             delete = 'ds',
             find = '',
             find_left = '',
