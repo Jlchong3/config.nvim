@@ -46,6 +46,7 @@ return {
             eslint = {},
             ols = {},
             zls = {},
+            jdtls = {},
             rust_analyzer = {
                 rust_analyzer = {
                     autoSearchPaths = true,
