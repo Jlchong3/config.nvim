@@ -114,28 +114,3 @@ remap('t', '<C-h>', [[<C-\><C-n><C-w><C-h>]])
 remap('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 remap('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
 remap('t', '<C-j>', [[<C-\><C-n><C-w><C-j>]])
-
--- Crates keymaps
-vim.api.nvim_create_autocmd('BufRead', {
-    group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
-    pattern = 'Cargo.toml',
-    callback = function()
-        require('cmp').setup.buffer({ sources = { { name = 'crates' } } })
-        local crates = require('crates')
-        remap('n', '<leader>ct', crates.toggle, { silent = true, desc = 'Crates toggle'})
-        remap('n', '<leader>cr', crates.reload, { silent = true, desc = 'Crates reload'})
-
-        remap('n', '<leader>cf', crates.show_features_popup, { silent = true, desc = 'Crates show features'})
-        remap('n', '<leader>cd', crates.show_dependencies_popup, { silent = true, desc = 'Crates dependencies'})
-
-        remap('n', '<leader>cu', crates.update_crate, { silent = true, desc = 'Update crate'})
-        remap('v', '<leader>cu', crates.update_crates, { silent = true, desc = 'Update crates'})
-        remap('n', '<leader>cl', crates.update_all_crates, { silent = true, desc = 'Update all crates'})
-        remap('n', '<leader>cU', crates.upgrade_crate, { silent = true, desc = 'Upgrade crate'})
-        remap('v', '<leader>cU', crates.upgrade_crates, { silent = true, desc = 'Upgrade crates'})
-        remap('n', '<leader>cL', crates.upgrade_all_crates, { silent = true, desc = 'Upgrade all crates'})
-
-        remap('n', '<leader>cx', crates.expand_plain_crate_to_inline_table, { silent = true, desc = 'Expand to inline table'})
-        remap('n', '<leader>cX', crates.extract_crate_into_table, { silent = true, desc = 'Expand into table'})
-    end,
-})

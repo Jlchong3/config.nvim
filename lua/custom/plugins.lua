@@ -27,6 +27,13 @@ return {
     -- Substitute
     { "gbprod/substitute.nvim", opts = { } },
 
+    -- Autocompleting brackets or quotes
+    { 'windwp/nvim-autopairs', event = 'VeryLazy', opts = {} },
+
+    -- Collection of various small independent plugins/modules
+    { 'echasnovski/mini.statusline', opts = { } },
+    { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
+
     -- Showing rgb/hex color ano color picker option
     {
         'uga-rosa/ccc.nvim',
@@ -36,13 +43,7 @@ return {
         }
     },
 
-    -- Autocompleting brackets or quotes
-    {
-        'windwp/nvim-autopairs',
-        event = 'VeryLazy',
-        opts = {}
-    },
-
+    -- Better typescript-lsp integration
     {
         "pmizio/typescript-tools.nvim",
         event = 'VeryLazy',
@@ -50,19 +51,13 @@ return {
         opts = {},
     },
 
-    -- Collection of various small independent plugins/modules
-    { 'echasnovski/mini.statusline', opts = { } },
-    { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
-
     -- Markdown-preview
     {
         'iamcco/markdown-preview.nvim',
         lazy = true,
         cmd = { 'MarkdownPreview' },
         build = 'cd app && npm install',
-        init = function()
-            vim.g.mkdp_filetypes = { 'markdown' }
-        end,
+        init = function() vim.g.mkdp_filetypes = { 'markdown' } end,
         ft = { 'markdown' },
     },
 
@@ -85,14 +80,6 @@ return {
         'MeanderingProgrammer/render-markdown.nvim',
         ft = 'markdown',
         opts = {},
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    },
-
-    -- Rust packages manager
-    {
-        'saecki/crates.nvim',
-        tag = 'stable',
-        event = { 'BufRead Cargo.toml' },
-        opts =  { popup = { border = 'single' } }
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
     },
 }

@@ -3,6 +3,7 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     config = function ()
+        ---@diagnostic disable-next-line: missing-fields
         require('which-key').setup{
             preset = "helix",
         }
