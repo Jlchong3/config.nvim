@@ -38,6 +38,7 @@ return {
     },
     {
         'ellisonleao/gruvbox.nvim',
+        event = 'VeryLazy',
         opts = {
             underline = true,
             undercurl = false,

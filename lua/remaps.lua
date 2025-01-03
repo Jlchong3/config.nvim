@@ -10,12 +10,6 @@ remap({'n', 'x'}, 'S', '<Nop>')
 -- surround remaps
 remap('n', 'sus', '_su$', { remap = true })
 
--- Replace
-remap('n', 's', require('substitute').operator, { noremap = true })
-remap('n', 'ss', require('substitute').line, { noremap = true })
-remap('n', 'S', require('substitute').eol, { noremap = true })
-remap('x', 's', require('substitute').visual, { noremap = true })
-
 -- '$' nuisance in visual mode
 remap('x', '$', '$h')
 
