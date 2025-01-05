@@ -9,8 +9,6 @@ return {
                     'nvim-neotest/nvim-nio',
                 }
             },
-            -- If you want go debugger (need delve installed)
-            'leoluz/nvim-dap-go',
         },
         config = function()
 
@@ -52,23 +50,12 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'mfussenegger/nvim-dap',
-            'WhoIsSethDaniel/mason-tool-installer.nvim'
-        },
-        opts = {
-            handlers = {}
+            -- If you want go debugger (need delve installed)
+            'leoluz/nvim-dap-go',
         },
         config = function ()
-            require('mason-tool-installer').setup{
-                ensure_installed = {
-                    'codelldb',
-                    'delve'
-                }
-            }
-            vim.api.nvim_command('MasonToolsInstall')
-
-        ---@diagnostic disable-next-line: missing-fields
+            ---@diagnostic disable-next-line: missing-fields
             require('mason-nvim-dap').setup {
-                ensure_installed = { 'codelldb', 'delve' },
                 handlers = {}
             }
             -- Setups and custom configs

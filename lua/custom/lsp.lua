@@ -4,8 +4,9 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        { 'williamboman/mason.nvim', opts = { PATH = "append" } },
+        {'williamboman/mason.nvim', opts = { PATH = "append" }},
         'williamboman/mason-lspconfig.nvim',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
         'saghen/blink.cmp'
     },
 
@@ -28,8 +29,6 @@ return {
 
         require('mason').setup()
 
-        require('mason-lspconfig').setup()
-
         vim.diagnostic.config {
             float = {
                 border = 'rounded'
@@ -46,7 +45,6 @@ return {
             eslint = {},
             ols = {},
             zls = {},
-            jdtls = {},
             rust_analyzer = {
                 rust_analyzer = {
                     autoSearchPaths = true,
@@ -91,24 +89,32 @@ return {
 
         -- blink-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = require('blink.cmp').get_lsp_capabilities()
+        local ensure_installed = vim.tbl_keys(servers or {})
+        vim.list_extend(ensure_installed, {
+            'codelldb',
+            'delve',
+            'jdtls',
+            'java-debug-adapter',
+            'java-test',
+        })
 
-        -- Ensure the servers above are installed
-        local mason_lspconfig = require 'mason-lspconfig'
-
-        mason_lspconfig.setup = {
-            ensure_installed = vim.tbl_keys(servers),
+        require('mason-tool-installer').setup {
+            ensure_installed = ensure_installed
         }
+        vim.api.nvim_command('MasonToolsInstall')
 
-        mason_lspconfig.setup_handlers {
-            function(server_name)
-                if server_name ~= 'jdtls' then
+        ---@diagnostic disable-next-line: missing-fields
+        require('mason-lspconfig').setup{
+            handlers = {
+                function(server_name)
                     require('lspconfig')[server_name].setup {
                         capabilities = capabilities,
                         settings = servers[server_name],
                         filetypes = (servers[server_name] or {}).filetypes,
                     }
-                end
-            end,
+                end,
+                ['jdtls'] = function() end
+            },
         }
 
         -- Lsp keymaps on_attach
