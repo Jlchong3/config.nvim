@@ -40,6 +40,7 @@ local toggle_terminal = function ()
         state.floating = create_floating_window { buf = state.floating.buf, win = state.floating.win }
         if vim.bo[state.floating.buf].buftype ~= 'terminal' then
             vim.cmd.term()
+            vim.cmd('norm i')
         end
     else
         vim.api.nvim_win_hide(state.floating.win)
