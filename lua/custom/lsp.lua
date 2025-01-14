@@ -4,9 +4,10 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        {'williamboman/mason.nvim', opts = { PATH = "append" }},
+        { 'williamboman/mason.nvim', opts = { PATH = "append" } },
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
+        'echasnovski/mini.pick',
         'saghen/blink.cmp'
     },
 
@@ -104,7 +105,7 @@ return {
         vim.api.nvim_command('MasonToolsInstall')
 
         ---@diagnostic disable-next-line: missing-fields
-        require('mason-lspconfig').setup{
+        require('mason-lspconfig').setup {
             handlers = {
                 function(server_name)
                     require('lspconfig')[server_name].setup {
@@ -126,17 +127,29 @@ return {
                     ---@diagnostic disable-next-line: missing-fields
                     vim.keymap.set('n', keys, func, { buffer = e.buf, desc = desc })
                 end
-                local builtin = require('telescope.builtin')
+
+                local extra = require('mini.extra').pickers
 
                 nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
                 nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-                nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
-                nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
-                nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
-                nmap('<leader>T', builtin.lsp_type_definitions, '[T]ype Definition')
-                nmap('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
-                nmap('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+                local on_list = function(opts)
+                    local previous = vim.fn.getqflist()
+                    vim.fn.setqflist({}, ' ', opts)
+                    if #opts.items == 1 then
+                        vim.cmd.cfirst()
+                    else
+                        require('mini.extra').pickers.list({ scope = "quickfix" }, { source = { name = opts.title } })
+                    end
+                    vim.fn.setqflist(previous, ' ')
+                end
+
+                nmap('gd', function() vim.lsp.buf.definition { on_list = on_list } end, '[G]oto [D]efinition')
+                nmap('gr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
+                nmap('gI', function() extra.lsp { scope = 'implementation' } end, '[G]oto [I]mplementation')
+                nmap('<leader>T', function() extra.lsp { scope = 'type_definition' } end, '[T]ype Definition')
+                nmap('<leader>ds', function() extra.lsp { scope = 'document_symbol' } end, '[D]ocument [S]ymbols')
+                nmap('<leader>ws', function() extra.lsp { scope = 'workspace_symbol' } end, '[W]orkspace [S]ymbols')
 
                 -- See `:help K` for why this keymap
                 nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')

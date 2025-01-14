@@ -1,9 +1,7 @@
 return {
     'saghen/blink.cmp',
     event = 'VeryLazy',
-    dependencies = {
-        'rafamadriz/friendly-snippets',
-    },
+    dependencies = { 'rafamadriz/friendly-snippets', },
     build = 'cargo build --release',
     opts = {
         keymap = {
