@@ -1,16 +1,16 @@
 return {
-  "folke/snacks.nvim",
+  'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
   opts = {
-    bigfile = { enabled = true },
-    git = { enabled = true },
-    gitbrowse = { enabled = true },
-    toggle = { enabled = true, },
+    bigfile = {},
+    git = {},
+    gitbrowse = {},
+    toggle = {},
   },
   keys = {
-    { '<leader>gb', function () Snacks.git.blame_line() end, desc = '[G]it [B]lame' },
-    { '<leader>gr', function () Snacks.gitbrowse.open() end, desc = '[G]it [R]epository' },
+    { '<leader>gb', function() Snacks.git.blame_line() end, desc = '[G]it [B]lame' },
+    { '<leader>gr', function() Snacks.gitbrowse.open() end, desc = '[G]it [R]epository' },
   },
   init = function ()
     vim.api.nvim_create_autocmd("User", {
