@@ -7,7 +7,7 @@ return {
     config = function()
         require('mini.extra').setup()
         require('mini.pick').setup()
-        local custom_pickers = require('plugin.pickers')
+        local custom_pickers = require('extra.pickers')
 
         local builtin = MiniPick.builtin
         local extra = MiniExtra.pickers
