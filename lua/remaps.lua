@@ -13,8 +13,7 @@ remap('n', 'sus', '_su$', { remap = true })
 -- '$' nuisance in visual mode
 remap('x', '$', '$h')
 
--- Start/Restart Ls
-remap('n', '<leader>ls', '<cmd>LspStart<CR>', { desc = '[L]sp [S]tart' })
+-- Restart Ls
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
 -- Easy Window manipulation
