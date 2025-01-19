@@ -12,18 +12,6 @@ return {
     },
 
     config = function()
-        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-            vim.lsp.handlers.hover, {
-                border = 'rounded'
-            }
-        )
-
-        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-            vim.lsp.handlers.signature_help, {
-                border = 'rounded'
-            }
-        )
-
         require('lspconfig.ui.windows').default_options = {
             border = 'rounded'
         }
@@ -31,15 +19,9 @@ return {
         require('mason').setup()
 
         vim.diagnostic.config {
-            float = {
-                border = 'rounded'
-            }
+            float = { border = 'rounded' },
+            signs = { text = { ERROR = ' ', WARN = ' ', INFO = ' ', HINT = '󰌵'} }
         }
-
-        vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
-        vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
-        vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
-        vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
         local servers = {
             clangd = {},
@@ -152,7 +134,8 @@ return {
                 nmap('<leader>ws', function() extra.lsp { scope = 'workspace_symbol' } end, '[W]orkspace [S]ymbols')
 
                 -- See `:help K` for why this keymap
-                nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
+                nmap('K', function() vim.lsp.buf.hover { border = 'rounded' } end, 'Hover Info')
+                nmap('H', function() vim.lsp.buf.signature_help { border = 'rounded' } end, 'Signature Documentation')
 
                 -- Lesser used LSP functionality
                 nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
