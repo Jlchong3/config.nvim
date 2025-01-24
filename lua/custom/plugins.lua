@@ -19,10 +19,10 @@ return {
     { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
     -- For diffviews
-    { 'sindrets/diffview.nvim', lazy = true, cmd = { 'DiffviewOpen' } },
+    { 'sindrets/diffview.nvim', cmd = { 'DiffviewOpen' } },
 
     -- Live-server
-    { 'brianhuster/live-preview.nvim', lazy = true, cmd = { 'LivePreview' }, opts = {} },
+    { 'brianhuster/live-preview.nvim', cmd = { 'LivePreview' }, opts = {} },
 
     -- Autocompleting brackets or quotes
     { 'windwp/nvim-autopairs', event = 'VeryLazy', opts = {} },
@@ -51,7 +51,6 @@ return {
     -- Markdown-preview
     {
         'iamcco/markdown-preview.nvim',
-        lazy = true,
         cmd = { 'MarkdownPreview' },
         build = 'cd app && npm install',
         init = function() vim.g.mkdp_filetypes = { 'markdown' } end,
@@ -62,8 +61,8 @@ return {
     {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
-            { 'tpope/vim-dadbod', lazy = true},
-            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+            { 'tpope/vim-dadbod' },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true},
         },
         cmd = { 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer', },
         config = function ()
