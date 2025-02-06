@@ -10,13 +10,10 @@ return {
     { 'folke/lazydev.nvim', ft = 'lua', opts = { } },
 
     -- For undo navigation
-    { 'mbbill/undotree', event = 'VeryLazy'} ,
+    { 'mbbill/undotree', event = 'VeryLazy' } ,
 
     -- Automatically add closing tags for HTML and JSX
     { 'windwp/nvim-ts-autotag', event = 'VeryLazy', opts = { } },
-
-    -- Top dropbar with document symbols {requires nvim nightly (>= 0.10.0-dev)}
-    { 'Bekaboo/dropbar.nvim', event = 'VeryLazy', dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' } },
 
     -- For diffviews
     { 'sindrets/diffview.nvim', cmd = { 'DiffviewOpen' } },
@@ -42,7 +39,7 @@ return {
 
     -- Better typescript-lsp integration
     {
-        "pmizio/typescript-tools.nvim",
+        'pmizio/typescript-tools.nvim',
         event = 'VeryLazy',
         dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
         opts = {},
@@ -81,7 +78,7 @@ return {
 
     -- Substitute
     {
-        "gbprod/substitute.nvim",
+        'gbprod/substitute.nvim',
         event = 'VeryLazy',
         config = function()
             require('substitute').setup();

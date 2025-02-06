@@ -22,9 +22,9 @@ autocmd('BufWritePre', {
 
 autocmd('BufEnter', {
     group = JlchongGroup,
-    pattern = "*",
+    pattern = '*',
     callback = function()
-        vim.opt.formatoptions:remove("o")
+        vim.opt.formatoptions:remove('o')
     end
 })
 
@@ -36,5 +36,6 @@ autocmd('TermOpen', {
         vim.opt_local.number = false
         vim.opt_local.relativenumber = false
         vim.opt_local.scrolloff = 0
+        vim.cmd('norm i');
     end
 })
