@@ -2,8 +2,8 @@
 return {
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',
-    config = function ()
-        require('gitsigns').setup{
+    config = function()
+        require('gitsigns').setup {
             signs = {
                 add = { text = '+' },
                 change = { text = '~' },
@@ -38,11 +38,10 @@ return {
                     return '<Ignore>'
                 end, { expr = true, buffer = bufnr, desc = 'Goto prev hunk' })
 
-                vim.keymap.set('n', '<leader>hb',function()
-                    gs.blame_line{full=true}
+                vim.keymap.set('n', '<leader>hb', function()
+                    gs.blame_line { full = true }
                 end, { buffer = bufnr, desc = 'Preview git blame' })
             end,
         }
     end
 }
-
