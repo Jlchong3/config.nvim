@@ -87,9 +87,6 @@ remap('n', '<leader>bd', [[:bd! <CR>]], {desc = '[B]uffer [D]elete'})
 -- UndoTree toggle
 remap('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = '[U]ndoTree'})
 
--- Default explorer
-remap('n', '<leader>fe', vim.cmd.Ex, { desc = '[F]ile [E]xplorer'})
-
 -- Terminal keymaps
 remap('n','<leader>H', function ()
     vim.cmd.split()
