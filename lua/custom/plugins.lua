@@ -16,10 +16,10 @@ return {
     { 'windwp/nvim-ts-autotag', event = 'VeryLazy', opts = { } },
 
     -- For diffviews
-    { 'sindrets/diffview.nvim', cmd = { 'DiffviewOpen' } },
+    { 'sindrets/diffview.nvim', cmd = 'DiffviewOpen' },
 
     -- Live-server
-    { 'brianhuster/live-preview.nvim', cmd = { 'LivePreview' }, opts = {} },
+    { 'brianhuster/live-preview.nvim', cmd = 'LivePreview', opts = {} },
 
     -- Autocompleting brackets or quotes
     { 'windwp/nvim-autopairs', event = 'VeryLazy', opts = {} },
