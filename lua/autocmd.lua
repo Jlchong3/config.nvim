@@ -19,7 +19,7 @@ autocmd('BufWritePre', {
     command = [[%s/\s\+$//e]]
 })
 
-
+-- No comment when 'o' pressed
 autocmd('BufEnter', {
     group = JlchongGroup,
     pattern = '*',
