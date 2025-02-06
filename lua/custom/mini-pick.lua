@@ -18,10 +18,10 @@ return {
         remap('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
         remap('n', '<leader>sf', builtin.files, { desc = '[S]earch [F]iles' })
         remap('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
-        remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch current [W]ord' })
+        remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
         remap('n', '<leader>sd', extra.diagnostic, { desc = '[S]earch [D]iagnostics' })
         remap('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-        remap('n', '<leader>gf', extra.git_files, { desc = 'Search [G]it [F]iles' })
+        remap('n', '<leader>gs', extra.git_files, { desc = '[G]it [S]earch Files' })
         remap('n', '<leader>.', function() builtin.files(nil, { source = { cwd = vim.fn.expand '%:p:h' } }) end,
             { desc = '[.] Directory Files' })
         remap('n', '<leader>/', function() extra.buf_lines({ scope = 'current' }) end, { desc = '[/] Fuzzy Search Buffer'})

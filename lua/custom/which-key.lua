@@ -17,7 +17,6 @@ return {
             { '<leader>w', group = '[W]orkspace' },
             { '<leader>b', group = '[B]uffer [B]reakpoint' },
             { '<leader>f', group = '[F]ile' },
-            { '<leader>l', group = '[L]sp' },
             { '<leader>i', group = '[I]nlay' },
             { '<leader>v', group = '[V]ariable' },
         }
