@@ -36,8 +36,6 @@ return {
                 'yaml'
             },
 
-            -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-            auto_install = false,
             highlight = { enable = true },
             indent = { enable = true },
             textobjects = {
@@ -59,15 +57,6 @@ return {
                     goto_previous_end = {
                         ['[F'] = '@function.outer',
                         ['[C'] = '@class.outer',
-                    },
-                },
-                swap = {
-                    enable = true,
-                    swap_next = {
-                        ['<leader>N'] = '@parameter.inner',
-                    },
-                    swap_previous = {
-                        ['<leader>A'] = '@parameter.inner',
                     },
                 },
             },

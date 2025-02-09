@@ -9,7 +9,7 @@ return {
     harpoon:setup()
 
     -- Add file to harpoon list
-    vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
+    vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end, { desc = '[A]dd to Harpoon' })
 
     -- Go to file in harpoon list
     vim.keymap.set('n', '<A-j>', function() harpoon:list():select(1) end)

@@ -24,8 +24,7 @@ return {
             vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
             vim.keymap.set('n', '<leader>bp', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
             vim.keymap.set('n', '<leader>vi', function() require('dap.ui.widgets').hover() end, {desc = 'Debug: Variable Information'})
-            vim.keymap.set('n', '<leader>do', function() dapui.open() end, {desc = 'Debug: Open'})
-            vim.keymap.set('n', '<leader>dc', function() dapui.close() end, {desc = 'Debug: Close'})
+            vim.keymap.set('n', '<leader>dt', function() dapui.toggle() end, {desc = 'Debug: Open'})
             vim.keymap.set('n', '<leader>dr', function() dap.repl.toggle() end, {desc = 'Debug: Repl Toggle'})
             vim.keymap.set('n', '<leader>bc', function()
                 dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -69,6 +68,7 @@ return {
                     type = 'codelldb',
                     request = 'launch',
                     program = function()
+                        --Fix this in other day
                         return vim.fn.getcwd() .. '/zig-out/bin/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
                     end,
                     cwd = '${workspaceFolder}',
