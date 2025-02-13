@@ -2,12 +2,11 @@ return {
     'saghen/blink.cmp',
     event = 'InsertEnter',
     dependencies = { 'rafamadriz/friendly-snippets', },
+    version = '*',
     build = 'cargo build --release',
     opts = {
         keymap = {
             preset = 'default',
-            ['<C-j>'] = { 'snippet_forward', 'fallback' },
-            ['<C-k>'] = { 'snippet_backward', 'fallback' },
             ['<C-d>'] = { 'scroll_documentation_up', 'fallback' },
         },
 
@@ -23,7 +22,7 @@ return {
                 },
             },
 
-            accept = { auto_brackets = { enabled = true }},
+            accept = { auto_brackets = { enabled = true } },
             documentation = {
                 auto_show = true,
                 window = {
