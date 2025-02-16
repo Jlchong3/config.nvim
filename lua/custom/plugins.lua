@@ -15,9 +15,6 @@ return {
     -- Automatically add closing tags for HTML and JSX
     { 'windwp/nvim-ts-autotag', event = 'VeryLazy', opts = { } },
 
-    -- For diffviews
-    { 'sindrets/diffview.nvim', cmd = 'DiffviewOpen' },
-
     -- Live-server
     { 'brianhuster/live-preview.nvim', cmd = 'LivePreview', opts = {} },
 

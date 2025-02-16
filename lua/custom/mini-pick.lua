@@ -5,27 +5,44 @@ return {
         'echasnovski/mini.extra'
     },
     config = function()
-        require('mini.extra').setup()
         require('mini.pick').setup()
-        local custom_pickers = require('extra.pickers')
+        require('mini.extra').setup()
 
         local builtin = MiniPick.builtin
         local extra = MiniExtra.pickers
+        local custom_pickers = require('extra.pickers')
+
         local remap = vim.keymap.set
 
         vim.ui.select = MiniPick.ui_select
 
         remap('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
-        remap('n', '<leader>sf', builtin.files, { desc = '[S]earch [F]iles' })
-        remap('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
-        remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
-        remap('n', '<leader>sd', extra.diagnostic, { desc = '[S]earch [D]iagnostics' })
-        remap('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-        remap('n', '<leader>gs', extra.git_files, { desc = '[G]it [S]earch Files' })
+        remap('n', '<leader>sf', function() builtin.files(nil,
+            {
+                source = {
+                    preview = function(buf_id, item)
+                        if Snacks.image.supports_file(item) then
+                            Snacks.image.buf.attach(buf_id, {src = item})
+                        else
+                            MiniPick.default_preview(buf_id, item) end
+                    end
+                }
+            }) end, { desc = '[S]earch [F]iles' })
         remap('n', '<leader>.', function() builtin.files(nil, { source = { cwd = vim.fn.expand '%:p:h' } }) end,
             { desc = '[.] Directory Files' })
+        remap('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
+        remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
+        remap('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+
+        remap('n', '<leader>sd', extra.diagnostic, { desc = '[S]earch [D]iagnostics' })
+        remap('n', '<leader>gst', extra.git_files, { desc = '[G]it [S]earch [T]racked Files' })
+        remap('n', '<leader>gsm', function() extra.git_files{ scope = 'modified'} end, { desc = '[G]it [S]earch [M]odified Files' })
+        remap('n', '<leader>gsu', function() extra.git_files{ scope = 'untracked'} end, { desc = '[G]it [S]earch [U]ntracked Files' })
+        remap('n', '<leader>gsi', function() extra.git_files{ scope = 'ignored'} end, { desc = '[G]it [S]earch [I]gnored Files' })
+        remap('n', '<leader>gsd', function() extra.git_files{ scope = 'deleted'} end, { desc = '[G]it [S]earch [D]eleted Files' })
         remap('n', '<leader>/', function() extra.buf_lines({ scope = 'current' }) end, { desc = '[/] Fuzzy Search Buffer'})
         remap('n', '<leader>s/', extra.buf_lines, { desc = '[S]earch [/] Open'})
+
         remap('n', '<leader>sl', custom_pickers.lsp_supported_files, { desc = '[S]earch [L]SP Supported' })
     end
 }

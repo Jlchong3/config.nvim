@@ -8,6 +8,13 @@ return {
     gitbrowse = {},
     toggle = {},
     lazygit = {},
+    image = {
+      doc = {
+        inline = false,
+        max_width = 40,
+        max_height = 20,
+      }
+    },
   },
   keys = {
     { '<leader>gb', function() Snacks.git.blame_line() end, desc = '[G]it [B]lame' },
