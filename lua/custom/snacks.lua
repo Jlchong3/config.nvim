@@ -11,15 +11,15 @@ return {
     image = {
       doc = {
         inline = false,
-        float = false, -- There are still problems
-        max_width = 40,
-        max_height = 20,
+        float = true, -- There are still problems
+        max_width = 50,
+        max_height = 30,
       }
     },
   },
   keys = {
     { '<leader>gb', function() Snacks.git.blame_line() end, desc = '[G]it [B]lame' },
-    { '<leader>gr', function() Snacks.gitbrowse.open() end, desc = '[G]it [R]epository' },
+    { '<leader>go', function() Snacks.gitbrowse.open() end, desc = '[G]it Repository [O]pen' },
     { '<leader>lg', function() Snacks.lazygit.open() end, desc = '[L]it [G]it' },
   },
   init = function ()

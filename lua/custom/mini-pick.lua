@@ -16,28 +16,11 @@ return {
 
         vim.ui.select = MiniPick.ui_select
 
-        local preview_files_and_images = function(buf_id, item)
-            if Snacks.image.supports_file(item) then
-                Snacks.image.buf.attach(buf_id, { src = item })
-            else
-                MiniPick.default_preview(buf_id, item)
-            end
-        end
-
         remap('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
-        remap('n', '<leader>sf', function() builtin.files(nil,
-            {
-                source = {
-                    preview = preview_files_and_images
-                }
-            }) end, { desc = '[S]earch [F]iles' })
-        remap('n', '<leader>.', function() builtin.files(nil,
-            {
-                source = {
-                    cwd = vim.fn.expand '%:p:h',
-                    preview = preview_files_and_images
-                }
-            }) end, { desc = '[.] Directory Files' })
+        remap('n', '<leader>sf', builtin.files, { desc = '[S]earch [F]iles' })
+        remap('n', '<leader>.', function() builtin.files(nil, { source = {
+            cwd = vim.fn.expand '%:p:h'
+        } }) end, { desc = '[.] Directory Files' })
         remap('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
         remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
         remap('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })

@@ -112,8 +112,7 @@ return {
 
                 local extra = require('mini.extra').pickers
 
-                nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+                nmap('grn', vim.lsp.buf.rename, '[R]e[n]ame')
 
                 local on_list = function(opts)
                     local previous = vim.fn.getqflist()
@@ -127,8 +126,8 @@ return {
                 end
 
                 nmap('gd', function() vim.lsp.buf.definition { on_list = on_list } end, '[G]oto [D]efinition')
-                nmap('gr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
-                nmap('gI', function() extra.lsp { scope = 'implementation' } end, '[G]oto [I]mplementation')
+                nmap('grr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
+                nmap('gri', function() extra.lsp { scope = 'implementation' } end, '[G]oto [I]mplementation')
                 nmap('<leader>T', function() extra.lsp { scope = 'type_definition' } end, '[T]ype Definition')
                 nmap('<leader>ds', function() extra.lsp { scope = 'document_symbol' } end, '[D]ocument [S]ymbols')
                 nmap('<leader>ws', function() extra.lsp { scope = 'workspace_symbol' } end, '[W]orkspace [S]ymbols')
