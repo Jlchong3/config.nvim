@@ -11,6 +11,7 @@ return {
     image = {
       doc = {
         inline = false,
+        float = false, -- There are still problems
         max_width = 40,
         max_height = 20,
       }

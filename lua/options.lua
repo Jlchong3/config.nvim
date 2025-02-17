@@ -47,7 +47,7 @@ vim.o.guicursor = 'i-c-ci-cr-r:blinkon1'
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.opt.undodir = os.getenv("HOME") .. '/.vimfiles/undodir'
+vim.opt.undodir = os.getenv("HOME") .. '/dev/.vimfiles/undodir'
 vim.o.undofile = true
 
 -- Shift and Tab config
