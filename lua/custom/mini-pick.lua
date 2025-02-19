@@ -47,7 +47,6 @@ return {
         remap('n', '<leader>gsm', function() extra.git_files{ scope = 'modified'} end, { desc = '[G]it [S]earch [M]odified Files' })
         remap('n', '<leader>gsu', function() extra.git_files{ scope = 'untracked'} end, { desc = '[G]it [S]earch [U]ntracked Files' })
         remap('n', '<leader>gsi', function() extra.git_files{ scope = 'ignored'} end, { desc = '[G]it [S]earch [I]gnored Files' })
-        remap('n', '<leader>gsd', function() extra.git_files{ scope = 'deleted'} end, { desc = '[G]it [S]earch [D]eleted Files' })
         remap('n', '<leader>/', function() extra.buf_lines({ scope = 'current' }) end, { desc = '[/] Fuzzy Search Buffer'})
         remap('n', '<leader>s/', extra.buf_lines, { desc = '[S]earch [/] Open'})
 
