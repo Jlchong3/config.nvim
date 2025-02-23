@@ -35,4 +35,14 @@ M.lsp_supported_files = function ()
         })
 end
 
+M.registry = function()
+    local selected = MiniPick.start( {
+        source = { items = vim.tbl_keys(MiniPick.registry), name = 'Registry' }
+    })
+
+    if selected == nil then return end
+
+    return MiniPick.registry[selected]()
+end
+
 return M

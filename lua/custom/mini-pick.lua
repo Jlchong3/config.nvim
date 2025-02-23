@@ -8,13 +8,18 @@ return {
         require('mini.pick').setup()
         require('mini.extra').setup()
 
-        local builtin = MiniPick.builtin
-        local extra = MiniExtra.pickers
-        local custom_pickers = require('extra.pickers')
-
         local remap = vim.keymap.set
 
         vim.ui.select = MiniPick.ui_select
+
+        MiniPick.registry.buffers = function(local_opts)
+            local wipeout_cur = function()
+                vim.api.nvim_buf_delete(MiniPick.get_picker_matches().current.bufnr, {})
+            end
+            local buffer_mappings = { wipeout = { char = '<C-d>', func = wipeout_cur } }
+            MiniPick.builtin.buffers(local_opts, { mappings = buffer_mappings })
+
+        end
 
         local preview_files_and_images = function(buf_id, item)
             if Snacks.image.supports_file(item) then
@@ -24,7 +29,11 @@ return {
             end
         end
 
-        remap('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
+        local builtin = MiniPick.builtin
+        local extra = MiniExtra.pickers
+        local custom_pickers = require('extra.pickers')
+
+        remap('n', '<leader>sb', MiniPick.registry.buffers, { desc = '[S]earch [B]uffers' })
         remap('n', '<leader>sf', function() builtin.files(nil,
             {
                 source = {
@@ -51,5 +60,6 @@ return {
         remap('n', '<leader>s/', extra.buf_lines, { desc = '[S]earch [/] Open'})
 
         remap('n', '<leader>sl', custom_pickers.lsp_supported_files, { desc = '[S]earch [L]SP Supported' })
+        remap('n', '<leader>ss', custom_pickers.registry, { desc = '[S]earch [S]upported Pickers' })
     end
 }
