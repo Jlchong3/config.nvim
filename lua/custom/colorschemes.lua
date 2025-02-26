@@ -36,45 +36,4 @@ return {
             end
         }
     },
-    {
-        'ellisonleao/gruvbox.nvim',
-        event = 'VeryLazy',
-        opts = {
-            underline = true,
-            undercurl = false,
-            italic = {
-                strings = false
-            },
-            transparent_mode = true,
-            overrides = {
-                Function = { fg = '#458588' },
-                LineNrAbove = { fg = '#928374' },
-                LineNr = { fg = '#d2c3b4' },
-                LineNrBelow = { fg = '#928374' },
-                GruvboxRedUnderline = { underline = true },
-                GruvboxGreenUnderline = { underline = true },
-                GruvboxYellowUnderline = { underline = true },
-                GruvboxBlueUnderline = { underline = true },
-                GruvboxPurpleUnderline = { underline = true },
-                GruvboxAquaUnderline = { underline = true },
-                GruvboxOrangeUnderline = { underline = true },
-                TreesitterContextLineNumber = { fg = '#fe8019' },
-                MiniStatuslineFilename = { fg = '#bea784' },
-                MiniStatuslineInactive = { fg = '#96865d' },
-                LspInlayHint = { fg = '#ae915f' },
-                PmenuSel = { bg = '#3c3836', fg = '#faf4da'},
-                TabLineSel = { bg = 'none' },
-                TabLine = { bg = 'none' },
-                TabLineFill = { bg = 'none', fg = '#fe8019'},
-                ['@markup.strong'] = { link = 'markdownBold' },
-                ['@markup.heading.1'] = { link = 'markdownH1' },
-                ['@markup.heading.2'] = { link = 'markdownH2' },
-                ['@markup.heading.3'] = { link = 'markdownH3' },
-                ['@markup.heading.4'] = { link = 'markdownH4' },
-                ['@markup.heading.5'] = { link = 'markdownH5' },
-                ['@markup.heading.6'] = { link = 'markdownH6' },
-            }
-        }
-    },
 }
-
