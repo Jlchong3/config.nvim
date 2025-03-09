@@ -6,9 +6,6 @@ return {
     -- Detect tabstop and shiftwidth automatically
     { 'tpope/vim-sleuth', event = 'VeryLazy'},
 
-    -- Additional lua configuration, makes nvim stuff amazing!
-    { 'folke/lazydev.nvim', ft = 'lua', opts = { } },
-
     -- For undo navigation
     { 'mbbill/undotree', event = 'VeryLazy' } ,
 
@@ -24,6 +21,17 @@ return {
     -- Collection of various small independent plugins/modules
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
+
+    -- Additional lua configuration, makes nvim stuff amazing!
+    {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+            library = {
+                { path = "snacks.nvim", words = { "Snacks" } },
+            }
+        }
+    },
 
     -- Showing rgb/hex color ano color picker option
     {
