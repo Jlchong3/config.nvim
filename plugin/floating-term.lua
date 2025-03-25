@@ -44,6 +44,7 @@ local toggle_terminal = function ()
     else
         vim.api.nvim_win_hide(state.floating.win)
     end
+    vim.cmd("norm i")
 end
 
 vim.api.nvim_create_user_command('FloatingTerm', toggle_terminal, {})
