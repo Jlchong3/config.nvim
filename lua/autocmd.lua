@@ -8,7 +8,7 @@ autocmd('TextYankPost', {
     group = JlchongGroup,
     pattern = '*',
     callback = function()
-        vim.highlight.on_yank()
+        vim.hl.on_yank()
     end,
 })
 
