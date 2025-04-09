@@ -75,7 +75,17 @@ return {
         }
 
         -- blink-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        local capabilities = {
+            workspace = {
+                fileOperations = {
+                    didRename = true,
+                    willRename = true,
+                }
+            }
+        }
+
+        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+
         local ensure_installed = vim.tbl_keys(mason_servers or {})
         vim.list_extend(ensure_installed, {
             'codelldb',
