@@ -15,9 +15,6 @@ return {
     -- Live-server
     { 'brianhuster/live-preview.nvim', cmd = 'LivePreview', opts = {} },
 
-    -- Autocompleting brackets or quotes
-    { 'windwp/nvim-autopairs', event = 'VeryLazy', opts = {} },
-
     -- Collection of various small independent plugins/modules
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
@@ -28,6 +25,7 @@ return {
         ft = 'lua',
         opts = {
             library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                 { path = "snacks.nvim", words = { "Snacks" } },
             }
         }
