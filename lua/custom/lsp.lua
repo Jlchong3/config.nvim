@@ -4,7 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        { 'williamboman/mason.nvim', opts = { PATH = "append" } },
+        { 'williamboman/mason.nvim', opts = { PATH = 'append' } },
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         'echasnovski/mini.pick',
@@ -23,21 +23,11 @@ return {
             signs = { text = { ERROR = ' ', WARN = ' ', INFO = ' ', HINT = '󰌵'} }
         }
 
-        local servers = {
-            clangd = {},
+        local mason_servers = {
             eslint = {},
             ols = {},
             zls = {},
             jdtls = {},
-            rust_analyzer = {
-                rust_analyzer = {
-                    autoSearchPaths = true,
-                },
-                cargo = {
-                    buildScripts = { enable = true },
-                    allFeatures = true,
-                },
-            },
             gopls = {
                 gopls = {
                     hints = {
@@ -71,9 +61,22 @@ return {
             },
         }
 
+        local local_servers = {
+            clangd = {},
+            rust_analyzer = {
+                rust_analyzer = {
+                    autoSearchPaths = true,
+                },
+                cargo = {
+                    buildScripts = { enable = true },
+                    allFeatures = true,
+                },
+            },
+        }
+
         -- blink-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = require('blink.cmp').get_lsp_capabilities()
-        local ensure_installed = vim.tbl_keys(servers or {})
+        local ensure_installed = vim.tbl_keys(mason_servers or {})
         vim.list_extend(ensure_installed, {
             'codelldb',
             'delve',
@@ -92,13 +95,21 @@ return {
                 function(server_name)
                     require('lspconfig')[server_name].setup {
                         capabilities = capabilities,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
+                        settings = mason_servers[server_name],
+                        filetypes = (mason_servers[server_name] or {}).filetypes,
                     }
                 end,
                 ['jdtls'] = function() end
             },
         }
+
+        for server, config in pairs(local_servers) do
+            require('lspconfig')[server].setup {
+                capabilities = capabilities,
+                settings = config,
+                filetypes = (config or {}).filetypes,
+            }
+        end
 
         -- Lsp keymaps on_attach
         vim.api.nvim_create_augroup('LSPGroup', {})

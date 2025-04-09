@@ -61,54 +61,6 @@ return {
             local dap = require('dap')
 
             require('dap-go').setup()
-
-            local configurations_rust = {
-                {
-                    name = 'Cargo Rust Debug',
-                    type = 'codelldb',
-                    request = 'launch',
-                    program = function()
-                        --Fix this in other day
-                        return vim.fn.getcwd() .. '/zig-out/bin/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-                    end,
-                    cwd = '${workspaceFolder}',
-                    stopAtEntry = false,
-                },
-            }
-
-            local configurations_zig = {
-                {
-                    name = 'Zig Project Debug',
-                    type = 'codelldb',
-                    request = 'launch',
-                    program = function()
-                        return vim.fn.getcwd() .. '/zig-out/bin/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-                    end,
-                    cwd = '${workspaceFolder}',
-                    stopAtEntry = false,
-                },
-            }
-
-            local configurations_c = {
-                {
-                    name = 'Launch with arguments',
-                    type = 'codelldb',
-                    request = 'launch',
-                    program = function()
-                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                    end,
-                    cwd = '${workspaceFolder}',
-                    stopOnEntry = false,
-                    args = function()
-                        local input = vim.fn.input('Arguments: ')
-                        return vim.split(input, ' ')
-                    end,
-                },
-            }
-            vim.list_extend(dap.configurations.c, configurations_c)
-            vim.list_extend(dap.configurations.zig, configurations_zig)
-            vim.list_extend(dap.configurations.rust, configurations_rust)
-
         end
     }
 }
