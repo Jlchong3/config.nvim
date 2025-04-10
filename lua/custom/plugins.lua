@@ -1,4 +1,5 @@
 return {
+    { 'rkaminsk/vim-syntax-clingo', ft = 'gringo'},
 
     -- Java (Install jdtls,java-test and java-debug lsp through mason)
     { 'mfussenegger/nvim-jdtls', event = 'VeryLazy' },
