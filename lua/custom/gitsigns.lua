@@ -37,10 +37,6 @@ return {
                     end)
                     return '<Ignore>'
                 end, { expr = true, buffer = bufnr, desc = 'Goto prev hunk' })
-
-                vim.keymap.set('n', '<leader>hb', function()
-                    gs.blame_line { full = true }
-                end, { buffer = bufnr, desc = 'Preview git blame' })
             end,
         }
     end
