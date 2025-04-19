@@ -26,6 +26,7 @@ return {
         local mason_servers = {
             eslint = {},
             ols = {},
+            bashls = {},
             zls = {},
             jdtls = {},
             gopls = {
