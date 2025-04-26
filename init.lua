@@ -16,7 +16,6 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
---this is the setup coming with kickstart
 require('lazy').setup({ import = 'custom' }, { change_detection = { notify = false } })
 
 require'remaps'

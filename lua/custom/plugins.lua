@@ -1,11 +1,9 @@
 return {
-    { 'rkaminsk/vim-syntax-clingo', ft = 'gringo'},
-
     -- Java (Install jdtls,java-test and java-debug lsp through mason)
     { 'mfussenegger/nvim-jdtls', event = 'VeryLazy' },
 
     -- Detect tabstop and shiftwidth automatically
-    { 'tpope/vim-sleuth', event = 'VeryLazy'},
+    { 'NMAC427/guess-indent.nvim', event = 'VeryLazy', opts = {} },
 
     -- For undo navigation
     { 'mbbill/undotree', event = 'VeryLazy' } ,
@@ -20,24 +18,19 @@ return {
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
 
+    -- Showing rgb/hex color and color picker option
+    { 'catgoose/nvim-colorizer.lua', event = 'VeryLazy', opts = { lazy_load = true } },
+    { 'uga-rosa/ccc.nvim', event = 'VeryLazy', opts = { highlighter = { auto_enable = false }, } },
+
     -- Additional lua configuration, makes nvim stuff amazing!
     {
         'folke/lazydev.nvim',
         ft = 'lua',
         opts = {
             library = {
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                { path = "snacks.nvim", words = { "Snacks" } },
+                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                { path = 'snacks.nvim', words = { 'Snacks' } },
             }
-        }
-    },
-
-    -- Showing rgb/hex color ano color picker option
-    {
-        'uga-rosa/ccc.nvim',
-        event = 'VeryLazy',
-        opts = {
-            highlighter = { auto_enable = true, lsp = true },
         }
     },
 
@@ -45,7 +38,7 @@ return {
     {
         'pmizio/typescript-tools.nvim',
         event = 'VeryLazy',
-        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
         opts = {},
     },
 
