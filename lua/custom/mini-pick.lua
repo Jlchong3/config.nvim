@@ -7,46 +7,19 @@ return {
     config = function()
         require('mini.pick').setup()
         require('mini.extra').setup()
+        require('extra.pickers')
 
         local remap = vim.keymap.set
 
         vim.ui.select = MiniPick.ui_select
 
-        MiniPick.registry.buffers = function(local_opts)
-            local wipeout_cur = function()
-                vim.api.nvim_buf_delete(MiniPick.get_picker_matches().current.bufnr, {})
-            end
-            local buffer_mappings = { wipeout = { char = '<C-d>', func = wipeout_cur } }
-            MiniPick.builtin.buffers(local_opts, { mappings = buffer_mappings })
-
-        end
-
-        local preview_files_and_images = function(buf_id, item)
-            if Snacks.image.supports_file(item) then
-                Snacks.image.buf.attach(buf_id, { src = item })
-            else
-                MiniPick.default_preview(buf_id, item)
-            end
-        end
-
         local builtin = MiniPick.builtin
         local extra = MiniExtra.pickers
-        local custom_pickers = require('extra.pickers')
+        local registry = MiniPick.registry
 
-        remap('n', '<leader>sb', MiniPick.registry.buffers, { desc = '[S]earch [B]uffers' })
-        remap('n', '<leader>sf', function() builtin.files(nil,
-            {
-                source = {
-                    preview = preview_files_and_images
-                }
-            }) end, { desc = '[S]earch [F]iles' })
-        remap('n', '<leader>.', function() builtin.files(nil,
-            {
-                source = {
-                    cwd = vim.fn.expand '%:p:h',
-                    preview = preview_files_and_images
-                }
-            }) end, { desc = '[.] Directory Files' })
+        remap('n', '<leader>sb', registry.buffers, { desc = '[S]earch [B]uffers' })
+        remap('n', '<leader>sf',registry.files, { desc = '[S]earch [F]iles' })
+        remap('n', '<leader>.', registry.current_dir_files, { desc = '[.] Directory Files' })
         remap('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
         remap('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
         remap('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
@@ -59,7 +32,7 @@ return {
         remap('n', '<leader>/', function() extra.buf_lines({ scope = 'current' }) end, { desc = '[/] Fuzzy Search Buffer'})
         remap('n', '<leader>s/', extra.buf_lines, { desc = '[S]earch [/] Open'})
 
-        remap('n', '<leader>sl', custom_pickers.lsp_supported_files, { desc = '[S]earch [L]SP Supported' })
-        remap('n', '<leader>ss', custom_pickers.registry, { desc = '[S]earch [S]upported Pickers' })
+        remap('n', '<leader>sl', registry.lsp_supported_files, { desc = '[S]earch [L]SP Supported' })
+        remap('n', '<leader>ss', registry.registry, { desc = '[S]earch [S]upported Pickers' })
     end
 }
