@@ -1,15 +1,18 @@
 return {
     'echasnovski/mini.ai',
     event = 'VeryLazy',
+    dependencies = {
+        'echasnovski/mini.extra'
+    },
     config = function()
         local MiniAi = require('mini.ai')
+        local extraAi = require('mini.extra').gen_ai_spec
         MiniAi.setup{
             custom_textobjects = {
                 o = MiniAi.gen_spec.treesitter{
                     a = {'@block.outer', '@conditional.outer', '@loop.outer'},
                     i = {'@block.inner','@conditional.inner', '@loop.inner'}
                 },
-
                 f = MiniAi.gen_spec.treesitter{
                     a = {'@function.outer'},
                     i = {'@function.inner'},
@@ -22,7 +25,9 @@ return {
 
                 t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
 
-                d = { "%f[%d]%d+" },
+                d = extraAi.number(),
+
+                L = extraAi.line(),
 
                 b = { { '%b()' }, '^.().*().$' },
 
