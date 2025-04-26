@@ -5,6 +5,9 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function ()
         local harpoon = require('harpoon')
+        local harpoon_extensions = require("harpoon.extensions")
+
+        harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 
         harpoon:setup()
 
