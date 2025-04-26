@@ -8,4 +8,3 @@ end
 --Change colors of statusline gruvbox
 set_hl('MiniStatuslineFileInfo', { bold = true })
 set_hl('MiniStatuslineDevInfo', { bold = true })
-set_hl('TreesitterContextBottom', { underline = false })

@@ -7,7 +7,7 @@ remap({'n', 'x'}, 's', '<Nop>')
 remap({'n', 'x'}, 'S', '<Nop>')
 
 -- surround remaps
-remap('n', 'sus', '_su$', { remap = true })
+remap('n', 'gss', '_gs$', { remap = true })
 
 -- '$' nuisance in visual mode
 remap('x', '$', '$h')
