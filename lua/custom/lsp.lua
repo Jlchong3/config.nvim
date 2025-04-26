@@ -104,22 +104,24 @@ return {
         require('mason-lspconfig').setup {
             handlers = {
                 function(server_name)
-                    require('lspconfig')[server_name].setup {
+                    vim.lsp.config(server_name, {
                         capabilities = capabilities,
                         settings = mason_servers[server_name],
                         filetypes = (mason_servers[server_name] or {}).filetypes,
-                    }
+                    })
+                    vim.lsp.enable(server_name)
                 end,
                 ['jdtls'] = function() end
             },
         }
 
         for server, config in pairs(local_servers) do
-            require('lspconfig')[server].setup {
+            vim.lsp.config(server, {
                 capabilities = capabilities,
                 settings = config,
                 filetypes = (config or {}).filetypes,
-            }
+            })
+            vim.lsp.enable(server)
         end
 
         -- Lsp keymaps on_attach
@@ -142,7 +144,7 @@ return {
                     if #opts.items == 1 then
                         vim.cmd.cfirst()
                     else
-                        require('mini.extra').pickers.list({ scope = "quickfix" }, { source = { name = opts.title } })
+                        extra.pickers.list({ scope = "quickfix" }, { source = { name = opts.title } })
                     end
                     vim.fn.setqflist(previous, ' ')
                 end
