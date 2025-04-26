@@ -4,6 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     event = 'VeryLazy',
     dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-context'
     },
     build = ':TSUpdate',
@@ -37,6 +38,28 @@ return {
 
             highlight = { enable = true },
             indent = { enable = true },
+            textobjects = {
+                move = {
+                    enable = true,
+                    set_jumps = true, -- whether to set jumps in the jumplist
+                    goto_next_start = {
+                        [']f'] = '@function.outer',
+                        [']c'] = '@class.outer',
+                    },
+                    goto_next_end = {
+                        [']F'] = '@function.outer',
+                        [']C'] = '@class.outer',
+                    },
+                    goto_previous_start = {
+                        ['[f'] = '@function.outer',
+                        ['[c'] = '@class.outer',
+                    },
+                    goto_previous_end = {
+                        ['[F'] = '@function.outer',
+                        ['[C'] = '@class.outer',
+                    },
+                },
+            },
         }
 
         vim.treesitter.language.register('sql', 'mysql')

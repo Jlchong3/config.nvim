@@ -9,9 +9,6 @@ remap({'n', 'x'}, 'S', '<Nop>')
 -- surround remaps
 remap('n', 'gss', '_gs$', { remap = true })
 
--- '$' nuisance in visual mode
-remap('x', '$', '$h')
-
 -- Restart Ls
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
