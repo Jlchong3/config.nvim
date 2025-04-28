@@ -26,6 +26,7 @@ return {
                 'javascript',
                 'java',
                 'zig',
+                'yuck',
                 'typescript',
                 'vimdoc',
                 'vim',
