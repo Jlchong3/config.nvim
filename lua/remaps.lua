@@ -25,13 +25,21 @@ remap('n', '<S-Down>', '<C-w>-', { desc = 'Decrease Height'} )
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-vim.keymap.set('n', '<c-w>d', function ()
+remap('n', '<c-w>d', function ()
     if vim.diagnostic.config().virtual_lines then
         vim.diagnostic.config({virtual_lines = false})
         vim.diagnostic.config({virtual_text = true })
     else
         vim.diagnostic.config({virtual_lines = { current_line = true }})
         vim.diagnostic.config({virtual_text = { current_line = false } })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            once = true,
+            pattern = '*',
+            callback = function ()
+                vim.diagnostic.config({virtual_lines = false})
+                vim.diagnostic.config({virtual_text = true })
+            end
+        });
     end
 end)
 
