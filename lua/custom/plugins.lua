@@ -19,8 +19,7 @@ return {
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
 
     -- Showing rgb/hex color and color picker option
-    { 'catgoose/nvim-colorizer.lua', event = 'VeryLazy', opts = { lazy_load = true } },
-    { 'uga-rosa/ccc.nvim', event = 'VeryLazy', opts = { highlighter = { auto_enable = false }, } },
+    { 'uga-rosa/ccc.nvim', event = 'VeryLazy', opts = { highlighter = { auto_enable = true, lsp = true }, } },
 
     -- Additional lua configuration, makes nvim stuff amazing!
     {
