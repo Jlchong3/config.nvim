@@ -25,6 +25,16 @@ remap('n', '<S-Down>', '<C-w>-', { desc = 'Decrease Height'} )
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.keymap.set('n', '<c-w>d', function ()
+    if vim.diagnostic.config().virtual_lines then
+        vim.diagnostic.config({virtual_lines = false})
+        vim.diagnostic.config({virtual_text = true })
+    else
+        vim.diagnostic.config({virtual_lines = { current_line = true }})
+        vim.diagnostic.config({virtual_text = { current_line = false } })
+    end
+end)
+
 -- quickfixlist keymaps
 remap('n', ']q', '<cmd>cnext<CR>zz')
 remap('n', '[q', '<cmd>cprev<CR>zz')

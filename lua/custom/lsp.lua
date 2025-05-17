@@ -4,9 +4,8 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        { 'williamboman/mason.nvim', opts = { PATH = 'append' } },
-        'williamboman/mason-lspconfig.nvim',
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        { 'mason-org/mason.nvim', opts = { PATH = 'append' } },
+        'mason-org/mason-lspconfig.nvim',
         'echasnovski/mini.pick',
         'saghen/blink.cmp'
     },
@@ -62,6 +61,24 @@ return {
             },
         }
 
+        for server, config in pairs(mason_servers) do
+            if server ~= 'jdtls' then
+                vim.lsp.config(server, {
+                    settings = config,
+                    filetypes = (config or {}).filetypes,
+                })
+            end
+        end
+
+        require('mason-lspconfig').setup {
+            ensure_installed = vim.tbl_keys(mason_servers),
+            automatic_enable = {
+                exclude = {
+                    'jdtls',
+                }
+            }
+        }
+
         local local_servers = {
             clangd = {},
             rust_analyzer = {
@@ -75,49 +92,9 @@ return {
             },
         }
 
-        -- blink-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = {
-            workspace = {
-                fileOperations = {
-                    didRename = true,
-                    willRename = true,
-                }
-            }
-        }
-
-        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-
-        local ensure_installed = vim.tbl_keys(mason_servers or {})
-        vim.list_extend(ensure_installed, {
-            'codelldb',
-            'delve',
-            'java-debug-adapter',
-            'java-test',
-        })
-
-        require('mason-tool-installer').setup {
-            ensure_installed = ensure_installed
-        }
-        vim.api.nvim_command('MasonToolsInstall')
-
-        ---@diagnostic disable-next-line: missing-fields
-        require('mason-lspconfig').setup {
-            handlers = {
-                function(server_name)
-                    vim.lsp.config(server_name, {
-                        capabilities = capabilities,
-                        settings = mason_servers[server_name],
-                        filetypes = (mason_servers[server_name] or {}).filetypes,
-                    })
-                    vim.lsp.enable(server_name)
-                end,
-                ['jdtls'] = function() end
-            },
-        }
 
         for server, config in pairs(local_servers) do
             vim.lsp.config(server, {
-                capabilities = capabilities,
                 settings = config,
                 filetypes = (config or {}).filetypes,
             })

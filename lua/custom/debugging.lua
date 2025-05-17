@@ -3,17 +3,11 @@ return {
         'mfussenegger/nvim-dap',
         keys = { '<F5>' },
         dependencies = {
-            {
-                'rcarriga/nvim-dap-ui',
-                dependencies = {
-                    'nvim-neotest/nvim-nio',
-                }
-            },
+            { "igorlfs/nvim-dap-view", opts = {} }
         },
         config = function()
 
-            local dapui = require('dapui')
-            dapui.setup()
+            local dapview = require('dap-view')
 
             local dap = require('dap')
             vim.fn.sign_define('DapBreakpoint', { text='●', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
@@ -29,7 +23,7 @@ return {
             vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
             vim.keymap.set('n', '<leader>bp', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
             vim.keymap.set('n', '<leader>vi', function() require('dap.ui.widgets').hover() end, {desc = 'Debug: Variable Information'})
-            vim.keymap.set('n', '<leader>dt', function() dapui.toggle() end, {desc = 'Debug: Open'})
+            vim.keymap.set('n', '<leader>dt', function() dapview.toggle() end, {desc = 'Debug: Toggle Panel'})
             vim.keymap.set('n', '<leader>dr', function() dap.repl.toggle() end, {desc = 'Debug: Repl Toggle'})
             vim.keymap.set('n', '<leader>bc', function()
                 dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -40,10 +34,10 @@ return {
 
             -- Make dapui open automatically
             dap.listeners.before.attach.dapui_config = function()
-                dapui.open()
+                dapview.open()
             end
             dap.listeners.before.launch.dapui_config = function()
-                dapui.open()
+                dapview.open()
             end
 
         end
@@ -60,11 +54,11 @@ return {
         config = function ()
             ---@diagnostic disable-next-line: missing-fields
             require('mason-nvim-dap').setup {
+                ensure_installed = { 'delve', 'codelldb', 'javadbg', 'javatest' },
                 handlers = {}
             }
             -- Setups and custom configs
             local dap = require('dap')
-
             require('dap-go').setup()
         end
     }
