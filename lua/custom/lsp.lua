@@ -19,7 +19,8 @@ return {
 
         vim.diagnostic.config {
             float = { border = 'rounded' },
-            signs = { text = { ERROR = ' ', WARN = ' ', INFO = ' ', HINT = '󰌵'} }
+            signs = { text = { ERROR = ' ', WARN = ' ', INFO = ' ', HINT = '󰌵'} },
+            virtual_text = true,
         }
 
         local mason_servers = {
