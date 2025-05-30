@@ -41,7 +41,7 @@ local toggle_terminal = function ()
         if vim.bo[state.floating.buf].buftype ~= 'terminal' then
             vim.cmd.term()
         end
-        vim.cmd("norm i")
+        vim.cmd('norm i')
     else
         vim.api.nvim_win_hide(state.floating.win)
     end
