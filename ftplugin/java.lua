@@ -8,7 +8,6 @@ vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv('HOME') .. '/.local/sha
 
 local config = {
     cmd = {
-
         'java',
 
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',

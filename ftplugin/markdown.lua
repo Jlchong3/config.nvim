@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>ch', function ()
         return
     end
 
-    local non_blank = current_line:match("^%s*"):len() + 1
+    local non_blank = current_line:match('^%s*'):len() + 1
     local sub_string = current_line:sub(non_blank, non_blank + 4)
     local row, _ = unpack(vim.api.nvim_win_get_cursor(0));
     if sub_string == '- [ ]' then
@@ -22,14 +22,14 @@ end, { buffer = true, desc = '[CH]eck box' })
 
 vim.keymap.set('v', '<leader>ch', function ()
     vim.api.nvim_feedkeys('\027', 'xt', false)
-    local start_line, _ = unpack(vim.api.nvim_buf_get_mark(0, "<"))
-    local end_line, _ = unpack(vim.api.nvim_buf_get_mark(0, ">"))
+    local start_line, _ = unpack(vim.api.nvim_buf_get_mark(0, '<'))
+    local end_line, _ = unpack(vim.api.nvim_buf_get_mark(0, '>'))
     local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
     local non_checkbox_lines = {}
     local unchecked_checkbox_lines = {}
 
     for i = 1, #lines do
-        local non_blank = lines[i]:match("^%s*"):len() + 1
+        local non_blank = lines[i]:match('^%s*'):len() + 1
         local sub_string = lines[i]:sub(non_blank, non_blank + 4)
         local non_checkbox = sub_string ~= '- [ ]' and sub_string ~= '- [x]'
         local is_empty = sub_string:match('^%s*$')
