@@ -11,9 +11,7 @@ return {
     },
 
     config = function()
-        require('lspconfig.ui.windows').default_options = {
-            border = 'rounded'
-        }
+        require('lspconfig.ui.windows').default_options = { border = 'rounded' }
 
         require('mason').setup()
 

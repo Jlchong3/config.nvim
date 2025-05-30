@@ -46,7 +46,7 @@ return {
         'jay-babu/mason-nvim-dap.nvim',
         event = 'VeryLazy',
         dependencies = {
-            'williamboman/mason.nvim',
+            'mason-org/mason.nvim',
             'mfussenegger/nvim-dap',
             -- If you want go debugger (need delve installed)
             'leoluz/nvim-dap-go',

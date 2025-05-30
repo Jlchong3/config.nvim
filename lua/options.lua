@@ -30,8 +30,8 @@ vim.o.inccommand = 'split'
 
 vim.o.list = false
 vim.opt.listchars = {
-    eol = "↴",
-    tab = "» ",
+    eol = '↴',
+    tab = '» ',
     trail = '·'
 }
 
@@ -47,7 +47,7 @@ vim.o.guicursor = 'i-c-ci-cr-r:blinkon1'
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.opt.undodir = os.getenv("HOME") .. '/dev/.vimfiles/undodir'
+vim.opt.undodir = os.getenv('HOME') .. '/dev/.vimfiles/undodir'
 vim.o.undofile = true
 
 -- Shift and Tab config
@@ -73,7 +73,7 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 
 -- Better diff
-vim.o.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
+vim.o.diffopt='internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
 
 vim.o.termguicolors = true
 

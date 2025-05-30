@@ -6,22 +6,18 @@ return {
     },
     config = function()
         local MiniAi = require('mini.ai')
+        local ai = MiniAi.gen_spec;
         local extraAi = require('mini.extra').gen_ai_spec
         MiniAi.setup{
             custom_textobjects = {
-                o = MiniAi.gen_spec.treesitter{
-                    a = {'@block.outer', '@conditional.outer', '@loop.outer'},
-                    i = {'@block.inner','@conditional.inner', '@loop.inner'}
-                },
-                f = MiniAi.gen_spec.treesitter{
-                    a = {'@function.outer'},
-                    i = {'@function.inner'},
+                o = MiniAi.gen_spec.treesitter {
+                    a = { '@block.outer', '@conditional.outer', '@loop.outer' },
+                    i = { '@block.inner','@conditional.inner', '@loop.inner' }
                 },
 
-                c = MiniAi.gen_spec.treesitter{
-                    a = {'@class.outer'},
-                    i = {'@class.inner'},
-                },
+                f = MiniAi.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+
+                c = MiniAi.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
 
                 t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
 
@@ -29,20 +25,19 @@ return {
 
                 L = extraAi.line(),
 
-                b = { { '%b()' }, '^.().*().$' },
+                b = { '%b()', '^.().*().$' },
 
-                B = { { '%b{}' }, '^.().*().$' },
+                B = { '%b{}', '^.().*().$' },
 
-                e = {
-                    { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
-                    "^().*()$",
-                },
+                e = { { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" }, "^().*()$", },
 
-                i = MiniAi.gen_spec.argument(),
+                g = extraAi.buffer();
 
-                u = MiniAi.gen_spec.function_call(),
+                i = ai.argument(),
 
-                U = MiniAi.gen_spec.function_call({ name_pattern = "[%w_]" }),
+                u = ai.function_call(),
+
+                U = ai.function_call { name_pattern = '[%w_]' },
             },
 
             n_lines = 500

@@ -5,7 +5,7 @@ return {
     config = function ()
         ---@diagnostic disable-next-line: missing-fields
         require('which-key').setup{
-            preset = "helix",
+            preset = 'helix',
         }
         require('which-key').add {
             { '<leader>c', group = '[C]ode' },

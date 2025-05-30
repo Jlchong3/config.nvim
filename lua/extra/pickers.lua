@@ -1,4 +1,4 @@
-MiniPick.registry.lsp_supported_files = function ()
+MiniPick.registry.lsp_supported_files = function()
     local filetypes = {}
     for _, client in ipairs(vim.lsp.get_clients()) do
         ---@diagnostic disable-next-line: undefined-field
@@ -9,7 +9,7 @@ MiniPick.registry.lsp_supported_files = function ()
 
     local extensions = {}
     for _, file in ipairs(vim.fn.systemlist('rg --files')) do
-        local extension = file:match("%.([^.]+)$")
+        local extension = file:match('%.([^.]+)$')
         if extension and not extensions[extension] then
             extensions[extension] = true
         end

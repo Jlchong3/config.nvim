@@ -9,15 +9,10 @@ return {
             ['<C-d>'] = { 'scroll_documentation_up', 'fallback' },
         },
 
-        appearance = {
-            use_nvim_cmp_as_default = true,
-            nerd_font_variant = 'mono'
-        },
-
         completion = {
             menu = {
                 draw = {
-                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } },
+                    columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', gap = 1, 'kind' } },
                 },
             },
 
@@ -38,11 +33,16 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "dadbod" },
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+            per_filetype = {
+                sql = { 'dadbod' },
+                lua = { inherit_defaults = true, 'lazydev' }
+            },
             providers = {
-                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+                dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+                lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
             },
         },
     },
-    opts_extend = { "sources.completion.enabled_providers" }
+    opts_extend = { 'sources.default', 'sources.completion.enabled_providers' }
 }
