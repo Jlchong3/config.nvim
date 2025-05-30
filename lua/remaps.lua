@@ -9,6 +9,9 @@ remap({'n', 'x'}, 'S', '<Nop>')
 -- surround remaps
 remap('n', 'gss', '_gs$', { remap = true })
 
+-- Remove nuisance on visual mode
+remap('v', '$', '$h')
+
 -- Restart Ls
 remap('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]sp [R]estart' })
 
@@ -25,19 +28,19 @@ remap('n', '<S-Down>', '<C-w>-', { desc = 'Decrease Height'} )
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-remap('n', '<c-w>d', function ()
+remap('n', '<leader>D', function()
     if vim.diagnostic.config().virtual_lines then
-        vim.diagnostic.config({virtual_lines = false})
-        vim.diagnostic.config({virtual_text = true })
+        vim.diagnostic.config({ virtual_lines = false })
+        vim.diagnostic.config({ virtual_text = true })
     else
-        vim.diagnostic.config({virtual_lines = { current_line = true }})
-        vim.diagnostic.config({virtual_text = { current_line = false } })
+        vim.diagnostic.config({ virtual_lines = { current_line = true } })
+        vim.diagnostic.config({ virtual_text = { current_line = false } })
         vim.api.nvim_create_autocmd('CursorMoved', {
             once = true,
             pattern = '*',
             callback = function ()
-                vim.diagnostic.config({virtual_lines = false})
-                vim.diagnostic.config({virtual_text = true })
+                vim.diagnostic.config({ virtual_lines = false })
+                vim.diagnostic.config({ virtual_text = true })
             end
         });
     end
@@ -87,7 +90,7 @@ remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
 remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
 remap({ 'n', 'x' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
-remap('n', 'yc', function () vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
+remap('n', 'yc', function() vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
 
 -- Stop search highlight
 remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')
