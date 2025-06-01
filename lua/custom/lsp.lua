@@ -120,7 +120,7 @@ return {
                     if #opts.items == 1 then
                         vim.cmd.cfirst()
                     else
-                        extra.pickers.list({ scope = "quickfix" }, { source = { name = opts.title } })
+                        extra.list({ scope = "quickfix" }, { source = { name = opts.title } })
                     end
                     vim.fn.setqflist(previous, ' ')
                 end
