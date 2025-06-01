@@ -51,6 +51,12 @@ return {
                 end
             end
         })
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = 'TSGroup',
+            callback = function(e)
+                vim.treesitter.start(e.buf)
+            end
+        })
 
         vim.treesitter.language.register('sql', 'mysql')
         vim.treesitter.language.register('sql', 'plsql')
