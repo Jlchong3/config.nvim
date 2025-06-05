@@ -50,6 +50,7 @@ return {
             marksman = {},
             cssls = { filetypes = { 'css', 'scss' } },
             tailwindcss = {},
+            hyprls = {},
             html = { filetypes = { 'html', 'twig', 'hbs' } },
             lua_ls = {
                 Lua = {
