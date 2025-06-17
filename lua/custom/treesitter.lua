@@ -28,6 +28,7 @@ return {
             zig = true,
             yuck = true,
             typescript = true,
+            nix = true,
             vimdoc = true,
             vim = true,
             bash = true,
