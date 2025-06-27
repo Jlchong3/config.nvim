@@ -27,6 +27,7 @@ remap('n', '<S-Down>', '<C-w>-', { desc = 'Decrease Height'} )
 
 -- Diagnostic keymaps
 remap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+remap('n', '<leader>co', function() vim.cmd('copen') end, { desc = 'Open quickfix list '})
 
 remap('n', '<leader>D', function()
     if vim.diagnostic.config().virtual_lines then
