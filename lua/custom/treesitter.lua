@@ -58,8 +58,5 @@ return {
                 vim.treesitter.start(e.buf)
             end
         })
-
-        vim.treesitter.language.register('sql', 'mysql')
-        vim.treesitter.language.register('sql', 'plsql')
     end
 }
