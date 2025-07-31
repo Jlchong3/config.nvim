@@ -11,6 +11,9 @@ return {
                 topdelete = { text = '‾' },
                 changedelete = { text = '~' },
             },
+            preview_config = {
+                border = 'rounded'
+            },
             on_attach = function(bufnr)
                 vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
                     { buffer = bufnr, desc = 'Preview git hunk' })

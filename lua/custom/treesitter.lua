@@ -3,7 +3,12 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
-        'nvim-treesitter/nvim-treesitter-context',
+        {
+            'nvim-treesitter/nvim-treesitter-context',
+            opts = {
+                max_lines = 2,
+            }
+        },
         {
             'nvim-treesitter/nvim-treesitter-textobjects',
             branch = 'main'
@@ -23,6 +28,7 @@ return {
             tsx = true,
             html = true,
             css = true,
+            glsl = true,
             javascript = true,
             java = true,
             zig = true,

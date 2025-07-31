@@ -91,7 +91,7 @@ remap('i', '<A-p>', '<C-r>"', {desc = '[P]aste Insert Mode'})
 
 remap({ 'n', 'x' }, '<leader>y', [["+y]], {desc = '[Y]ank to system'})
 remap({ 'n', 'x' }, '<leader>Y', [["+y$]], {desc = '[Y]ank to system Upper'})
-remap('n', 'yc', function() vim.fn.setreg('+', vim.fn.getreg('"')) end, { noremap = true, desc = '[Y]ank to [S]ystem register' })
+remap('n', 'yc', function() vim.fn.setreg('+', vim.fn.getreg('"')) end, { remap = false, desc = '[Y]ank to [S]ystem register' })
 
 -- Stop search highlight
 remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')
@@ -100,7 +100,7 @@ remap({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>')
 remap('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = '[R]e[p]lace'})
 
 -- Delete buffer
-remap('n', '<leader>bd', [[:bd! <CR>]], {desc = '[B]uffer [D]elete'})
+remap('n', '<leader>bd', '<cmd>bd! <CR>', {desc = '[B]uffer [D]elete'})
 
 -- UndoTree toggle
 remap('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = '[U]ndoTree'})
