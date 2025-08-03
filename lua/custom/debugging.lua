@@ -55,7 +55,7 @@ return {
         config = function ()
             ---@diagnostic disable-next-line: missing-fields
             require('mason-nvim-dap').setup {
-                ensure_installed = { 'delve', 'codelldb', 'javadbg', 'javatest', 'debugpy' },
+                ensure_installed = { 'delve', 'codelldb', 'javadbg', 'javatest' },
                 handlers = {}
             }
             -- Setups and custom configs
