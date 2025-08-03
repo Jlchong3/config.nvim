@@ -50,16 +50,18 @@ return {
             'mfussenegger/nvim-dap',
             -- If you want go debugger (need delve installed)
             'leoluz/nvim-dap-go',
+            'mfussenegger/nvim-dap-python'
         },
         config = function ()
             ---@diagnostic disable-next-line: missing-fields
             require('mason-nvim-dap').setup {
-                ensure_installed = { 'delve', 'codelldb', 'javadbg', 'javatest' },
+                ensure_installed = { 'delve', 'codelldb', 'javadbg', 'javatest', 'debugpy' },
                 handlers = {}
             }
             -- Setups and custom configs
             local dap = require('dap')
             require('dap-go').setup()
+            require('dap-python').setup("uv")
         end
     }
 }
