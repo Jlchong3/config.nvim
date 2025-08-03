@@ -5,7 +5,6 @@ return {
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
         { 'mason-org/mason.nvim', opts = { PATH = 'append' } },
-        'mason-org/mason-lspconfig.nvim',
         'echasnovski/mini.pick',
         'saghen/blink.cmp'
     },
@@ -21,12 +20,30 @@ return {
             virtual_text = true,
         }
 
-        local mason_servers = {
-            eslint = {},
-            ols = {},
-            bashls = {},
+        local local_servers = {
+            clangd = {},
             zls = {},
-            jdtls = {},
+            bashls = {},
+            marksman = {},
+            tailwindcss = {},
+            basedpyright = {
+                basedpyright = {
+                    analysis = {
+                        typeCheckingMode = 'standard'
+                    }
+                }
+            },
+            lua_ls = {
+                Lua = {
+                    hint = { enable = true },
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                },
+            },
+            cssls = {},
+            jsonls = {},
+            eslint = {},
+            html = {},
             gopls = {
                 gopls = {
                     hints = {
@@ -40,48 +57,6 @@ return {
                     }
                 }
             },
-            basedpyright = {
-                basedpyright = {
-                    analysis = {
-                        typeCheckingMode = 'standard'
-                    }
-                }
-            },
-            marksman = {},
-            cssls = { filetypes = { 'css', 'scss' } },
-            tailwindcss = {},
-            nil_ls = {},
-            hyprls = {},
-            html = { filetypes = { 'html', 'twig', 'hbs' } },
-            lua_ls = {
-                Lua = {
-                    hint = { enable = true },
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                },
-            },
-        }
-
-        for server, config in pairs(mason_servers) do
-            if server ~= 'jdtls' then
-                vim.lsp.config(server, {
-                    settings = config,
-                    filetypes = (config or {}).filetypes,
-                })
-            end
-        end
-
-        require('mason-lspconfig').setup {
-            ensure_installed = vim.tbl_keys(mason_servers),
-            automatic_enable = {
-                exclude = {
-                    'jdtls',
-                }
-            }
-        }
-
-        local local_servers = {
-            clangd = {},
             rust_analyzer = {
                 rust_analyzer = {
                     autoSearchPaths = true,

@@ -7,33 +7,7 @@ local bundles = {
 vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv('HOME') .. '/.local/share/nvim/mason/share/java-test/*.jar', true), '\n'))
 
 local config = {
-    cmd = {
-        'java',
-
-        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        '-Dlog.protocol=true',
-        '-Dlog.level=ALL',
-        '-javaagent:' .. os.getenv('HOME') .. '/.local/share/nvim/mason/share/jdtls/lombok.jar',
-        '-Xmx1g',
-        '--add-modules=ALL-SYSTEM',
-        '--add-opens',
-        'java.base/java.util=ALL-UNNAMED',
-        '--add-opens',
-        'java.base/java.lang=ALL-UNNAMED',
-
-        '-jar',
-        vim.fn.expand(
-            os.getenv('HOME') .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'
-        ),
-
-        '-configuration',
-        vim.fn.expand(os.getenv('HOME') .. '/.local/share/nvim/mason/packages/jdtls/config_linux'),
-
-        '-data',
-        vim.fn.expand('~/.cache/jdtls/workspace') .. project_name,
-    },
+    cmd = { 'jdtls' },
 
     root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
 
@@ -87,13 +61,6 @@ local config = {
         },
     },
 
-    -- Language server `initializationOptions`
-    -- You need to extend the `bundles` with paths to jar files
-    -- if you want to use additional eclipse.jdt.ls plugins.
-    --
-    -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
-    --
-    -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = bundles,
     },
@@ -106,8 +73,10 @@ config['on_attach'] = function(_, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
-    nmap('<leader>tjc', function () require('jdtls').test_class() require('dapui').open() end, '[T]est [J]ava [C]lass')
-    nmap('<leader>tjm', function () require('jdtls').test_nearest_method() require('dapui').open() end, '[T]est [J]ava [M]ethod')
+    local dapview = require('dap-view')
+
+    nmap('<leader>tjc', function () require('jdtls').test_class() dapview.open() dapview.show_view('repl') end, '[T]est [J]ava [C]lass')
+    nmap('<leader>tjm', function () require('jdtls').test_nearest_method() dapview.open() dapview.show_view('repl') end, '[T]est [J]ava [M]ethod')
 
 ---@diagnostic disable-next-line: missing-fields
     jdtls.setup_dap({ hotcodereplace = 'auto' })
