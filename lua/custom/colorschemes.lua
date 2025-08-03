@@ -6,11 +6,10 @@ return {
         opts = {
             flavour = 'mocha',
             transparent_background = true,
-            integrations = {
-                telescope = {
-                    enabled = true,
-                },
+            float = {
+                transparent = true
             },
+            integrations = {},
             styles = {
                 comments = {},
                 conditionals = {}
