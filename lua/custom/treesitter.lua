@@ -29,6 +29,7 @@ return {
             html = true,
             css = true,
             glsl = true,
+            json = true,
             javascript = true,
             java = true,
             zig = true,
