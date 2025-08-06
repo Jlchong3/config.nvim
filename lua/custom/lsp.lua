@@ -22,6 +22,7 @@ return {
 
         local local_servers = {
             clangd = {},
+            ols = {},
             zls = {},
             bashls = {},
             marksman = {},
