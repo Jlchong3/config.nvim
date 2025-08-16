@@ -18,9 +18,6 @@ return {
     { 'echasnovski/mini.statusline', opts = { } },
     { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = 'gl' } } },
 
-    -- Showing rgb/hex color and color picker option
-    { 'uga-rosa/ccc.nvim', event = 'VeryLazy', opts = { highlighter = { auto_enable = true, lsp = true }, } },
-
     -- Additional lua configuration, makes nvim stuff amazing!
     {
         'folke/lazydev.nvim',
