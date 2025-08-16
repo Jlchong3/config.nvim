@@ -69,7 +69,6 @@ return {
             },
         }
 
-
         for server, config in pairs(local_servers) do
             vim.lsp.config(server, {
                 settings = config,
@@ -106,7 +105,7 @@ return {
                 nmap('gd', function() vim.lsp.buf.definition { on_list = on_list } end, '[G]oto [D]efinition')
                 nmap('grr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
                 nmap('gri', function() extra.lsp { scope = 'implementation' } end, '[G]oto [I]mplementation')
-                nmap('grt', function() extra.Isp { scope = 'type_definition' } end, '[T]ype Definition')
+                nmap('grt', function() extra.lsp { scope = 'type_definition' } end, '[T]ype Definition')
                 nmap('<leader>ds', function() extra.lsp { scope = 'document_symbol' } end, '[D]ocument [S]ymbols')
                 nmap('<leader>ws', function() extra.lsp { scope = 'workspace_symbol' } end, '[W]orkspace [S]ymbols')
 
