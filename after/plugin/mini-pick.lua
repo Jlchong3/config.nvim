@@ -1,3 +1,4 @@
+require('mini.pick').setup()
 
 local preview_files_and_images = function(buf_id, item)
     if Snacks.image.supports_file(item) then

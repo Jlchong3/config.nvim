@@ -1,3 +1,5 @@
+require('mini.ai').setup()
+
 local ai = MiniAi.gen_spec
 local extraAi = MiniExtra.gen_ai_spec
 

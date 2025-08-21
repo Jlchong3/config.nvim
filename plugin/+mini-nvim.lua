@@ -4,10 +4,6 @@ vim.pack.add {
 
 require('mini.statusline').setup()
 
-require('mini.ai').setup()
-
-require('mini.pick').setup()
-
 require('mini.extra').setup()
 
 require('mini.splitjoin').setup { mappings = { toggle = 'gl' } }
