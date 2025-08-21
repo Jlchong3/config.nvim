@@ -1,6 +1,4 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.netrw_bufsettings = 'nu rn'
 
 -- Set highlight on search
 vim.o.hlsearch = true
@@ -41,9 +39,6 @@ vim.o.breakindent = true
 -- Disable wrap
 vim.o.wrap = false
 
--- Fat Cursor
-vim.o.guicursor = 'i-c-ci-cr-r:blinkon1'
-
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
@@ -63,7 +58,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250

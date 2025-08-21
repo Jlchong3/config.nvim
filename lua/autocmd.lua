@@ -1,41 +1,27 @@
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
-local JlchongGroup = augroup('Jlchong', {})
+local JlchongGroup = vim.api.nvim_create_augroup('Jlchong', {})
 
 -- HighlightYank
-autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd('TextYankPost', {
     group = JlchongGroup,
-    pattern = '*',
     callback = function()
         vim.hl.on_yank()
-    end,
-})
-
--- Remove trailing spaces in save
-autocmd('BufWritePre', {
-    group = JlchongGroup,
-    pattern = '*',
-    command = [[%s/\s\+$//e]]
-})
-
--- No comment when 'o' pressed
-autocmd('BufEnter', {
-    group = JlchongGroup,
-    pattern = '*',
-    callback = function()
-        vim.opt.formatoptions:remove('o')
     end
 })
 
--- Terminal buffer settings
-augroup('TerminalGroup', {})
-autocmd('TermOpen', {
-    group = 'TerminalGroup',
-    callback = function ()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.scrolloff = 0
-        vim.cmd('norm i');
+-- Remove trailing whitespace on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = JlchongGroup,
+    callback = function()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        vim.cmd([[%s/\s\+$//e]])
+        vim.api.nvim_win_set_cursor(0, pos)
+    end
+})
+
+-- No comment when 'o' pressed
+vim.api.nvim_create_autocmd('BufEnter', {
+    group = JlchongGroup,
+    callback = function()
+        vim.opt.formatoptions:remove('o')
     end
 })
