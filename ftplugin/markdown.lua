@@ -57,6 +57,3 @@ vim.keymap.set('v', '<leader>ch', function ()
         end
     end
 end, { buffer = true, desc = '[CH]eck box' })
-
-
-
