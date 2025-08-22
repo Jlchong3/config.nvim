@@ -92,9 +92,6 @@ vim.keymap.set('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Delete buffer
 vim.keymap.set('n', '<leader>bd', '<cmd>bd! <CR>', { desc = '[B]uffer [D]elete' })
 
--- Open netrw
-vim.keymap.set('n', '<leader>fe', ':Ex<CR>', { desc = '[F]ile [E]xplorer' })
-
 -- Escape terminal easily
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w><C-h>]])
