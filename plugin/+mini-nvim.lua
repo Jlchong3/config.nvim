@@ -2,9 +2,9 @@ vim.pack.add {
     'https://github.com/echasnovski/mini.nvim',
 }
 
-require('mini.statusline').setup()
+require('mini.statusline').setup {}
 
-require('mini.extra').setup()
+require('mini.extra').setup {}
 
 require('mini.splitjoin').setup { mappings = { toggle = 'gl' } }
 

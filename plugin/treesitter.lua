@@ -41,7 +41,7 @@ local parsers = {
 
 require('nvim-treesitter').install(vim.tbl_keys(parsers));
 require('treesitter-context').setup { enable = true, }
-require('nvim-ts-autotag').setup()
+require('nvim-ts-autotag').setup {}
 
 
 local all_exts = {}

@@ -19,5 +19,5 @@ vim.pack.add {
     'https://github.com/nvim-lua/plenary.nvim'
 }
 
-require('guess-indent').setup()
-require('render-markdown').setup()
+require('guess-indent').setup {}
+require('render-markdown').setup {}
