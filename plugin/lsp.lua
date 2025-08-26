@@ -1,7 +1,8 @@
 -- Install lspconfig
 vim.pack.add {
     'https://github.com/neovim/nvim-lspconfig',
-    'https://github.com/folke/lazydev.nvim'
+    'https://github.com/folke/lazydev.nvim',
+    'https://github.com/mfussenegger/nvim-jdtls',
 }
 
 -- UI configuration
@@ -20,45 +21,71 @@ local local_servers = {
     bashls = {},
     marksman = {},
     tailwindcss = {},
+    jdtls = {
+        settings = {
+            java = {
+                inlayHints = {
+                    parameterNames = {
+                        enabled = 'all',
+                    }
+                },
+                extendedClientCapabilities = require('jdtls').extendedClientCapabilities,
+                codeGeneration = {
+                    toString = {
+                        template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
+                    },
+                    useBlocks = true,
+                },
+            }
+        },
+    },
     basedpyright = {
-        basedpyright = {
-            analysis = {
-                typeCheckingMode = 'standard'
+        settings = {
+            basedpyright = {
+                analysis = {
+                    typeCheckingMode = 'standard'
+                }
             }
         }
     },
     lua_ls = {
-        Lua = {
-            hint = { enable = true },
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
+        settings = {
+            Lua = {
+                hint = { enable = true },
+                workspace = { checkThirdParty = false },
+                telemetry = { enable = false },
+            },
+        }
     },
     cssls = {},
     jsonls = {},
     eslint = {},
     html = {},
     gopls = {
-        gopls = {
-            hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true
+        settings = {
+            gopls = {
+                hints = {
+                    assignVariableTypes = true,
+                    compositeLiteralFields = true,
+                    compositeLiteralTypes = true,
+                    constantValues = true,
+                    functionTypeParameters = true,
+                    parameterNames = true,
+                    rangeVariableTypes = true
+                }
             }
         }
     },
     rust_analyzer = {
-        rust_analyzer = {
-            autoSearchPaths = true,
-        },
-        cargo = {
-            buildScripts = { enable = true },
-            allFeatures = true,
-        },
+        settings = {
+            rust_analyzer = {
+                autoSearchPaths = true,
+            },
+            cargo = {
+                buildScripts = { enable = true },
+                allFeatures = true,
+            },
+        }
     },
 }
 
@@ -70,9 +97,7 @@ require('lazydev').setup {
 }
 
 for server, config in pairs(local_servers) do
-    vim.lsp.config(server, {
-        settings = config,
-    })
+    vim.lsp.config(server, config)
     vim.lsp.enable(server)
 end
 

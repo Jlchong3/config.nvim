@@ -11,9 +11,6 @@ vim.pack.add {
     -- Better markdown view
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 
-    -- Java (Install java-test and java-debug)
-    'https://github.com/mfussenegger/nvim-jdtls',
-
     -- Fast navigation
     { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
     'https://github.com/nvim-lua/plenary.nvim'
