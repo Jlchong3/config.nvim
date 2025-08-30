@@ -51,5 +51,9 @@ vim.api.nvim_create_autocmd('User', {
 
 vim.keymap.set('n', '<leader>fe', function() MiniFiles.open() end, { desc = '[F]ile [E]xplorer' } )
 
-
-
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesActionRename",
+  callback = function(event)
+    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+  end,
+})
