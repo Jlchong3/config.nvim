@@ -17,4 +17,3 @@ vim.pack.add {
 }
 
 require('guess-indent').setup {}
-require('render-markdown').setup {}
