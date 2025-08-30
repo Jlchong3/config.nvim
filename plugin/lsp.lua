@@ -3,6 +3,7 @@ vim.pack.add {
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/folke/lazydev.nvim',
     'https://github.com/mfussenegger/nvim-jdtls',
+    'https://github.com/pmizio/typescript-tools.nvim'
 }
 
 -- UI configuration
@@ -88,6 +89,8 @@ local local_servers = {
         }
     },
 }
+
+require('typescript-tools').setup {}
 
 require('lazydev').setup {
     library = {
