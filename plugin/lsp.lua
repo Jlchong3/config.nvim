@@ -94,8 +94,10 @@ require('typescript-tools').setup {}
 
 require('lazydev').setup {
     library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
         { path = 'snacks.nvim', words = { 'Snacks' } },
+        '~/.local/share/LuaAddons/love2d/library',
+        '~/.local/share/LuaAddons/luasocket/library',
     }
 }
 
