@@ -11,9 +11,8 @@ vim.pack.add {
     -- Better markdown view
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 
-    -- Fast navigation
-    { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
-    'https://github.com/nvim-lua/plenary.nvim'
+    'https://github.com/Jlchong3/drawer.nvim'
 }
 
+require('drawer').setup {}
 require('guess-indent').setup {}
