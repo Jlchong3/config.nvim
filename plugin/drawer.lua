@@ -6,7 +6,7 @@ local drawer = require('drawer').setup {}
 
 vim.keymap.set('n', '<A-e>', drawer.open)
 vim.keymap.set('n', '<leader>da', drawer.add_drawer)
-vim.keymap.set('n', '<leader>fa', drawer.add_file)
+vim.keymap.set('n', '<leader>a', drawer.add_file)
 
 vim.keymap.set('n', '<A-j>', function() drawer.open_file(1) end)
 vim.keymap.set('n', '<A-k>', function() drawer.open_file(2) end)
