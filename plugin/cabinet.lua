@@ -1,8 +1,5 @@
 vim.pack.add {
-    {
-        src = 'https://github.com/Jlchong3/cabinet.nvim',
-        version = 'refactor'
-    }
+    'https://github.com/Jlchong3/cabinet.nvim',
 }
 
 local cabinet = require('cabinet').setup {}
