@@ -10,9 +10,6 @@ vim.pack.add {
 
     -- Better markdown view
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-
-    'https://github.com/Jlchong3/drawer.nvim'
 }
 
-require('drawer').setup {}
 require('guess-indent').setup {}
