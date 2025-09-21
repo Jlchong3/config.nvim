@@ -45,8 +45,6 @@ MiniPick.registry.files = function()
     })
 end
 
-vim.ui.select = MiniPick.ui_select
-
 local builtin = MiniPick.builtin
 local extra = MiniExtra.pickers
 local registry = MiniPick.registry

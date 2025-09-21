@@ -8,6 +8,7 @@ vim.pack.add {
 require('catppuccin').setup {
     flavour = 'frappe',
     transparent_background = true,
+    ---@diagnostic disable-next-line: missing-fields
     float = {
         transparent = true
     },
