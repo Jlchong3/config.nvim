@@ -12,4 +12,6 @@ vim.pack.add {
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 }
 
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'UndoTree' })
+
 require('guess-indent').setup {}
