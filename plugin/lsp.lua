@@ -1,8 +1,10 @@
 -- Install lspconfig
-vim.pack.add {
+vim.pack.add ({
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/folke/lazydev.nvim',
     'https://github.com/mfussenegger/nvim-jdtls',
+}, { load = true })
+vim.pack.add {
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/pmizio/typescript-tools.nvim'
 }
