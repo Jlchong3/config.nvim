@@ -58,6 +58,7 @@ vim.keymap.set('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 
+vim.keymap.set({ 'n', 'x' }, 'z=', extra.spellsuggest, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sd', extra.diagnostic, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>gst', extra.git_files, { desc = '[G]it [S]earch [T]racked Files' })
 vim.keymap.set('n', '<leader>gsm', function() extra.git_files{ scope = 'modified'} end, { desc = '[G]it [S]earch [M]odified Files' })
