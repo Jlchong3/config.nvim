@@ -16,9 +16,9 @@ vim.keymap.set('n', '<F5>', function ()
 end)
 
 vim.keymap.set('n', '<leader>bp', function ()
-  require('debugging')
 
   vim.keymap.del('n', '<leader>bp')
+  require('debugging')
 
   require('dap').toggle_breakpoint()
 end)
