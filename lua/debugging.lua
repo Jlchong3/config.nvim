@@ -1,5 +1,19 @@
 local dapview = require('dap-view')
 local dap = require('dap')
+dapview.setup {
+    winbar = {
+        sections = {
+            'watches',
+            'scopes',
+            'exceptions',
+            'breakpoints',
+            'threads',
+            'repl',
+            'console',
+        },
+    },
+    auto_toggle = true
+}
 
 vim.fn.sign_define('DapBreakpoint', { text='●', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
 vim.fn.sign_define('DapBreakpointCondition', { text='⨂', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
