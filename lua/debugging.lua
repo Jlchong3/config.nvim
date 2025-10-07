@@ -37,57 +37,35 @@ vim.keymap.set('n', '<leader>lp', function()
     dap.set_breakpoint(nil, nil, vim.fn.input('Log point message:'))
 end, {desc = 'Debug: Log Point'})
 
--- Make dapui open automatically
-dap.listeners.before.attach.dapui_config = function()
-    dapview.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-    dapview.open()
-end
-
--- Adapters and debuggers config
-dap.adapters.gdb = {
-    type = "executable",
-    command = "gdb",
-    args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+dap.adapters.cppdbg = {
+    id = 'cppdbg',
+    type = 'executable',
+    command = 'OpenDebugAD7'
 }
 dap.configurations.c = {
     {
         name = "Launch",
-        type = "gdb",
+        type = "cppdbg",
         request = "launch",
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = "${workspaceFolder}",
-        stopAtBeginningOfMainSubprogram = false,
+        stopAtEntry = false,
     },
     {
         name = "Launch with args",
-        type = "gdb",
+        type = "cppdbg",
         request = "launch",
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = "${workspaceFolder}",
-        stopAtBeginningOfMainSubprogram = false,
+        stopAtEntry = false,
         args = function()
             local input = vim.fn.input('Program arguments: ')
             return vim.split(input, " ", { trimempty = true })
         end,
-    },
-    {
-        name = "Select and attach to process",
-        type = "gdb",
-        request = "attach",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        pid = function()
-            local name = vim.fn.input('Executable name (filter): ')
-            return require("dap.utils").pick_process({ filter = name })
-        end,
-        cwd = '${workspaceFolder}'
     },
 }
 dap.configurations.cpp = dap.configurations.c
