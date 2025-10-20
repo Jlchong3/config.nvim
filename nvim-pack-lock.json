@@ -26,15 +26,15 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "live-preview.nvim": {
-      "rev": "bd099b7",
+      "rev": "a1bb1b3",
       "src": "https://github.com/brianhuster/live-preview.nvim"
     },
     "mini.nvim": {
-      "rev": "d048db2",
+      "rev": "14145d3",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-dap": {
-      "rev": "881f7dc",
+      "rev": "6782b09",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-go": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "668e9e6",
+      "rev": "0746f35",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-jdtls": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "4b74045b",
+      "rev": "71bf1665",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -80,11 +80,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "d538564",
+      "rev": "475d3ad",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
-      "rev": "aaab014",
+      "rev": "475fb69",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
