@@ -25,6 +25,9 @@ local local_servers = {
     bashls = {},
     marksman = {},
     tailwindcss = {},
+    sourcekit = {
+        filetypes = { 'swift', 'objc', 'objcpp' }
+    },
     jdtls = {
         settings = {
             java = {

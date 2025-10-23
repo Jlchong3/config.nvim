@@ -37,6 +37,7 @@ local parsers = {
     'markdown_inline',
     'yaml',
     'odin',
+    'swift'
 }
 
 require('nvim-treesitter').install(vim.tbl_keys(parsers));
