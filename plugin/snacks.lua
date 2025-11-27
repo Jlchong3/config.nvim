@@ -10,6 +10,7 @@ require('snacks').setup {
     lazygit = {},
     image = {
         doc = {
+            enabled = false,
             max_width = 50,
             max_height = 30,
         }
