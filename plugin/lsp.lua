@@ -6,7 +6,8 @@ vim.pack.add ({
 }, { load = true })
 vim.pack.add {
     'https://github.com/nvim-lua/plenary.nvim',
-    'https://github.com/pmizio/typescript-tools.nvim'
+    'https://github.com/pmizio/typescript-tools.nvim',
+    'https://github.com/nvim-flutter/flutter-tools.nvim'
 }
 
 -- UI configuration
@@ -24,6 +25,7 @@ local local_servers = {
     zls = {},
     bashls = {},
     marksman = {},
+    tinymist = {},
     tailwindcss = {},
     sourcekit = {
         filetypes = { 'swift', 'objc', 'objcpp' }
@@ -97,6 +99,7 @@ local local_servers = {
 }
 
 require('typescript-tools').setup {}
+require("flutter-tools").setup {}
 
 require('lazydev').setup {
     library = {

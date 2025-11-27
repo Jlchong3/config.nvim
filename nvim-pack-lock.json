@@ -13,6 +13,10 @@
       "rev": "af58927",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "flutter-tools.nvim": {
+      "rev": "c7dfaa9ccca008fbc55ca0b4e5d9ef80e0248902",
+      "src": "https://github.com/nvim-flutter/flutter-tools.nvim"
+    },
     "friendly-snippets": {
       "rev": "572f566",
       "src": "https://github.com/rafamadriz/friendly-snippets"
