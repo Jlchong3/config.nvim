@@ -32,6 +32,7 @@ local parsers = {
     'vimdoc',
     'vim',
     'bash',
+    'typst',
     'sql',
     'markdown',
     'markdown_inline',
@@ -40,8 +41,11 @@ local parsers = {
     'swift'
 }
 
-require('nvim-treesitter').install(vim.tbl_keys(parsers));
-require('treesitter-context').setup { enable = true, }
+require('nvim-treesitter').install(parsers);
+require('treesitter-context').setup {
+    enable = true,
+    max_lines = 3,
+}
 require('nvim-ts-autotag').setup {}
 
 vim.api.nvim_create_augroup('TSGroup', {})
@@ -49,5 +53,13 @@ vim.api.nvim_create_autocmd('BufEnter', {
     group = 'TSGroup',
     callback = function()
         pcall(vim.treesitter.start)
+    end
+})
+vim.api.nvim_create_autocmd('PackChanged', {
+    group = 'TSGroup',
+    callback = function(event)
+        if event.data.spec.name == 'nvim-treesitter' then
+            vim.cmd('TSUpdate')
+        end
     end
 })
