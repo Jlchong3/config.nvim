@@ -100,11 +100,11 @@ vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w><C-j>]])
 
 -- Make
-vim.keymap.set('n', '<leader>m', '<cmd>make<CR>', { desc = '[M]ake' })
+vim.keymap.set('n', '<leader>m', ':make ', { desc = '[M]ake' })
 
-vim.api.nvim_create_augroup("markup_language", {})
+vim.api.nvim_create_augroup('markup_language', {})
 vim.api.nvim_create_autocmd('BufEnter', {
-    group = "markup_language",
+    group = 'markup_language',
     pattern = { '*.typ', '*.md', '*.html', '*.js', '*.tsx', '*.css', '*.scss' },
     callback = function()
         vim.keymap.set('n', '<leader>ip', function()

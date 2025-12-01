@@ -10,7 +10,7 @@
       "src": "https://github.com/Jlchong3/cabinet.nvim"
     },
     "catppuccin": {
-      "rev": "da33755",
+      "rev": "ce4a8e0d5267e67056f9f4dcf6cb1d0933c8ca00",
       "src": "https://github.com/catppuccin/nvim"
     },
     "flutter-tools.nvim": {
@@ -30,11 +30,11 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "live-preview.nvim": {
-      "rev": "a1bb1b3",
+      "rev": "774964d8c220e563dc4bbae79dd127c7e0a8ed1a",
       "src": "https://github.com/brianhuster/live-preview.nvim"
     },
     "mini.nvim": {
-      "rev": "b409fd1d8b9ea7ec7c0923eb2562b52ed5d1ab0a",
+      "rev": "dca98843fab66d080779cd973e7139e258ff164c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-dap": {
@@ -50,19 +50,19 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "4b0adae",
+      "rev": "25ffcf3a6d8d44b6275dac9d5ff9b1f9485907d9",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-jdtls": {
-      "rev": "38d265e",
+      "rev": "943e2398aba6b7e976603708450c6c93c600e830",
       "src": "https://github.com/mfussenegger/nvim-jdtls"
     },
     "nvim-lspconfig": {
-      "rev": "b7c48a7111534b66bee077da8035ac7208a294ff",
+      "rev": "effe4bf2e1afb881ea67291c648b68dd3dfc927a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "bb83a676128d95c865e40ba71376d883bdadec14",
+      "rev": "00c906abb9550e72bc0c640545b5499b9525bb40",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -71,7 +71,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "227165a",
+      "rev": "63c4dce4a56312ef1bdeafd16bdefa008fcc950a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
