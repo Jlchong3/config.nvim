@@ -74,32 +74,7 @@ dap.configurations.c = {
 }
 dap.configurations.cpp = dap.configurations.c
 dap.configurations.rust = dap.configurations.c
-dap.configurations.zig = {
-    {
-        name = "Launch file",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-    },
-    {
-        name = "Launch with args",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-        args = function()
-            local input = vim.fn.input('Program arguments: ')
-            return vim.split(input, " ", { trimempty = true })
-        end,
-    }
-}
+dap.configurations.zig = dap.configurations.c
 
 require('dap-go').setup()
 require('dap-python').setup('uv')
