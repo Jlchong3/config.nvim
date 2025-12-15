@@ -26,6 +26,7 @@ local parsers = {
     'javascript',
     'java',
     'zig',
+    'asm',
     'yuck',
     'typescript',
     'nix',

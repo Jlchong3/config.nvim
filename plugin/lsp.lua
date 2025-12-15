@@ -25,6 +25,7 @@ local local_servers = {
     zls = {},
     bashls = {},
     marksman = {},
+    asm_lsp = {},
     tinymist = {},
     tailwindcss = {},
     sourcekit = {
