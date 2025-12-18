@@ -28,9 +28,6 @@ local local_servers = {
     asm_lsp = {},
     tinymist = {},
     tailwindcss = {},
-    sourcekit = {
-        filetypes = { 'swift', 'objc', 'objcpp' }
-    },
     jdtls = {
         settings = {
             java = {
