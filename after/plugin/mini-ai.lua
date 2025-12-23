@@ -6,13 +6,27 @@ local extraAi = MiniExtra.gen_ai_spec
 MiniAi.setup {
     custom_textobjects = {
         o = MiniAi.gen_spec.treesitter {
-            a = { '@block.outer', '@conditional.outer', '@loop.outer' },
-            i = { '@block.inner','@conditional.inner', '@loop.inner' }
+            a = {
+                '@block.outer',
+                '@conditional.outer',
+                '@loop.outer'
+            },
+            i = {
+                '@block.inner',
+                '@conditional.inner',
+                '@loop.inner'
+            }
         },
 
-        f = MiniAi.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+        f = MiniAi.gen_spec.treesitter {
+            a = '@function.outer',
+            i = '@function.inner'
+        },
 
-        c = MiniAi.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
+        c = MiniAi.gen_spec.treesitter {
+            a = '@class.outer',
+            i = '@class.inner'
+        },
 
         d = extraAi.number(),
 
@@ -22,7 +36,12 @@ MiniAi.setup {
 
         B = { '%b{}', '^.().*().$' },
 
-        e = { { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" }, "^().*()$", },
+        e = { {
+            "%u[%l%d]+%f[^%l%d]",
+            "%f[%S][%l%d]+%f[^%l%d]",
+            "%f[%P][%l%d]+%f[^%l%d]",
+            "^[%l%d]+%f[^%l%d]"
+        }, "^().*()$", },
 
         g = extraAi.buffer();
 
