@@ -43,7 +43,8 @@ local local_servers = {
                     },
                     useBlocks = true,
                 },
-            }
+            },
+            lombok_support = true
         },
     },
     basedpyright = {
