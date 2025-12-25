@@ -5,7 +5,7 @@ local extraAi = MiniExtra.gen_ai_spec
 
 MiniAi.setup {
     custom_textobjects = {
-        o = MiniAi.gen_spec.treesitter {
+        o = ai.treesitter {
             a = {
                 '@block.outer',
                 '@conditional.outer',
@@ -18,12 +18,12 @@ MiniAi.setup {
             }
         },
 
-        f = MiniAi.gen_spec.treesitter {
+        f = ai.treesitter {
             a = '@function.outer',
             i = '@function.inner'
         },
 
-        c = MiniAi.gen_spec.treesitter {
+        c = ai.treesitter {
             a = '@class.outer',
             i = '@class.inner'
         },
@@ -52,5 +52,6 @@ MiniAi.setup {
         U = ai.function_call { name_pattern = '[%w_]' },
     },
 
-    n_lines = 500
+    n_lines = 500,
+    silent = true
 }
