@@ -34,7 +34,7 @@ vim.keymap.set('n', '<leader>hp', function() MiniDiff.toggle_overlay(0) end, { d
 
 require('mini.surround').setup {
     mappings = {
-        add = 'gs',
+        add = 'ys',
         delete = 'ds',
         find = '',
         find_left = '',
@@ -47,3 +47,4 @@ require('mini.surround').setup {
     search_method = 'cover_or_next',
     respect_selection_type = true,
 }
+vim.keymap.set('n', 'yss', '_ys$', { remap = true })
