@@ -1,6 +1,9 @@
 vim.pack.add ({
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
+    {
+        src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
+        version = 'main'
+    },
     'https://github.com/windwp/nvim-ts-autotag',
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
 }, { load = true } )
