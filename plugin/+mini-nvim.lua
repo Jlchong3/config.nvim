@@ -2,6 +2,8 @@ vim.pack.add {
     'https://github.com/nvim-mini/mini.nvim',
 }
 
+vim.cmd.colorscheme 'miniautumn'
+
 require('mini.statusline').setup {}
 
 require('mini.extra').setup {}
