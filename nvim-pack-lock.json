@@ -9,16 +9,12 @@
       "rev": "4a5525c",
       "src": "https://github.com/Jlchong3/cabinet.nvim"
     },
-    "catppuccin": {
-      "rev": "ce8d176faa4643e026e597ae3c31db59b63cef09",
-      "src": "https://github.com/catppuccin/nvim"
-    },
     "flutter-tools.nvim": {
-      "rev": "539e84f5a652d96917f0afc1341c20f0d59dd789",
+      "rev": "677cc07c16e8b89999108d2ebeefcfc5f539b73c",
       "src": "https://github.com/nvim-flutter/flutter-tools.nvim"
     },
     "friendly-snippets": {
-      "rev": "572f566",
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "guess-indent.nvim": {
@@ -29,16 +25,12 @@
       "rev": "5231c62",
       "src": "https://github.com/folke/lazydev.nvim"
     },
-    "live-preview.nvim": {
-      "rev": "3e0eb9ea48a6cf8b091c0031830721eeff0efe19",
-      "src": "https://github.com/brianhuster/live-preview.nvim"
-    },
     "mini.nvim": {
-      "rev": "7e55c3d2c04da134085a31156196836f80a89982",
+      "rev": "9b935c218ddba02e5dc75c94f90143bce1f7c646",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-dap": {
-      "rev": "818cd8787a77a97703eb1d9090543a374f79a9ac",
+      "rev": "085386b9359ddf8d76ad89b98973b8e332dc5ba3",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-go": {
@@ -50,19 +42,19 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "a0665a9b5bfbc84fab2d7f8dbec4a6ee84205049",
+      "rev": "9492aef2994d86887cee040a5057ce6ad3960d7a",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-jdtls": {
-      "rev": "f73731b543f5971e0da9665eb1d7ceffe1fde71f",
+      "rev": "291dad797b5427ca0c9b7e0dd261279c7c3823e1",
       "src": "https://github.com/mfussenegger/nvim-jdtls"
     },
     "nvim-lspconfig": {
-      "rev": "8973916a3d015d65a8c4614e141f4270a713cf33",
+      "rev": "419b082102fa813739588dd82e19a8b6b2442855",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "6e42d823ce0a5a76180c473c119c7677738a09d1",
+      "rev": "81aca2f9815e26f638f697df1d828ca290847b64",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
@@ -70,12 +62,12 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "f7122acf1bd2c9e4626651ad33bf5944be9d9392",
+      "rev": "52bda74e087034408e2d563cb4499c1601038f9d",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
     "nvim-ts-autotag": {
-      "rev": "c4ca798",
+      "rev": "db15f2e0df2f5db916e511e3fffb682ef2f6354f",
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "plenary.nvim": {
@@ -83,7 +75,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "07d088bf8bdadd159eb807b90eaee86a4778383f",
+      "rev": "c54380dd4d8d1738b9691a7c349ecad7967ac12e",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
@@ -95,7 +87,7 @@
       "src": "https://github.com/pmizio/typescript-tools.nvim"
     },
     "undotree": {
-      "rev": "0f1c981",
+      "rev": "178d19e00a643f825ea11d581b1684745d0c4eda",
       "src": "https://github.com/mbbill/undotree.git"
     }
   }
