@@ -93,7 +93,6 @@ vim.keymap.set('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set('n', '<leader>bd', '<cmd>bd! <CR>', { desc = '[B]uffer [D]elete' })
 
 -- Escape terminal easily
-vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w><C-h>]])
 vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])

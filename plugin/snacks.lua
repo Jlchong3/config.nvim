@@ -35,6 +35,11 @@ vim.keymap.set( 'n', '<leader>lg', function()
 end,
 { desc = '[L]azy[G]it' }
 )
+vim.keymap.set( 'n', '<leader>tt', function()
+    Snacks.terminal.toggle()
+end,
+{ desc = '[T]erminal [T]oggle' }
+)
 
 -- Toggle options
 Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>ts')
