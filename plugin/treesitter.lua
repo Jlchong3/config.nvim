@@ -1,5 +1,13 @@
+local is_nixos = vim.fn.executable("nixos-rebuild") == 1
+
+if not is_nixos then
+    vim.pack.add(
+        { 'https://github.com/nvim-treesitter/nvim-treesitter' },
+        { load = true }
+    )
+end
+
 vim.pack.add ({
-    'https://github.com/nvim-treesitter/nvim-treesitter',
     {
         src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
         version = 'main'
@@ -7,6 +15,7 @@ vim.pack.add ({
     'https://github.com/windwp/nvim-ts-autotag',
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
 }, { load = true } )
+
 
 local parsers = {
     'c',
@@ -40,7 +49,10 @@ local parsers = {
     'odin',
 }
 
-require('nvim-treesitter').install(parsers);
+if not is_nixos then
+    require('nvim-treesitter').install(parsers);
+end
+
 require('treesitter-context').setup {
     enable = true,
     max_lines = 3,
@@ -54,11 +66,14 @@ vim.api.nvim_create_autocmd('BufEnter', {
         pcall(vim.treesitter.start)
     end
 })
-vim.api.nvim_create_autocmd('PackChanged', {
-    group = 'TSGroup',
-    callback = function(event)
-        if event.data.spec.name == 'nvim-treesitter' then
-            vim.cmd('TSUpdate')
+
+if not is_nixos then
+    vim.api.nvim_create_autocmd('PackChanged', {
+        group = 'TSGroup',
+        callback = function(event)
+            if event.data.spec.name == 'nvim-treesitter' then
+                vim.cmd('TSUpdate')
+            end
         end
-    end
-})
+    })
+end

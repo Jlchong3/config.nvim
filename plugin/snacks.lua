@@ -7,7 +7,6 @@ require('snacks').setup {
     git = {},
     gitbrowser = {},
     toggle = {},
-    lazygit = {},
     image = {
         doc = {
             enabled = false,
@@ -30,11 +29,6 @@ end,
 { desc = '[G]it Repository [O]pen' }
 )
 
-vim.keymap.set( 'n', '<leader>lg', function()
-    Snacks.lazygit.open()
-end,
-{ desc = '[L]azy[G]it' }
-)
 vim.keymap.set( 'n', '<leader>tt', function()
     Snacks.terminal.toggle()
 end,

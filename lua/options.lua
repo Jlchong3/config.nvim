@@ -16,9 +16,6 @@ vim.o.mouse = ''
 -- Lines from cursor to end of screen
 vim.o.scrolloff = 6
 
--- Include in filename
-vim.opt.isfname:append('@-@')
-
 --How split works
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -42,7 +39,7 @@ vim.o.wrap = false
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/dev/.vimfiles/undodir'
+vim.o.undodir = os.getenv('HOME') .. '/dev/.vimfiles/undodir'
 vim.o.undofile = true
 
 -- Shift and Tab config
