@@ -24,6 +24,8 @@ local parsers = {
     'java',
     'zig',
     'asm',
+    'c_sharp',
+    'dockerfile',
     'yuck',
     'typescript',
     'nix',
