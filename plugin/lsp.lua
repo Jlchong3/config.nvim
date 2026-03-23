@@ -7,7 +7,8 @@ vim.pack.add ({
 vim.pack.add {
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/pmizio/typescript-tools.nvim',
-    'https://github.com/nvim-flutter/flutter-tools.nvim'
+    'https://github.com/nvim-flutter/flutter-tools.nvim',
+    'https://github.com/GustavEikaas/easy-dotnet.nvim.git'
 }
 
 -- UI configuration
@@ -101,6 +102,8 @@ local local_servers = {
 
 require('typescript-tools').setup {}
 require("flutter-tools").setup {}
+require("easy-dotnet").setup {}
+
 
 require('lazydev').setup {
     library = {
