@@ -1,20 +1,17 @@
 local is_nixos = vim.fn.executable("nixos-rebuild") == 1
 
 if not is_nixos then
-    vim.pack.add(
-        { 'https://github.com/nvim-treesitter/nvim-treesitter' },
-        { load = true }
-    )
+    vim.pack.add { 'https://github.com/nvim-treesitter/nvim-treesitter' }
 end
 
-vim.pack.add ({
+vim.pack.add {
     {
         src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
         version = 'main'
     },
     'https://github.com/windwp/nvim-ts-autotag',
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
-}, { load = true } )
+}
 
 
 local parsers = {

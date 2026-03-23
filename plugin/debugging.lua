@@ -3,9 +3,9 @@ vim.pack.add {
     'https://github.com/leoluz/nvim-dap-go',
     'https://github.com/mfussenegger/nvim-dap-python',
 }
-vim.pack.add ({
+vim.pack.add {
   'https://github.com/igorlfs/nvim-dap-view',
-}, { load = true })
+}
 
 vim.keymap.set('n', '<F5>', function ()
 

@@ -1,4 +1,4 @@
-vim.pack.add ({
+vim.pack.add {
     -- For undo navigation
     'https://github.com/mbbill/undotree.git',
 
@@ -7,7 +7,7 @@ vim.pack.add ({
 
     -- Better markdown view
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-}, { load = true })
+}
 
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'UndoTree' })
 
