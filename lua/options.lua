@@ -1,3 +1,5 @@
+require('nvim.spellfile').get('en')
+require('nvim.spellfile').get('es')
 require('vim._core.ui2').enable {
     enable = true,
     msg = {
