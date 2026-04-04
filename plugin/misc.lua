@@ -7,6 +7,8 @@ vim.pack.add {
 }
 
 vim.cmd.packadd('nvim.undotree')
+vim.cmd.packadd('nvim.difftool')
+
 vim.keymap.set('n', '<leader>u', vim.cmd.Undotree, { desc = 'UndoTree' })
 
 require('guess-indent').setup {}
