@@ -6,6 +6,24 @@ vim.pack.add {
     'https://github.com/rafamadriz/friendly-snippets'
 }
 
+local function get_mini_icon(ctx)
+  if ctx.source_name == "Path" then
+    local is_unknown_type = vim.tbl_contains(
+        { "link", "socket", "fifo", "char", "block", "unknown" },
+        ctx.item.data.type
+    )
+    local mini_icon, mini_hl, _ = require("mini.icons").get(
+        is_unknown_type and "os" or ctx.item.data.type,
+        is_unknown_type and "" or ctx.label
+    )
+    if mini_icon then
+        return mini_icon, mini_hl
+    end
+  end
+  local mini_icon, mini_hl, _ = require("mini.icons").get("lsp", ctx.kind)
+  return mini_icon, mini_hl
+end
+
 require('blink.cmp').setup {
     keymap = { preset = 'default' },
 
@@ -17,10 +35,20 @@ require('blink.cmp').setup {
                 components = {
                     kind_icon = {
                         text = function(ctx)
-                            local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                            local kind_icon, _, _ = get_mini_icon(ctx)
                             return kind_icon
                         end,
+                        highlight = function(ctx)
+                            local _, hl, _ = get_mini_icon(ctx)
+                            return hl
+                        end,
                     },
+                    kind = {
+                        highlight = function(ctx)
+                            local _, hl, _ = get_mini_icon(ctx)
+                            return hl
+                        end,
+                    }
                 }
             }
         },
