@@ -27,7 +27,8 @@ vim.o.list = false
 vim.opt.listchars = {
     eol = '↴',
     tab = '» ',
-    trail = '·'
+    trail = '·',
+    extends = '>'
 }
 
 -- Enable break indent
@@ -63,6 +64,7 @@ vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+vim.o.winborder = 'rounded'
 
 -- Better diff
 vim.o.diffopt='internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
