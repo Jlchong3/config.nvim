@@ -45,8 +45,6 @@ MiniAi.setup {
 
         g = extraAi.buffer();
 
-        i = ai.argument(),
-
         u = ai.function_call(),
 
         U = ai.function_call { name_pattern = '[%w_]' },
