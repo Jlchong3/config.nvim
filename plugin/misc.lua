@@ -1,7 +1,4 @@
 vim.pack.add {
-    -- For undo navigation
-    'https://github.com/mbbill/undotree.git',
-
     -- Detect tabstop and shiftwidth automatically
     'https://github.com/NMAC427/guess-indent.nvim',
 
@@ -9,6 +6,7 @@ vim.pack.add {
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 }
 
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'UndoTree' })
+vim.cmd.packadd('nvim.undotree')
+vim.keymap.set('n', '<leader>u', vim.cmd.Undotree, { desc = 'UndoTree' })
 
 require('guess-indent').setup {}
