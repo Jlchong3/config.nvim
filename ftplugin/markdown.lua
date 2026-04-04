@@ -1,5 +1,6 @@
-vim.opt_local.wrap = true
-vim.opt_local.linebreak = true
+vim.bo.wrap = true
+vim.bo.list = true
+vim.bo.linebreak = true
 
 vim.keymap.set('n', '<leader>ch', function ()
     local current_line = vim.api.nvim_get_current_line();
