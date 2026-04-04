@@ -11,9 +11,7 @@ vim.pack.add {
 }
 
 -- UI configuration
-require('lspconfig.ui.windows').default_options = { border = 'rounded' }
 vim.diagnostic.config {
-    float = { border = 'rounded' },
     signs = { text = { ERROR = ' ', WARN = ' ', INFO = ' ', HINT = '󰌵'} },
     virtual_text = true,
 }
@@ -110,8 +108,8 @@ require('lazydev').setup {
     library = {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
         { path = 'snacks.nvim', words = { 'Snacks' } },
-        '~/.local/share/LuaAddons/love2d/library',
-        '~/.local/share/LuaAddons/luasocket/library',
+        -- '~/.local/share/LuaAddons/love2d/library',
+        -- '~/.local/share/LuaAddons/luasocket/library',
     }
 }
 
@@ -142,8 +140,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.fn.setqflist(previous, ' ')
         end
 
+        vim.lsp.document_color.enable(true, nil, { style = 'virtual' })
+
         nmap('gd', function() vim.lsp.buf.definition { on_list = on_list } end, '[G]oto [D]efinition')
-        nmap('grn', vim.lsp.buf.rename, '[R]e[n]ame')
         nmap('grr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
         nmap('gri', function() extra.lsp { scope = 'implementation' } end, '[G]oto [I]mplementation')
         nmap('grt', function() extra.lsp { scope = 'type_definition' } end, '[T]ype Definition')
@@ -151,8 +150,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         nmap('<leader>ws', function() extra.lsp { scope = 'workspace_symbol' } end, '[W]orkspace [S]ymbols')
 
         -- See `:help K` for why this keymap
-        nmap('K', function() vim.lsp.buf.hover { border = 'rounded' } end, 'Hover Info')
-        nmap('H', function() vim.lsp.buf.signature_help { border = 'rounded' } end, 'Signature Documentation')
+        nmap('K', vim.lsp.buf.hover, 'Hover Info')
+        nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
+        nmap('grc', vim.lsp.document_color.color_presentation, 'Change color format')
 
         -- Lesser used LSP functionality
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')

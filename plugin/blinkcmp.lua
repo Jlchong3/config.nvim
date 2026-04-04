@@ -7,12 +7,11 @@ vim.pack.add {
 }
 
 require('blink.cmp').setup {
-    keymap = {
-        preset = 'default',
-    },
+    keymap = { preset = 'default' },
 
     completion = {
         menu = {
+            border = 'none',
             draw = {
                 columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', gap = 1, 'kind' } },
                 components = {
@@ -27,29 +26,13 @@ require('blink.cmp').setup {
         },
 
         accept = { auto_brackets = { enabled = false } },
-        documentation = {
-            auto_show = true,
-            window = {
-                border = 'rounded',
-            }
-        }
+        documentation = { auto_show = true, }
     },
 
-    signature = {
-        enabled = true,
-        window = {
-            border = 'rounded',
-        }
-    },
+    signature = { enabled = true, },
 
     sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        per_filetype = {
-            lua = { inherit_defaults = true, 'lazydev' }
-        },
-        providers = {
-            lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
-        },
     },
 }
 
