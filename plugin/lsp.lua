@@ -157,6 +157,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Lesser used LSP functionality
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(e.buf, 'Format', function(_)
             vim.lsp.buf.format()
