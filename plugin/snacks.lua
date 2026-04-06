@@ -42,3 +42,15 @@ Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map('<leade
 Snacks.toggle.diagnostics():map('<leader>td')
 Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>tw')
 Snacks.toggle.inlay_hints():map('<leader>in')
+
+-- Image preview
+vim.api.nvim_create_augroup('markup_language', {})
+vim.api.nvim_create_autocmd('BufEnter', {
+    group = 'markup_language',
+    pattern = { '*.typ', '*.md', '*.html', '*.js', '*.tsx', '*.css', '*.scss' },
+    callback = function()
+        vim.keymap.set('n', '<leader>ip', function()
+            require('snacks').image.hover()
+        end, { buffer = true, desc = '[I]mage [P]review' })
+    end
+})
