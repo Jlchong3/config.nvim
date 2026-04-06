@@ -28,6 +28,10 @@ snippets.setup({
     snippets = {
         snippets.gen_loader.from_lang({ lang_patterns = lang_patterns }),
     },
+    mappings = {
+        jump_next = '<TAB>',
+        jump_prev = '<S-TAB>',
+    }
 })
 snippets.start_lsp_server()
 
