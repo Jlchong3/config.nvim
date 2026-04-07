@@ -113,17 +113,21 @@ for server, config in pairs(local_servers) do
     vim.lsp.config(server, config)
     vim.lsp.enable(server)
 end
+-- Add MiniCompletion capabilities
+vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
 
 -- Lsp keymaps on_attach
-vim.api.nvim_create_augroup('LSPGroup', {})
+local LSPGroup = vim.api.nvim_create_augroup('LSPGroup', { clear = true })
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = 'LSPGroup',
+    group = LSPGroup,
     callback = function(e)
         local nmap = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = e.buf, desc = desc })
         end
 
-        local extra = require('mini.extra').pickers
+        local ok, extra_mod = pcall(require, 'mini.extra')
+        if not ok then return end
+        local extra = extra_mod.pickers
 
         local on_list = function(opts)
             local previous = vim.fn.getqflist()
@@ -136,7 +140,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.fn.setqflist(previous, ' ')
         end
 
-        vim.lsp.document_color.enable(true, nil, { style = 'virtual' })
+        vim.lsp.document_color.enable(true, { bufnr = e.buf }, { style = 'virtual' })
 
         nmap('gd', function() vim.lsp.buf.definition { on_list = on_list } end, '[G]oto [D]efinition')
         nmap('grr', function() extra.lsp { scope = 'references' } end, '[G]oto [R]eferences')
@@ -154,7 +158,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         vim.bo[e.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
-        vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
 
         local map_lsp_selection = function(lhs, desc)
             local s = vim.startswith(desc, 'Increase') and 1 or -1

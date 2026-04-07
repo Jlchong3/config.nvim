@@ -56,17 +56,19 @@ require('treesitter-context').setup {
 }
 require('nvim-ts-autotag').setup {}
 
-vim.api.nvim_create_augroup('TSGroup', {})
+local TSGroup = vim.api.nvim_create_augroup('TSGroup', { clear = true })
 vim.api.nvim_create_autocmd('BufEnter', {
-    group = 'TSGroup',
-    callback = function()
-        pcall(vim.treesitter.start)
+    group = TSGroup,
+    callback = function(args)
+        if not vim.treesitter.highlighter.active[args.buf] then
+            pcall(vim.treesitter.start, args.buf)
+        end
     end
 })
 
 if not is_nixos then
     vim.api.nvim_create_autocmd('PackChanged', {
-        group = 'TSGroup',
+        group = TSGroup,
         callback = function(event)
             if event.data.spec.name == 'nvim-treesitter' then
                 vim.cmd('TSUpdate')

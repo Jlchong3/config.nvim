@@ -1,4 +1,4 @@
-local JlchongGroup = vim.api.nvim_create_augroup('Jlchong', {})
+local JlchongGroup = vim.api.nvim_create_augroup('Jlchong', { clear = true })
 
 -- HighlightYank
 vim.api.nvim_create_autocmd('TextYankPost', {
