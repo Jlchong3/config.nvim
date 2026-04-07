@@ -153,6 +153,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Lesser used LSP functionality
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        vim.bo[e.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
         vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
 
         local map_lsp_selection = function(lhs, desc)

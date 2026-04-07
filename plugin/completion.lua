@@ -12,6 +12,7 @@ end
 require('mini.completion').setup({
     lsp_completion = {
         source_func = 'omnifunc',
+        auto_setup = false,
         process_items = process_items,
     },
 })
