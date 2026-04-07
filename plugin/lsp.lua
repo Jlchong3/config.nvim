@@ -4,8 +4,6 @@ vim.pack.add {
 
     'https://github.com/folke/lazydev.nvim',
     'https://github.com/mfussenegger/nvim-jdtls',
-    'https://github.com/nvim-lua/plenary.nvim',
-    'https://github.com/pmizio/typescript-tools.nvim',
     'https://github.com/nvim-flutter/flutter-tools.nvim',
     'https://github.com/GustavEikaas/easy-dotnet.nvim.git'
 }
@@ -93,9 +91,9 @@ local local_servers = {
             },
         }
     },
+    tsgo = {}
 }
 
-require('typescript-tools').setup {}
 require("flutter-tools").setup {}
 
 if vim.fn.executable("dotnet") == 1 then
@@ -156,6 +154,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+
+        local map_lsp_selection = function(lhs, desc)
+            local s = vim.startswith(desc, 'Increase') and 1 or -1
+            local rhs = function() vim.lsp.buf.selection_range(s * vim.v.count1) end
+            vim.keymap.set('x', lhs, rhs, { desc = desc })
+        end
+
+        map_lsp_selection('la', 'Increase selection')
+        map_lsp_selection('li', 'Decrease selection')
 
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(e.buf, 'Format', function(_)
