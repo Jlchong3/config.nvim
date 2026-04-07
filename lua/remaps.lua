@@ -29,7 +29,6 @@ vim.keymap.set('n', '<leader>D', function()
         vim.diagnostic.config({ virtual_text = { current_line = false } })
         vim.api.nvim_create_autocmd('CursorMoved', {
             once = true,
-            pattern = '*',
             callback = function ()
                 vim.diagnostic.config({ virtual_lines = false })
                 vim.diagnostic.config({ virtual_text = true })
