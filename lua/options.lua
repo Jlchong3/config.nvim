@@ -76,7 +76,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noinsert'
+vim.o.completeopt = 'menuone,noinsert,fuzzy'
 vim.o.winborder = 'rounded'
 
 -- Better diff
