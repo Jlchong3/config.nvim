@@ -65,9 +65,7 @@ local local_servers = {
     },
     cssls = {},
     jsonls = {},
-    eslint = {
-        cmd = { 'eslint-language-server', '--stdio' }
-    },
+    eslint = {},
     html = {},
     gopls = {
         settings = {
