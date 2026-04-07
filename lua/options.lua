@@ -13,9 +13,6 @@ require('vim._core.ui2').enable {
 
 vim.g.mapleader = ' '
 
--- Set highlight on search
-vim.o.hlsearch = true
-
 -- Don't show mode since it is in statusline
 vim.o.showmode = false
 
