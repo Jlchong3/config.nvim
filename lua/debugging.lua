@@ -37,41 +37,38 @@ vim.keymap.set('n', '<leader>lp', function()
     dap.set_breakpoint(nil, nil, vim.fn.input('Log point message:'))
 end, {desc = 'Debug: Log Point'})
 
-dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command = 'OpenDebugAD7'
-}
 dap.adapters.codelldb = {
   type = "executable",
   command = "codelldb",
 }
+
 dap.configurations.c = {
     {
         name = "Launch",
-        type = "cppdbg",
+        type = "codelldb",
         request = "launch",
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = "${workspaceFolder}",
-        stopAtEntry = false,
+        stopOnEntry = false,
     },
     {
         name = "Launch with args",
-        type = "cppdbg",
+        type = "codelldb",
         request = "launch",
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = "${workspaceFolder}",
-        stopAtEntry = false,
+        stopOnEntry = false,
         args = function()
             local input = vim.fn.input('Program arguments: ')
             return vim.split(input, " ", { trimempty = true })
         end,
     },
 }
+
 dap.configurations.cpp = dap.configurations.c
 dap.configurations.rust = dap.configurations.c
 dap.configurations.zig = dap.configurations.c
