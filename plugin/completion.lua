@@ -32,6 +32,7 @@ snippets.setup({
     mappings = {
         jump_next = '<TAB>',
         jump_prev = '<S-TAB>',
+        stop = '<ESC>',
     }
 })
 snippets.start_lsp_server()
