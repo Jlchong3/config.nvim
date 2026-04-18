@@ -12,6 +12,10 @@ dapview.setup {
             'console',
         },
     },
+    windows = {
+        size = 0.50,
+        position = "right",
+    },
     auto_toggle = true
 }
 
