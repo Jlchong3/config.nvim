@@ -29,12 +29,6 @@ end,
 { desc = '[G]it Repository [O]pen' }
 )
 
-vim.keymap.set( 'n', '<leader>tt', function()
-    Snacks.terminal.toggle()
-end,
-{ desc = '[T]erminal [T]oggle' }
-)
-
 -- Toggle options
 Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>ts')
 Snacks.toggle.option('list', { name = 'List Chars' }):map('<leader>tc')

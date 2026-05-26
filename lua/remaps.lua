@@ -96,6 +96,7 @@ vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w><C-h>]])
 vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w><C-l>]])
 vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w><C-k>]])
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w><C-j>]])
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 -- Make
 vim.keymap.set('n', '<leader>m', ':make ', { desc = '[M]ake' })
