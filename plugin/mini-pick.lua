@@ -1,4 +1,9 @@
-require('mini.pick').setup()
+require('mini.pick').setup {
+    mappings = {
+        choose_marked = '<S-CR>',
+        refine_marked = '<S-Space>',
+    }
+}
 
 local preview_files_and_images = function(buf_id, item)
     if Snacks.image.supports_file(item) then
