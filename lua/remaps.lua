@@ -100,3 +100,31 @@ vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 -- Make
 vim.keymap.set('n', '<leader>m', ':make ', { desc = '[M]ake' })
+
+-- Runner for class
+local ClassGroup = vim.api.nvim_create_augroup('Class', { clear = true })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+    group = ClassGroup,
+    pattern = { "clase.py" },
+    callback = function(e)
+        vim.keymap.set(
+            'n',
+            '<C-p>',
+            function ()
+                local win_height = vim.api.nvim_win_get_height(0)
+                local runner_height = win_height / 3
+                local buf = vim.api.nvim_create_buf(false, true)
+                vim.api.nvim_open_win(buf, true, {
+                    split = "below",
+                    win = 0,
+                    height = runner_height
+                })
+                local task = "python " .. e.file
+                vim.fn.jobstart(task, { term = true })
+                vim.api.nvim_feedkeys('i', 'n', false)
+            end,
+            { buffer = e.buf }
+        )
+    end
+})
