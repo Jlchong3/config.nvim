@@ -1,12 +1,19 @@
-vim.cmd.colorscheme 'retrobox'
+vim.pack.add({
+    {
+        src = "https://github.com/rose-pine/neovim",
+        name = "rose-pine",
+    }
+})
+require("rose-pine").setup {
+    dark_variant = "moon",
+    styles = {
+        italic = false,
+    },
+}
+vim.cmd.colorscheme 'rose-pine'
 
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7c6f64" })
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#7c6f64" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#CcBfB4", bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal',  { fg = '#504945', bg = '#83a598', bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert',  { fg = '#1e1e1e', bg = '#b8bb26', bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual',  { fg = '#1e1e1e', bg = '#d3869b', bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = '#1e1e1e', bg = '#ffa500', bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = '#1e1e1e', bg = '#ff0000', bold = true })
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeOther',   { fg = '#1e1e1e', bg = '#fe8019', bold = true })
-
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#8e8aa6' })
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#8e8aa6' })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#bebad6', bold = true })
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#707295' })
+vim.api.nvim_set_hl(0, 'MatchParen', { bg = '#707295', underline = true })
