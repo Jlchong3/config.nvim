@@ -50,7 +50,7 @@ vim.o.wrap = false
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv('HOME') .. '/dev/.vimfiles/undodir'
+vim.o.undodir = os.getenv('HOME') .. '/.vimfiles/undodir'
 vim.o.undofile = true
 
 -- Shift and Tab config
