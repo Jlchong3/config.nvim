@@ -56,7 +56,7 @@ require('treesitter-context').setup {
 }
 require('nvim-ts-autotag').setup {}
 
-local TSGroup = vim.api.nvim_create_augroup('TSGroup', { clear = true })
+local TSGroup = require('augroups').TSGroup
 vim.api.nvim_create_autocmd('BufEnter', {
     group = TSGroup,
     callback = function(args)

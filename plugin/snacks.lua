@@ -38,13 +38,14 @@ Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>tw')
 Snacks.toggle.inlay_hints():map('<leader>in')
 
 -- Image preview
-local MarkupGroup = vim.api.nvim_create_augroup('markup_language', { clear = true })
+local MarkupGroup = require('augroups').MarkupGroup
 vim.api.nvim_create_autocmd('BufEnter', {
     group = MarkupGroup,
-    pattern = { '*.typ', '*.md', '*.html', '*.js', '*.tsx', '*.css', '*.scss' },
+    pattern = { '*.org', '*.typ', '*.md', '*.html', '*.js', '*.tsx', '*.css', '*.scss' },
     callback = function()
         vim.keymap.set('n', '<leader>ip', function()
             require('snacks').image.hover()
         end, { buffer = true, desc = '[I]mage [P]review' })
     end
 })
+

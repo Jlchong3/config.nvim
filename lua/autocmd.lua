@@ -1,16 +1,16 @@
-local JlchongGroup = vim.api.nvim_create_augroup('Jlchong', { clear = true })
+local BaseGroup = require('augroups').BaseGroup
 
 -- HighlightYank
 vim.api.nvim_create_autocmd('TextYankPost', {
-    group = JlchongGroup,
+    group = BaseGroup,
     callback = function()
-        vim.hl.on_yank()
+        vim.hl.hl_op()
     end
 })
 
 -- Remove trailing whitespace on save
 vim.api.nvim_create_autocmd('BufWritePre', {
-    group = JlchongGroup,
+    group = BaseGroup,
     callback = function()
         local pos = vim.api.nvim_win_get_cursor(0)
         vim.cmd([[%s/\s\+$//e]])
@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 -- No comment when 'o' pressed
 vim.api.nvim_create_autocmd('BufEnter', {
-    group = JlchongGroup,
+    group = BaseGroup,
     callback = function()
         vim.opt.formatoptions:remove('o')
     end

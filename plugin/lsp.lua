@@ -117,7 +117,7 @@ end
 vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
 
 -- Lsp keymaps on_attach
-local LSPGroup = vim.api.nvim_create_augroup('LSPGroup', { clear = true })
+local LSPGroup = require('augroups').LSPGroup
 vim.api.nvim_create_autocmd('LspAttach', {
     group = LSPGroup,
     callback = function(e)
