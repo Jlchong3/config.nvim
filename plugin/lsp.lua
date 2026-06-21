@@ -3,6 +3,7 @@ vim.pack.add {
     'https://github.com/neovim/nvim-lspconfig',
 
     'https://github.com/folke/lazydev.nvim',
+    'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/mfussenegger/nvim-jdtls',
     'https://github.com/nvim-flutter/flutter-tools.nvim',
     'https://github.com/GustavEikaas/easy-dotnet.nvim.git'
@@ -16,8 +17,11 @@ vim.diagnostic.config {
 
 -- LSPs setup
 local local_servers = {
-    clangd = {},
+    clangd = {
+        cmd = { 'clangd', '--query-driver=**/*-gcc,**/*-g++' }
+    },
     ols = {},
+    nixd = {},
     zls = {},
     bashls = {},
     marksman = {},
