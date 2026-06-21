@@ -4,9 +4,13 @@ vim.pack.add {
 
 require('mini.statusline').setup {}
 
+
 require('mini.extra').setup {}
 
 require('mini.splitjoin').setup { mappings = { toggle = 'gl' } }
+
+require('mini.misc').setup {}
+vim.keymap.set('n', 'Z', function() MiniMisc.zoom() end)
 
 require('mini.operators').setup {
     replace = { prefix = 's' },
