@@ -1,9 +1,25 @@
+local win_config = function()
+    local ret = {
+        border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        width = vim.o.columns,
+        relative = "minibuffer",
+        use_minibuffer = true,
+    }
+    return ret
+end
+
 require('mini.pick').setup {
     mappings = {
         choose_marked = '<S-CR>',
         refine_marked = '<S-Space>',
-    }
+    },
+    window = { config = win_config },
 }
+
+pcall(vim.api.nvim_set_hl, 0, "MiniPickBorder", { link = "Normal" })
+pcall(vim.api.nvim_set_hl, 0, "MiniPickBorderBusy", { link = "Normal" })
+pcall(vim.api.nvim_set_hl, 0, "MiniPickNormal", { link = "Normal" })
+pcall(vim.api.nvim_set_hl, 0, "MiniPickHeader", { link = "Normal" })
 
 local preview_files_and_images = function(buf_id, item)
     if Snacks.image.supports_file(item) then
@@ -63,7 +79,7 @@ vim.keymap.set('n', '<leader>sh', builtin.help, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sg', builtin.grep_live, { desc = '[S]earch [G]rep' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 
-vim.keymap.set({ 'n', 'x' }, 'z=', extra.spellsuggest, { desc = '[S]earch [R]esume' })
+-- vim.keymap.set({ 'n', 'x' }, 'z=', extra.spellsuggest, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sd', extra.diagnostic, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>gst', extra.git_files, { desc = '[G]it [S]earch [T]racked Files' })
 vim.keymap.set('n', '<leader>gsm', function() extra.git_files{ scope = 'modified'} end, { desc = '[G]it [S]earch [M]odified Files' })
