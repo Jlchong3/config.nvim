@@ -4,6 +4,9 @@ vim.pack.add {
 
     -- Better markdown view
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+
+    -- comp-prog
+    'https://github.com/dchinmay2/cphelper.nvim.git'
 }
 
 vim.cmd.packadd('nvim.undotree')
