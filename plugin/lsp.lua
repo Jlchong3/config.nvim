@@ -18,7 +18,7 @@ vim.diagnostic.config {
 -- LSPs setup
 local local_servers = {
     clangd = {
-        cmd = { 'clangd', '--query-driver=**/*-gcc,**/*-g++' }
+        -- cmd = { 'clangd', '--query-driver=**/*-gcc,**/*-g++' }
     },
     ols = {},
     nixd = {},
