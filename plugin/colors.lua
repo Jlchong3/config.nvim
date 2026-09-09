@@ -9,11 +9,20 @@ require("rose-pine").setup {
     styles = {
         italic = false,
     },
+    highlight_groups = {
+        Visual = { bg = '#707295', inherit = false },
+        MatchParen = { bg = '#707295', underline = true, inherit = false },
+    }
 }
+
 vim.cmd.colorscheme 'rose-pine'
 
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#8e8aa6' })
 vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#8e8aa6' })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = '#bebad6', bold = true })
-vim.api.nvim_set_hl(0, 'Visual', { bg = '#707295' })
-vim.api.nvim_set_hl(0, 'MatchParen', { bg = '#707295', underline = true })
+
+if vim.g.colors_name == 'default' then
+    local special = vim.api.nvim_get_hl(0, { name = 'Special' })
+    special.bold = true
+    vim.api.nvim_set_hl(0, '@lsp.type.type.zig', special)
+end
