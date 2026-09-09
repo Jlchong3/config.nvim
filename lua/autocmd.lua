@@ -25,3 +25,12 @@ vim.api.nvim_create_autocmd('BufEnter', {
         vim.opt.formatoptions:remove('o')
     end
 })
+
+-- No comment when 'o' pressed
+vim.api.nvim_create_autocmd('FileType', {
+    group = BaseGroup,
+    pattern = "Results",
+    callback = function()
+        vim.wo.foldenable = false
+    end
+})
