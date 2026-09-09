@@ -1,5 +1,7 @@
 -- Remove Q command
-vim.keymap.set('n', 'Q', '<Nop>')
+vim.keymap.set('n', '<C-a>', function()
+    vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace('nvim.multicursor'), 0, -1)
+end)
 
 vim.keymap.set({'n', 'x'}, 's', '<Nop>')
 vim.keymap.set({'n', 'x'}, 'S', '<Nop>')
